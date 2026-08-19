@@ -140,8 +140,22 @@
     }
 
     .google-icon {
-      font-size: 22px;
-    }
+  font-size: 22px;
+  font-weight: 900;
+  font-family: Arial, sans-serif;
+
+  background: conic-gradient(
+    from 45deg,
+    #4285F4 0deg 90deg,
+    #34A853 90deg 180deg,
+    #FBBC05 180deg 270deg,
+    #EA4335 270deg 360deg
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
     .thanks {
       margin-top: 24px;
@@ -214,6 +228,10 @@
 
 .review-button:hover {
   background: #292929;
+}
+
+    .business-name {
+  display: none;
 }
 
   </style>
