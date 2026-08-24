@@ -27,11 +27,6 @@
       --muted: #6B6B6B;
 
       --border: #E5E7DF;
-
-      --yellow: #F5B800;
-
-      --shadow:
-        0 25px 70px rgba(0,0,0,0.10);
     }
 
 
@@ -48,17 +43,10 @@
 
 
     body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       background: var(--cream);
-
       color: var(--text);
-
       line-height: 1.5;
-
       overflow-x: hidden;
     }
 
@@ -68,24 +56,142 @@
     }
 
 
-    /* =================================
+    /* ===============================
+       ANIMACIONES
+    ================================ */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    @keyframes floatPhone {
+      0%,
+      100% {
+        transform: translateY(0) rotate(1deg);
+      }
+
+      50% {
+        transform: translateY(-13px) rotate(-1deg);
+      }
+    }
+
+
+    @keyframes floatOne {
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      50% {
+        transform: translate(8px, -15px) rotate(3deg);
+      }
+    }
+
+
+    @keyframes floatTwo {
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-10px, 12px);
+      }
+    }
+
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .85;
+      }
+
+      50% {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+    }
+
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-130%);
+      }
+
+      100% {
+        transform: translateX(130%);
+      }
+    }
+
+
+    @keyframes starPulse {
+      0%,
+      100% {
+        opacity: .7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.08);
+      }
+    }
+
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    .delay-1 {
+      transition-delay: .1s;
+    }
+
+    .delay-2 {
+      transition-delay: .2s;
+    }
+
+    .delay-3 {
+      transition-delay: .3s;
+    }
+
+
+    /* ===============================
        HEADER
-    ================================= */
+    ================================ */
 
     header {
       position: sticky;
-
       top: 0;
-
       z-index: 1000;
 
       background:
-        rgba(247,248,244,0.90);
+        rgba(247,248,244,.90);
 
       backdrop-filter: blur(16px);
 
       border-bottom:
-        1px solid rgba(0,0,0,0.06);
+        1px solid rgba(0,0,0,.06);
     }
 
 
@@ -118,13 +224,12 @@
 
       font-weight: 900;
 
-      letter-spacing: -0.6px;
+      letter-spacing: -.6px;
     }
 
 
     .brand-icon {
       width: 38px;
-
       height: 38px;
 
       border-radius: 12px;
@@ -142,7 +247,10 @@
       font-size: 18px;
 
       box-shadow:
-        0 8px 20px rgba(111,125,60,0.22);
+        0 8px 20px rgba(111,125,60,.22);
+
+      animation:
+        pulse 3s ease-in-out infinite;
     }
 
 
@@ -209,9 +317,9 @@
     }
 
 
-    /* =================================
+    /* ===============================
        HERO
-    ================================= */
+    ================================ */
 
     .hero {
       width:
@@ -225,7 +333,7 @@
       display: grid;
 
       grid-template-columns:
-        1fr 0.9fr;
+        1fr .9fr;
 
       gap: 80px;
 
@@ -235,6 +343,9 @@
 
     .hero-content {
       max-width: 650px;
+
+      animation:
+        fadeUp .9s ease forwards;
     }
 
 
@@ -266,13 +377,15 @@
 
     .eyebrow-dot {
       width: 7px;
-
       height: 7px;
 
       border-radius: 50%;
 
       background:
         var(--green);
+
+      animation:
+        pulse 2s ease-in-out infinite;
     }
 
 
@@ -281,7 +394,7 @@
         clamp(44px, 6vw, 76px);
 
       line-height:
-        0.99;
+        .99;
 
       letter-spacing:
         -4px;
@@ -338,13 +451,17 @@
       border-radius:
         14px;
 
-      display: inline-flex;
+      display:
+        inline-flex;
 
-      align-items: center;
+      align-items:
+        center;
 
-      justify-content: center;
+      justify-content:
+        center;
 
-      text-decoration: none;
+      text-decoration:
+        none;
 
       font-size:
         15px;
@@ -359,6 +476,12 @@
 
 
     .primary-button {
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
       background:
         var(--green);
 
@@ -367,7 +490,37 @@
 
       box-shadow:
         0 14px 30px
-        rgba(111,125,60,0.24);
+        rgba(111,125,60,.24);
+    }
+
+
+    .primary-button::after {
+      content: "";
+
+      position:
+        absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 45%;
+
+      height: 100%;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.25),
+          transparent
+        );
+
+      transform:
+        translateX(-130%);
+
+      animation:
+        shine 4s ease-in-out infinite;
     }
 
 
@@ -377,7 +530,7 @@
 
       box-shadow:
         0 18px 35px
-        rgba(111,125,60,0.30);
+        rgba(111,125,60,.30);
     }
 
 
@@ -399,7 +552,7 @@
 
       box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.08);
+        rgba(0,0,0,.08);
     }
 
 
@@ -415,13 +568,28 @@
     }
 
 
-    /* =================================
+    /* ===============================
        HERO VISUAL
-    ================================= */
+    ================================ */
 
     .hero-visual {
       position:
         relative;
+
+      min-height:
+        510px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      animation:
+        fadeUp 1s ease .15s both;
     }
 
 
@@ -430,16 +598,16 @@
         absolute;
 
       width:
-        280px;
+        330px;
 
       height:
-        280px;
+        330px;
 
       right:
-        -40px;
+        -20px;
 
       top:
-        -40px;
+        40px;
 
       border-radius:
         50%;
@@ -448,10 +616,104 @@
         var(--green-light);
 
       filter:
-        blur(10px);
+        blur(12px);
+
+      animation:
+        pulse 5s ease-in-out infinite;
 
       z-index:
         0;
+    }
+
+
+    .floating {
+      position:
+        absolute;
+
+      z-index:
+        5;
+
+      padding:
+        11px 15px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        13px;
+
+      box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.10);
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+    }
+
+
+    .floating-one {
+      top:
+        75px;
+
+      left:
+        0;
+
+      color:
+        var(--green-dark);
+
+      animation:
+        floatOne 4s ease-in-out infinite;
+    }
+
+
+    .floating-two {
+      right:
+        -5px;
+
+      top:
+        160px;
+
+      color:
+        #4285F4;
+
+      animation:
+        floatTwo 5s ease-in-out infinite;
+    }
+
+
+    .floating-three {
+      left:
+        10px;
+
+      bottom:
+        115px;
+
+      color:
+        var(--green);
+
+      animation:
+        floatTwo 4.5s ease-in-out infinite;
+    }
+
+
+    .floating-four {
+      right:
+        5px;
+
+      bottom:
+        65px;
+
+      color:
+        var(--green-dark);
+
+      animation:
+        floatOne 5.5s ease-in-out infinite;
     }
 
 
@@ -465,9 +727,6 @@
       width:
         min(340px, 100%);
 
-      margin:
-        auto;
-
       padding:
         12px;
 
@@ -479,7 +738,10 @@
 
       box-shadow:
         0 35px 90px
-        rgba(0,0,0,0.22);
+        rgba(0,0,0,.22);
+
+      animation:
+        floatPhone 5s ease-in-out infinite;
     }
 
 
@@ -576,6 +838,9 @@
 
       margin-bottom:
         18px;
+
+      animation:
+        starPulse 2.5s ease-in-out infinite;
     }
 
 
@@ -673,16 +938,13 @@
 
     .visual-label {
       position:
-        relative;
+        absolute;
 
       z-index:
-        3;
+        4;
 
-      width:
-        fit-content;
-
-      margin:
-        -24px auto 0;
+      bottom:
+        22px;
 
       padding:
         10px 16px;
@@ -698,7 +960,7 @@
 
       box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.08);
+        rgba(0,0,0,.08);
 
       color:
         var(--green-dark);
@@ -708,12 +970,15 @@
 
       font-weight:
         900;
+
+      animation:
+        floatOne 5s ease-in-out infinite;
     }
 
 
-    /* =================================
-       TRUST BAR
-    ================================= */
+    /* ===============================
+       TRUST
+    ================================ */
 
     .trust {
       width:
@@ -738,7 +1003,7 @@
         grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
       gap:
         20px;
@@ -775,9 +1040,9 @@
     }
 
 
-    /* =================================
-       GENERAL SECTIONS
-    ================================= */
+    /* ===============================
+       GENERAL
+    ================================ */
 
     section {
       width:
@@ -838,7 +1103,7 @@
 
     .section-heading h2 {
       font-size:
-        clamp(34px, 5vw, 52px);
+        clamp(34px,5vw,52px);
 
       line-height:
         1.05;
@@ -863,16 +1128,16 @@
     }
 
 
-    /* =================================
+    /* ===============================
        PROBLEM
-    ================================= */
+    ================================ */
 
     .problem {
       display:
         grid;
 
       grid-template-columns:
-        0.9fr 1.1fr;
+        .9fr 1.1fr;
 
       gap:
         70px;
@@ -896,7 +1161,17 @@
         white;
 
       box-shadow:
-        var(--shadow);
+        0 25px 70px
+        rgba(111,125,60,.20);
+
+      transition:
+        transform .3s ease;
+    }
+
+
+    .problem-box:hover {
+      transform:
+        translateY(-6px);
     }
 
 
@@ -906,6 +1181,9 @@
 
       margin-bottom:
         15px;
+
+      animation:
+        starPulse 2s ease-in-out infinite;
     }
 
 
@@ -923,7 +1201,7 @@
 
     .problem-box p {
       color:
-        rgba(255,255,255,0.82);
+        rgba(255,255,255,.82);
 
       line-height:
         1.6;
@@ -960,16 +1238,16 @@
     }
 
 
-    /* =================================
+    /* ===============================
        STEPS
-    ================================= */
+    ================================ */
 
     .steps {
       display:
         grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
       gap:
         18px;
@@ -993,18 +1271,18 @@
         23px;
 
       transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform .3s ease,
+        box-shadow .3s ease;
     }
 
 
     .step:hover {
       transform:
-        translateY(-5px);
+        translateY(-7px);
 
       box-shadow:
-        0 18px 40px
-        rgba(0,0,0,0.08);
+        0 20px 45px
+        rgba(0,0,0,.09);
     }
 
 
@@ -1038,6 +1316,15 @@
 
       margin-bottom:
         23px;
+
+      transition:
+        transform .3s ease;
+    }
+
+
+    .step:hover .step-number {
+      transform:
+        rotate(-6deg) scale(1.08);
     }
 
 
@@ -1062,16 +1349,16 @@
     }
 
 
-    /* =================================
+    /* ===============================
        FEATURES
-    ================================= */
+    ================================ */
 
     .features {
       display:
         grid;
 
       grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2,1fr);
 
       gap:
         18px;
@@ -1099,6 +1386,20 @@
 
       align-items:
         flex-start;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+
+    .feature:hover {
+      transform:
+        translateY(-6px);
+
+      box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.08);
     }
 
 
@@ -1135,6 +1436,15 @@
 
       font-weight:
         900;
+
+      transition:
+        transform .3s ease;
+    }
+
+
+    .feature:hover .feature-icon {
+      transform:
+        rotate(6deg) scale(1.08);
     }
 
 
@@ -1159,9 +1469,9 @@
     }
 
 
-    /* =================================
-       DEMO SECTION
-    ================================= */
+    /* ===============================
+       DEMO
+    ================================ */
 
     .demo-section {
       padding:
@@ -1186,7 +1496,7 @@
         grid;
 
       grid-template-columns:
-        1fr 0.75fr;
+        1fr .75fr;
 
       gap:
         60px;
@@ -1289,6 +1599,20 @@
 
       font-size:
         14px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .demo-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 12px 25px
+        rgba(111,125,60,.25);
     }
 
 
@@ -1307,10 +1631,13 @@
 
       box-shadow:
         0 25px 60px
-        rgba(0,0,0,0.12);
+        rgba(0,0,0,.12);
 
       transform:
         rotate(1.5deg);
+
+      animation:
+        floatPhone 5.5s ease-in-out infinite;
     }
 
 
@@ -1371,6 +1698,9 @@
 
       margin-bottom:
         17px;
+
+      animation:
+        starPulse 2.5s ease-in-out infinite;
     }
 
 
@@ -1422,9 +1752,9 @@
     }
 
 
-    /* =================================
+    /* ===============================
        PRICE
-    ================================= */
+    ================================ */
 
     .pricing {
       padding:
@@ -1434,7 +1764,7 @@
 
     .price-card {
       width:
-        min(600px, 100%);
+        min(600px,100%);
 
       margin:
         auto;
@@ -1453,10 +1783,24 @@
 
       box-shadow:
         0 25px 70px
-        rgba(111,125,60,0.13);
+        rgba(111,125,60,.13);
 
       text-align:
         center;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+
+    .price-card:hover {
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        0 30px 80px
+        rgba(111,125,60,.18);
     }
 
 
@@ -1616,13 +1960,27 @@
 
       box-shadow:
         0 12px 25px
-        rgba(111,125,60,0.20);
+        rgba(111,125,60,.20);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
     }
 
 
-    /* =================================
-       FINAL CTA
-    ================================= */
+    .price-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 16px 30px
+        rgba(111,125,60,.28);
+    }
+
+
+    /* ===============================
+       CTA
+    ================================ */
 
     .cta {
       width:
@@ -1677,7 +2035,10 @@
         -150px;
 
       background:
-        rgba(255,255,255,0.08);
+        rgba(255,255,255,.08);
+
+      animation:
+        pulse 5s ease-in-out infinite;
     }
 
 
@@ -1686,7 +2047,7 @@
         relative;
 
       font-size:
-        clamp(34px, 5vw, 51px);
+        clamp(34px,5vw,51px);
 
       line-height:
         1.05;
@@ -1710,7 +2071,7 @@
         0 auto 27px;
 
       color:
-        rgba(255,255,255,0.83);
+        rgba(255,255,255,.83);
 
       font-size:
         16px;
@@ -1759,9 +2120,9 @@
     }
 
 
-    /* =================================
+    /* ===============================
        FOOTER
-    ================================= */
+    ================================ */
 
     footer {
       border-top:
@@ -1808,9 +2169,9 @@
     }
 
 
-    /* =================================
+    /* ===============================
        MOBILE
-    ================================= */
+    ================================ */
 
     @media (max-width: 900px) {
 
@@ -1828,13 +2189,7 @@
           65px 0 75px;
 
         gap:
-          55px;
-      }
-
-
-      .hero-content {
-        max-width:
-          720px;
+          45px;
       }
 
 
@@ -1887,7 +2242,7 @@
 
       h1 {
         font-size:
-          clamp(43px, 13vw, 62px);
+          clamp(43px,13vw,62px);
 
         letter-spacing:
           -2.8px;
@@ -1910,6 +2265,42 @@
       .secondary-button {
         width:
           100%;
+      }
+
+
+      .hero-visual {
+        min-height:
+          480px;
+      }
+
+
+      .floating-one {
+        left:
+          -5px;
+      }
+
+
+      .floating-two {
+        right:
+          -5px;
+      }
+
+
+      .floating-three {
+        left:
+          -5px;
+      }
+
+
+      .floating-four {
+        right:
+          -5px;
+      }
+
+
+      .phone {
+        max-width:
+          310px;
       }
 
 
@@ -1953,12 +2344,6 @@
       }
 
 
-      .phone {
-        max-width:
-          320px;
-      }
-
-
       .demo-copy h2 {
         font-size:
           37px;
@@ -1995,6 +2380,32 @@
 
         text-align:
           center;
+      }
+
+    }
+
+
+    /* ===============================
+       REDUCIR ANIMACIONES SI EL
+       USUARIO LO PREFIERE
+    ================================ */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        scroll-behavior:
+          auto !important;
+
+        transition-duration:
+          .01ms !important;
       }
 
     }
@@ -2129,11 +2540,33 @@
       </div>
 
 
-      <!-- VISUAL -->
+      <!-- ===============================
+           HERO VISUAL
+      ================================ -->
 
       <div class="hero-visual">
 
         <div class="visual-glow"></div>
+
+
+        <div class="floating floating-one">
+          ⭐ + reseñas
+        </div>
+
+
+        <div class="floating floating-two">
+          G Google
+        </div>
+
+
+        <div class="floating floating-three">
+          ✓ Fácil
+        </div>
+
+
+        <div class="floating floating-four">
+          QR personalizado
+        </div>
 
 
         <div class="phone">
@@ -2201,7 +2634,7 @@
          TRUST
     ================================ -->
 
-    <div class="trust">
+    <div class="trust reveal">
 
       <div class="trust-item">
 
@@ -2247,7 +2680,7 @@
       <div class="problem">
 
 
-        <div class="problem-box">
+        <div class="problem-box reveal">
 
           <div class="big-star">
             ★
@@ -2261,13 +2694,12 @@
             Muchas veces el problema no es que no quieran
             dejar una reseña. Es que simplemente nadie
             se lo pone fácil.
-
           </p>
 
         </div>
 
 
-        <div class="problem-text">
+        <div class="problem-text reveal delay-1">
 
           <div class="section-kicker">
             EL PROBLEMA
@@ -2300,7 +2732,7 @@
       id="como-funciona"
     >
 
-      <div class="section-heading center">
+      <div class="section-heading center reveal">
 
         <div class="section-kicker">
           CÓMO FUNCIONA
@@ -2321,7 +2753,7 @@
       <div class="steps">
 
 
-        <div class="step">
+        <div class="step reveal">
 
           <div class="step-number">
             01
@@ -2340,7 +2772,7 @@
         </div>
 
 
-        <div class="step">
+        <div class="step reveal delay-1">
 
           <div class="step-number">
             02
@@ -2358,7 +2790,7 @@
         </div>
 
 
-        <div class="step">
+        <div class="step reveal delay-2">
 
           <div class="step-number">
             03
@@ -2390,7 +2822,7 @@
       id="que-incluye"
     >
 
-      <div class="section-heading">
+      <div class="section-heading reveal">
 
         <div class="section-kicker">
           QUÉ RECIBES
@@ -2412,7 +2844,7 @@
       <div class="features">
 
 
-        <div class="feature">
+        <div class="feature reveal">
 
           <div class="feature-icon">
             🎨
@@ -2434,7 +2866,7 @@
         </div>
 
 
-        <div class="feature">
+        <div class="feature reveal delay-1">
 
           <div class="feature-icon">
             ◈
@@ -2456,7 +2888,7 @@
         </div>
 
 
-        <div class="feature">
+        <div class="feature reveal">
 
           <div class="feature-icon">
             G
@@ -2478,7 +2910,7 @@
         </div>
 
 
-        <div class="feature">
+        <div class="feature reveal delay-1">
 
           <div class="feature-icon">
             ✓
@@ -2514,7 +2946,7 @@
       <div class="demo-box">
 
 
-        <div class="demo-copy">
+        <div class="demo-copy reveal">
 
           <div class="section-kicker">
             MIRA EL RESULTADO
@@ -2598,6 +3030,7 @@
             </span>
 
             &nbsp;
+
             Dejar una reseña en Google
 
           </div>
@@ -2619,7 +3052,7 @@
       id="precio"
     >
 
-      <div class="section-heading center">
+      <div class="section-heading center reveal">
 
         <div class="section-kicker">
           SENCILLO Y TRANSPARENTE
@@ -2637,7 +3070,7 @@
       </div>
 
 
-      <div class="price-card">
+      <div class="price-card reveal">
 
         <div class="price-label">
           OPINA FÁCIL
@@ -2706,7 +3139,7 @@
          CTA FINAL
     ================================ -->
 
-    <section class="cta">
+    <section class="cta reveal">
 
       <h2>
         Dale a tus clientes
@@ -2746,6 +3179,7 @@
 
       <div>
         © 2026
+
         <span class="footer-brand">
           Opina Fácil
         </span>
@@ -2759,6 +3193,64 @@
     </div>
 
   </footer>
+
+
+  <!-- ===============================
+       JAVASCRIPT
+       ANIMACIONES AL HACER SCROLL
+  ================================ -->
+
+  <script>
+
+    const elements =
+      document.querySelectorAll(".reveal");
+
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach(
+
+            (entry) => {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold: 0.15
+        }
+
+      );
+
+
+    elements.forEach(
+
+      (element) => {
+
+        observer.observe(
+          element
+        );
+
+      }
+
+    );
+
+  </script>
 
 
 </body>
