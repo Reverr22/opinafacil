@@ -5,24 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Opina Fácil | Más reseñas, más confianza</title>
-  <link rel="icon" type="image/png" href="favicon.png">
 
   <meta
     name="description"
-    content="Opina Fácil ayuda a los negocios a conseguir más reseñas de Google mediante páginas y QR personalizados."
+    content="Convierte las experiencias positivas de tus clientes en reseñas de Google con Opina Fácil."
   >
 
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <style>
+
     :root {
       --green: #6F7D3C;
       --green-dark: #4E5A28;
-      --green-light: #F2F5E9;
-      --text: #171717;
-      --muted: #686868;
-      --background: #F5F6F2;
-      --white: #ffffff;
-      --border: #E4E6DE;
+      --green-light: #F1F4E8;
+
+      --cream: #F7F8F4;
+      --white: #FFFFFF;
+
+      --text: #151515;
+      --muted: #6B6B6B;
+
+      --border: #E5E7DF;
+
+      --yellow: #F5B800;
+
+      --shadow:
+        0 25px 70px rgba(0,0,0,0.10);
     }
+
 
     * {
       box-sizing: border-box;
@@ -30,643 +41,1974 @@
       padding: 0;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: var(--cream);
+
       color: var(--text);
-      background: var(--background);
+
       line-height: 1.5;
+
+      overflow-x: hidden;
     }
+
 
     a {
       color: inherit;
     }
 
-    /* =========================
+
+    /* =================================
        HEADER
-    ========================= */
+    ================================= */
 
     header {
       position: sticky;
+
       top: 0;
-      z-index: 100;
 
-      background: rgba(245, 246, 242, 0.92);
-      backdrop-filter: blur(12px);
+      z-index: 1000;
 
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background:
+        rgba(247,248,244,0.90);
+
+      backdrop-filter: blur(16px);
+
+      border-bottom:
+        1px solid rgba(0,0,0,0.06);
     }
 
+
     .nav {
-      width: min(1120px, calc(100% - 40px));
+      width:
+        min(1180px, calc(100% - 40px));
+
+      height: 76px;
+
       margin: auto;
 
-      height: 74px;
-
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
     }
 
+
     .brand {
       display: flex;
+
       align-items: center;
+
       gap: 10px;
 
       text-decoration: none;
+
       font-size: 21px;
+
       font-weight: 900;
-      letter-spacing: -0.5px;
+
+      letter-spacing: -0.6px;
     }
 
-    .brand-icon {
-      width: 36px;
-      height: 36px;
 
-      border-radius: 11px;
+    .brand-icon {
+      width: 38px;
+
+      height: 38px;
+
+      border-radius: 12px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       background: var(--green);
+
       color: white;
 
       font-size: 18px;
-      font-weight: 900;
+
+      box-shadow:
+        0 8px 20px rgba(111,125,60,0.22);
     }
 
-    .nav-button {
+
+    .nav-links {
+      display: flex;
+
+      align-items: center;
+
+      gap: 28px;
+    }
+
+
+    .nav-links a {
       text-decoration: none;
 
-      padding: 10px 18px;
-
-      border-radius: 11px;
-
-      background: var(--text);
-      color: white;
+      color: #555;
 
       font-size: 14px;
+
+      font-weight: 700;
+
+      transition:
+        color .2s ease;
+    }
+
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+
+    .nav-button {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 11px 19px;
+
+      border-radius: 12px;
+
+      background: var(--text);
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
       font-weight: 800;
 
-      transition: transform .2s ease;
+      transition:
+        transform .2s ease,
+        background .2s ease;
     }
+
 
     .nav-button:hover {
-      transform: translateY(-2px);
+      background: var(--green-dark);
+
+      transform:
+        translateY(-2px);
     }
 
-    /* =========================
+
+    /* =================================
        HERO
-    ========================= */
+    ================================= */
 
     .hero {
-      width: min(1120px, calc(100% - 40px));
+      width:
+        min(1180px, calc(100% - 40px));
+
       margin: auto;
 
-      padding: 90px 0 75px;
+      padding:
+        95px 0 100px;
 
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 70px;
+
+      grid-template-columns:
+        1fr 0.9fr;
+
+      gap: 80px;
+
       align-items: center;
     }
+
+
+    .hero-content {
+      max-width: 650px;
+    }
+
 
     .eyebrow {
       display: inline-flex;
+
       align-items: center;
+
       gap: 8px;
 
-      padding: 8px 13px;
+      padding:
+        8px 13px;
 
       border-radius: 999px;
 
-      background: var(--green-light);
-      color: var(--green-dark);
+      background:
+        var(--green-light);
 
-      font-size: 13px;
-      font-weight: 800;
+      color:
+        var(--green-dark);
 
-      margin-bottom: 20px;
+      font-size: 12px;
+
+      font-weight: 900;
+
+      margin-bottom: 22px;
     }
+
 
     .eyebrow-dot {
       width: 7px;
+
       height: 7px;
 
       border-radius: 50%;
 
-      background: var(--green);
+      background:
+        var(--green);
     }
+
 
     h1 {
-      font-size: clamp(42px, 6vw, 68px);
-      line-height: 1.02;
-      letter-spacing: -2.5px;
+      font-size:
+        clamp(44px, 6vw, 76px);
 
-      max-width: 700px;
+      line-height:
+        0.99;
 
-      margin-bottom: 24px;
+      letter-spacing:
+        -4px;
+
+      max-width:
+        680px;
+
+      margin-bottom:
+        26px;
     }
+
 
     h1 span {
-      color: var(--green);
+      color:
+        var(--green);
     }
+
 
     .hero-text {
-      max-width: 590px;
+      max-width:
+        600px;
 
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 19px;
-      line-height: 1.65;
+      font-size:
+        19px;
 
-      margin-bottom: 32px;
+      line-height:
+        1.65;
+
+      margin-bottom:
+        32px;
     }
+
 
     .hero-buttons {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 12px;
     }
 
+
     .primary-button,
     .secondary-button {
+      min-height:
+        54px;
+
+      padding:
+        0 23px;
+
+      border-radius:
+        14px;
+
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
-
-      min-height: 52px;
-
-      padding: 0 22px;
-
-      border-radius: 14px;
 
       text-decoration: none;
 
-      font-size: 15px;
-      font-weight: 800;
+      font-size:
+        15px;
 
-      transition: transform .2s ease, box-shadow .2s ease;
+      font-weight:
+        900;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
     }
+
 
     .primary-button {
-      background: var(--green);
-      color: white;
-
-      box-shadow: 0 12px 25px rgba(111,125,60,0.22);
-    }
-
-    .secondary-button {
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .primary-button:hover,
-    .secondary-button:hover {
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       PREVIEW
-    ========================= */
-
-    .preview {
-      position: relative;
-
-      padding: 25px;
-
-      border-radius: 30px;
-
-      background: var(--green-light);
-
-      border: 1px solid var(--border);
-    }
-
-    .preview-card {
-      background: white;
-
-      border-radius: 25px;
-
-      padding: 30px 25px;
-
-      text-align: center;
-
-      box-shadow: 0 25px 60px rgba(0,0,0,0.10);
-    }
-
-    .preview-logo {
-      width: 68px;
-      height: 68px;
-
-      margin: auto auto 15px;
-
-      border-radius: 20px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--green-light);
-      color: var(--green);
-
-      font-size: 25px;
-      font-weight: 900;
-    }
-
-    .preview-name {
-      font-size: 21px;
-      font-weight: 900;
-
-      margin-bottom: 10px;
-    }
-
-    .preview-stars {
-      color: var(--green);
-
-      font-size: 25px;
-      letter-spacing: 3px;
-
-      margin-bottom: 20px;
-    }
-
-    .preview-title {
-      font-size: 24px;
-      font-weight: 900;
-
-      line-height: 1.15;
-
-      margin-bottom: 12px;
-    }
-
-    .preview-text {
-      color: var(--muted);
-
-      font-size: 14px;
-
-      margin-bottom: 20px;
-    }
-
-    .preview-button {
-      display: block;
-
-      width: 100%;
-
-      padding: 15px;
-
-      border-radius: 13px;
-
-      background: var(--text);
-      color: white;
-
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .preview-label {
-      text-align: center;
-
-      margin-top: 15px;
-
-      color: var(--green-dark);
-
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       SECCIONES
-    ========================= */
-
-    section {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    .section {
-      padding: 70px 0;
-    }
-
-    .section-heading {
-      max-width: 650px;
-
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-      font-size: 38px;
-      line-height: 1.1;
-      letter-spacing: -1px;
-
-      margin-bottom: 13px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    /* =========================
-       PASOS
-    ========================= */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      padding: 28px;
-
-      background: white;
-
-      border: 1px solid var(--border);
-
-      border-radius: 22px;
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 22px;
-
-      border-radius: 13px;
-
-      background: var(--green-light);
-      color: var(--green-dark);
-
-      font-weight: 900;
-    }
-
-    .step h3 {
-      font-size: 20px;
-
-      margin-bottom: 9px;
-    }
-
-    .step p {
-      color: var(--muted);
-
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    /* =========================
-       CARACTERISTICAS
-    ========================= */
-
-    .features-section {
-      padding: 70px 0;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .feature {
-      padding: 25px;
-
-      background: white;
-
-      border: 1px solid var(--border);
-
-      border-radius: 20px;
-    }
-
-    .feature-icon {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      margin-bottom: 15px;
-
-      border-radius: 12px;
-
-      background: var(--green-light);
-      color: var(--green);
-
-      font-size: 18px;
-    }
-
-    .feature h3 {
-      font-size: 18px;
-      margin-bottom: 7px;
-    }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta {
-  width: min(1120px, calc(100% - 40px));
-  margin: 70px auto;
-
-  padding: 55px 35px;
-
-  border-radius: 30px;
-
-  background:
-    radial-gradient(circle at top right, #87965a, transparent 35%),
-    var(--green);
-
-  color: white;
-
-  text-align: center;
-}
-
-      padding: 55px 35px;
-
-      border-radius: 30px;
-
       background:
-        radial-gradient(circle at top right, #87965a, transparent 35%),
         var(--green);
 
-      color: white;
+      color:
+        white;
 
-      text-align: center;
+      box-shadow:
+        0 14px 30px
+        rgba(111,125,60,0.24);
     }
+
+
+    .primary-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 18px 35px
+        rgba(111,125,60,0.30);
+    }
+
+
+    .secondary-button {
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      color:
+        var(--text);
+    }
+
+
+    .secondary-button:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.08);
+    }
+
+
+    .hero-note {
+      margin-top:
+        18px;
+
+      color:
+        #8A8A8A;
+
+      font-size:
+        13px;
+    }
+
+
+    /* =================================
+       HERO VISUAL
+    ================================= */
+
+    .hero-visual {
+      position:
+        relative;
+    }
+
+
+    .visual-glow {
+      position:
+        absolute;
+
+      width:
+        280px;
+
+      height:
+        280px;
+
+      right:
+        -40px;
+
+      top:
+        -40px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--green-light);
+
+      filter:
+        blur(10px);
+
+      z-index:
+        0;
+    }
+
+
+    .phone {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      width:
+        min(340px, 100%);
+
+      margin:
+        auto;
+
+      padding:
+        12px;
+
+      border-radius:
+        38px;
+
+      background:
+        #171717;
+
+      box-shadow:
+        0 35px 90px
+        rgba(0,0,0,0.22);
+    }
+
+
+    .phone-screen {
+      background:
+        #E9EAEC;
+
+      border-radius:
+        29px;
+
+      padding:
+        28px 20px 22px;
+
+      text-align:
+        center;
+    }
+
+
+    .phone-top {
+      width:
+        90px;
+
+      height:
+        5px;
+
+      border-radius:
+        999px;
+
+      background:
+        #222;
+
+      margin:
+        0 auto 22px;
+    }
+
+
+    .phone-logo {
+      width:
+        72px;
+
+      height:
+        72px;
+
+      border-radius:
+        21px;
+
+      margin:
+        0 auto 15px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        var(--green-light);
+
+      color:
+        var(--green);
+
+      font-size:
+        15px;
+
+      font-weight:
+        900;
+    }
+
+
+    .phone-name {
+      font-size:
+        22px;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .phone-stars {
+      color:
+        var(--green);
+
+      font-size:
+        22px;
+
+      letter-spacing:
+        2px;
+
+      margin-bottom:
+        18px;
+    }
+
+
+    .phone-title {
+      font-size:
+        23px;
+
+      line-height:
+        1.1;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        11px;
+    }
+
+
+    .phone-text {
+      color:
+        #666;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.5;
+
+      margin-bottom:
+        19px;
+    }
+
+
+    .google-button {
+      width:
+        100%;
+
+      padding:
+        15px;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      font-size:
+        13px;
+
+      font-weight:
+        900;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+    }
+
+
+    .google-g {
+      font-size:
+        20px;
+
+      font-weight:
+        900;
+
+      background:
+        conic-gradient(
+          #4285F4 0deg 90deg,
+          #34A853 90deg 180deg,
+          #FBBC05 180deg 270deg,
+          #EA4335 270deg 360deg
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      -webkit-text-fill-color:
+        transparent;
+    }
+
+
+    .visual-label {
+      position:
+        relative;
+
+      z-index:
+        3;
+
+      width:
+        fit-content;
+
+      margin:
+        -24px auto 0;
+
+      padding:
+        10px 16px;
+
+      border-radius:
+        999px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.08);
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+    }
+
+
+    /* =================================
+       TRUST BAR
+    ================================= */
+
+    .trust {
+      width:
+        min(1180px, calc(100% - 40px));
+
+      margin:
+        0 auto 30px;
+
+      padding:
+        20px 25px;
+
+      border-radius:
+        18px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        20px;
+
+      text-align:
+        center;
+    }
+
+
+    .trust-item {
+      color:
+        #666;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+    }
+
+
+    .trust-item strong {
+      color:
+        var(--text);
+
+      display:
+        block;
+
+      font-size:
+        15px;
+
+      margin-bottom:
+        2px;
+    }
+
+
+    /* =================================
+       GENERAL SECTIONS
+    ================================= */
+
+    section {
+      width:
+        min(1180px, calc(100% - 40px));
+
+      margin:
+        auto;
+    }
+
+
+    .section {
+      padding:
+        95px 0;
+    }
+
+
+    .section-heading {
+      max-width:
+        680px;
+
+      margin-bottom:
+        45px;
+    }
+
+
+    .section-heading.center {
+      margin-left:
+        auto;
+
+      margin-right:
+        auto;
+
+      text-align:
+        center;
+    }
+
+
+    .section-kicker {
+      color:
+        var(--green);
+
+      font-size:
+        13px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1px;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .section-heading h2 {
+      font-size:
+        clamp(34px, 5vw, 52px);
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -2px;
+
+      margin-bottom:
+        15px;
+    }
+
+
+    .section-heading p {
+      color:
+        var(--muted);
+
+      font-size:
+        17px;
+
+      line-height:
+        1.6;
+    }
+
+
+    /* =================================
+       PROBLEM
+    ================================= */
+
+    .problem {
+      display:
+        grid;
+
+      grid-template-columns:
+        0.9fr 1.1fr;
+
+      gap:
+        70px;
+
+      align-items:
+        center;
+    }
+
+
+    .problem-box {
+      padding:
+        35px;
+
+      border-radius:
+        25px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .problem-box .big-star {
+      font-size:
+        42px;
+
+      margin-bottom:
+        15px;
+    }
+
+
+    .problem-box h3 {
+      font-size:
+        27px;
+
+      line-height:
+        1.15;
+
+      margin-bottom:
+        13px;
+    }
+
+
+    .problem-box p {
+      color:
+        rgba(255,255,255,0.82);
+
+      line-height:
+        1.6;
+
+      font-size:
+        15px;
+    }
+
+
+    .problem-text h2 {
+      font-size:
+        42px;
+
+      line-height:
+        1.08;
+
+      letter-spacing:
+        -1.5px;
+
+      margin-bottom:
+        17px;
+    }
+
+
+    .problem-text p {
+      color:
+        var(--muted);
+
+      font-size:
+        17px;
+
+      line-height:
+        1.65;
+    }
+
+
+    /* =================================
+       STEPS
+    ================================= */
+
+    .steps {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        18px;
+    }
+
+
+    .step {
+      position:
+        relative;
+
+      padding:
+        30px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        23px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .step:hover {
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        0 18px 40px
+        rgba(0,0,0,0.08);
+    }
+
+
+    .step-number {
+      width:
+        46px;
+
+      height:
+        46px;
+
+      border-radius:
+        14px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        var(--green-light);
+
+      color:
+        var(--green-dark);
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        23px;
+    }
+
+
+    .step h3 {
+      font-size:
+        21px;
+
+      margin-bottom:
+        9px;
+    }
+
+
+    .step p {
+      color:
+        var(--muted);
+
+      font-size:
+        15px;
+
+      line-height:
+        1.6;
+    }
+
+
+    /* =================================
+       FEATURES
+    ================================= */
+
+    .features {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        18px;
+    }
+
+
+    .feature {
+      padding:
+        28px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      display:
+        flex;
+
+      gap:
+        18px;
+
+      align-items:
+        flex-start;
+    }
+
+
+    .feature-icon {
+      flex:
+        0 0 48px;
+
+      width:
+        48px;
+
+      height:
+        48px;
+
+      border-radius:
+        14px;
+
+      background:
+        var(--green-light);
+
+      color:
+        var(--green);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      font-size:
+        20px;
+
+      font-weight:
+        900;
+    }
+
+
+    .feature h3 {
+      font-size:
+        19px;
+
+      margin-bottom:
+        6px;
+    }
+
+
+    .feature p {
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.55;
+    }
+
+
+    /* =================================
+       DEMO SECTION
+    ================================= */
+
+    .demo-section {
+      padding:
+        95px 0;
+    }
+
+
+    .demo-box {
+      padding:
+        55px;
+
+      border-radius:
+        32px;
+
+      background:
+        #E9EAEC;
+
+      border:
+        1px solid #D9DBDE;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 0.75fr;
+
+      gap:
+        60px;
+
+      align-items:
+        center;
+
+      overflow:
+        hidden;
+    }
+
+
+    .demo-copy h2 {
+      font-size:
+        46px;
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -2px;
+
+      margin-bottom:
+        15px;
+    }
+
+
+    .demo-copy p {
+      color:
+        var(--muted);
+
+      font-size:
+        17px;
+
+      line-height:
+        1.6;
+
+      margin-bottom:
+        25px;
+    }
+
+
+    .demo-list {
+      list-style:
+        none;
+
+      margin-bottom:
+        27px;
+    }
+
+
+    .demo-list li {
+      margin-bottom:
+        10px;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+    }
+
+
+    .demo-list li::before {
+      content:
+        "✓";
+
+      color:
+        var(--green);
+
+      font-weight:
+        900;
+
+      margin-right:
+        8px;
+    }
+
+
+    .demo-button {
+      display:
+        inline-flex;
+
+      padding:
+        14px 22px;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      text-decoration:
+        none;
+
+      font-weight:
+        900;
+
+      font-size:
+        14px;
+    }
+
+
+    .mini-card {
+      background:
+        white;
+
+      border-radius:
+        25px;
+
+      padding:
+        27px 22px;
+
+      text-align:
+        center;
+
+      box-shadow:
+        0 25px 60px
+        rgba(0,0,0,0.12);
+
+      transform:
+        rotate(1.5deg);
+    }
+
+
+    .mini-logo {
+      width:
+        66px;
+
+      height:
+        66px;
+
+      border-radius:
+        19px;
+
+      background:
+        var(--green-light);
+
+      color:
+        var(--green);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      margin:
+        0 auto 13px;
+
+      font-weight:
+        900;
+
+      font-size:
+        13px;
+    }
+
+
+    .mini-name {
+      font-size:
+        20px;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .mini-stars {
+      color:
+        var(--green);
+
+      letter-spacing:
+        2px;
+
+      margin-bottom:
+        17px;
+    }
+
+
+    .mini-title {
+      font-size:
+        22px;
+
+      font-weight:
+        900;
+
+      line-height:
+        1.1;
+
+      margin-bottom:
+        10px;
+    }
+
+
+    .mini-text {
+      color:
+        #777;
+
+      font-size:
+        13px;
+
+      margin-bottom:
+        18px;
+    }
+
+
+    .mini-button {
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      padding:
+        14px;
+
+      border-radius:
+        12px;
+
+      font-size:
+        13px;
+
+      font-weight:
+        900;
+    }
+
+
+    /* =================================
+       PRICE
+    ================================= */
+
+    .pricing {
+      padding:
+        95px 0;
+    }
+
+
+    .price-card {
+      width:
+        min(600px, 100%);
+
+      margin:
+        auto;
+
+      padding:
+        42px;
+
+      border-radius:
+        30px;
+
+      background:
+        white;
+
+      border:
+        2px solid var(--green);
+
+      box-shadow:
+        0 25px 70px
+        rgba(111,125,60,0.13);
+
+      text-align:
+        center;
+    }
+
+
+    .price-label {
+      display:
+        inline-block;
+
+      padding:
+        7px 12px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--green-light);
+
+      color:
+        var(--green-dark);
+
+      font-size:
+        12px;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        18px;
+    }
+
+
+    .price-title {
+      font-size:
+        27px;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        8px;
+    }
+
+
+    .price {
+      font-size:
+        62px;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -3px;
+
+      font-weight:
+        900;
+
+      margin:
+        15px 0 5px;
+    }
+
+
+    .price span {
+      font-size:
+        22px;
+    }
+
+
+    .price-subtitle {
+      color:
+        #888;
+
+      font-size:
+        13px;
+
+      margin-bottom:
+        25px;
+    }
+
+
+    .price-features {
+      list-style:
+        none;
+
+      text-align:
+        left;
+
+      border-top:
+        1px solid var(--border);
+
+      padding-top:
+        20px;
+
+      margin-bottom:
+        25px;
+    }
+
+
+    .price-features li {
+      padding:
+        8px 0;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+    }
+
+
+    .price-features li::before {
+      content:
+        "✓";
+
+      color:
+        var(--green);
+
+      font-weight:
+        900;
+
+      margin-right:
+        9px;
+    }
+
+
+    .price-button {
+      width:
+        100%;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        16px;
+
+      border-radius:
+        14px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      text-decoration:
+        none;
+
+      font-size:
+        15px;
+
+      font-weight:
+        900;
+
+      box-shadow:
+        0 12px 25px
+        rgba(111,125,60,0.20);
+    }
+
+
+    /* =================================
+       FINAL CTA
+    ================================= */
+
+    .cta {
+      width:
+        min(1180px, calc(100% - 40px));
+
+      margin:
+        20px auto 90px;
+
+      padding:
+        70px 35px;
+
+      border-radius:
+        34px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      text-align:
+        center;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+    }
+
+
+    .cta::before {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        300px;
+
+      height:
+        300px;
+
+      border-radius:
+        50%;
+
+      right:
+        -100px;
+
+      top:
+        -150px;
+
+      background:
+        rgba(255,255,255,0.08);
+    }
+
 
     .cta h2 {
-      font-size: 40px;
-      line-height: 1.1;
+      position:
+        relative;
 
-      margin-bottom: 13px;
+      font-size:
+        clamp(34px, 5vw, 51px);
+
+      line-height:
+        1.05;
+
+      letter-spacing:
+        -2px;
+
+      margin-bottom:
+        14px;
     }
+
 
     .cta p {
-      max-width: 570px;
+      position:
+        relative;
 
-      margin: 0 auto 25px;
+      max-width:
+        600px;
 
-      color: rgba(255,255,255,0.82);
+      margin:
+        0 auto 27px;
 
-      font-size: 16px;
+      color:
+        rgba(255,255,255,0.83);
+
+      font-size:
+        16px;
+
+      line-height:
+        1.6;
     }
+
 
     .cta-button {
-      display: inline-flex;
+      position:
+        relative;
 
-      align-items: center;
-      justify-content: center;
+      display:
+        inline-flex;
 
-      padding: 14px 24px;
+      padding:
+        15px 25px;
 
-      border-radius: 13px;
+      border-radius:
+        13px;
 
-      background: white;
-      color: var(--green-dark);
+      background:
+        white;
 
-      text-decoration: none;
+      color:
+        var(--green-dark);
 
-      font-weight: 900;
+      text-decoration:
+        none;
+
+      font-weight:
+        900;
+
+      font-size:
+        14px;
+
+      transition:
+        transform .2s ease;
     }
 
-    /* =========================
+
+    .cta-button:hover {
+      transform:
+        translateY(-3px);
+    }
+
+
+    /* =================================
        FOOTER
-    ========================= */
+    ================================= */
 
     footer {
-      border-top: 1px solid var(--border);
+      border-top:
+        1px solid var(--border);
 
-      padding: 30px 0;
+      padding:
+        28px 0;
 
-      color: #888;
+      color:
+        #888;
 
-      font-size: 13px;
+      font-size:
+        13px;
     }
+
 
     .footer-inner {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
+      width:
+        min(1180px, calc(100% - 40px));
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      margin:
+        auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
     }
+
 
     .footer-brand {
-      color: var(--text);
-      font-weight: 900;
+      color:
+        var(--text);
+
+      font-weight:
+        900;
     }
 
-    /* =========================
-       MOVIL
-    ========================= */
 
-    @media (max-width: 850px) {
+    /* =================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display:
+          none;
+      }
+
 
       .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
 
-        padding: 65px 0 50px;
+        padding:
+          65px 0 75px;
 
-        gap: 45px;
+        gap:
+          55px;
       }
 
-      .preview {
-        max-width: 520px;
-        margin: auto;
+
+      .hero-content {
+        max-width:
+          720px;
       }
 
-      .steps {
-        grid-template-columns: 1fr;
+
+      .problem {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          35px;
       }
 
-      .features {
-        grid-template-columns: 1fr;
+
+      .demo-box {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          40px;
+
+        padding:
+          40px 28px;
       }
 
-      .section {
-        padding: 55px 0;
-      }
     }
 
-    @media (max-width: 520px) {
+
+    @media (max-width: 700px) {
 
       .nav {
-        width: min(100% - 28px, 1120px);
+        width:
+          calc(100% - 28px);
       }
 
+
       .nav-button {
-        padding: 9px 13px;
-        font-size: 12px;
+        padding:
+          9px 13px;
+
+        font-size:
+          12px;
       }
+
 
       .hero,
       section {
-        width: min(100% - 28px, 1120px);
+        width:
+          calc(100% - 28px);
       }
+
 
       h1 {
-        letter-spacing: -1.8px;
+        font-size:
+          clamp(43px, 13vw, 62px);
+
+        letter-spacing:
+          -2.8px;
       }
+
 
       .hero-text {
-        font-size: 17px;
+        font-size:
+          17px;
       }
 
+
       .hero-buttons {
-        flex-direction: column;
+        flex-direction:
+          column;
       }
+
 
       .primary-button,
       .secondary-button {
-        width: 100%;
+        width:
+          100%;
       }
 
-      .preview {
-        padding: 14px;
+
+      .trust {
+        width:
+          calc(100% - 28px);
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          13px;
+
+        padding:
+          18px;
       }
 
-      .preview-card {
-        padding: 25px 18px;
+
+      .section {
+        padding:
+          65px 0;
       }
+
 
       .section-heading h2 {
-        font-size: 31px;
+        font-size:
+          35px;
       }
+
+
+      .steps,
+      .features {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .feature {
+        padding:
+          23px;
+      }
+
+
+      .phone {
+        max-width:
+          320px;
+      }
+
+
+      .demo-copy h2 {
+        font-size:
+          37px;
+      }
+
+
+      .price-card {
+        padding:
+          32px 23px;
+      }
+
+
+      .price {
+        font-size:
+          55px;
+      }
+
 
       .cta {
-        padding: 40px 22px;
+        width:
+          calc(100% - 28px);
+
+        margin-bottom:
+          65px;
+
+        padding:
+          55px 22px;
       }
 
-      .cta h2 {
-        font-size: 31px;
-      }
 
       .footer-inner {
-        flex-direction: column;
-        text-align: center;
+        flex-direction:
+          column;
+
+        text-align:
+          center;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- HEADER -->
+
+  <!-- ===============================
+       HEADER
+  ================================ -->
 
   <header>
 
@@ -682,8 +2024,26 @@
 
       </a>
 
+
+      <div class="nav-links">
+
+        <a href="#como-funciona">
+          Cómo funciona
+        </a>
+
+        <a href="#que-incluye">
+          Qué incluye
+        </a>
+
+        <a href="#precio">
+          Precio
+        </a>
+
+      </div>
+
+
       <a
-        href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20estoy%20interesado%20en%20el%20sistema%20de%20Opina%20F%C3%A1cil."
+        href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
         class="nav-button"
         target="_blank"
         rel="noopener"
@@ -696,87 +2056,140 @@
   </header>
 
 
-  <!-- HERO -->
-
   <main>
+
+
+    <!-- ===============================
+         HERO
+    ================================ -->
 
     <section class="hero">
 
-      <div>
+      <div class="hero-content">
 
         <div class="eyebrow">
+
           <span class="eyebrow-dot"></span>
+
           Reseñas de Google más fáciles
+
         </div>
 
+
         <h1>
-          Convierte una buena experiencia en
-          <span>una buena reseña.</span>
+
+          Más reseñas.
+          <br>
+
+          Más confianza.
+          <br>
+
+          <span>Más clientes.</span>
+
         </h1>
 
+
         <p class="hero-text">
-          Creamos una página personalizada para tu negocio y un QR
-          que permite a tus clientes llegar directamente a Google
-          para dejar su opinión.
+
+          Convierte las experiencias positivas de tus clientes
+          en reseñas de Google con un sistema sencillo,
+          personalizado y pensado para tu negocio.
+
         </p>
+
 
         <div class="hero-buttons">
 
           <a
-            href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20QR%20personalizado%20para%20mi%20negocio."
+            href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
             class="primary-button"
             target="_blank"
             rel="noopener"
           >
-            Quiero mi QR
+            Quiero mi Opina Fácil →
           </a>
 
+
           <a
-            href="#como-funciona"
+            href="/demo"
             class="secondary-button"
           >
-            Cómo funciona
+            Ver demo
           </a>
+
+        </div>
+
+
+        <div class="hero-note">
+
+          ⭐ Pago único · Sin cuotas mensuales · Configuración incluida
 
         </div>
 
       </div>
 
 
-      <!-- PREVISUALIZACION -->
+      <!-- VISUAL -->
 
-      <div class="preview">
+      <div class="hero-visual">
 
-        <div class="preview-card">
+        <div class="visual-glow"></div>
 
-          <div class="preview-logo">
-            ⭐
-          </div>
 
-          <div class="preview-name">
-            Tu negocio
-          </div>
+        <div class="phone">
 
-          <div class="preview-stars">
-            ★★★★★
-          </div>
+          <div class="phone-screen">
 
-          <div class="preview-title">
-            ¿Te ha gustado tu experiencia?
-          </div>
+            <div class="phone-top"></div>
 
-          <p class="preview-text">
-            Tu opinión nos ayuda muchísimo a seguir creciendo.
-          </p>
 
-          <div class="preview-button">
-            G&nbsp;&nbsp; Dejar una reseña en Google
+            <div class="phone-logo">
+              TU LOGO
+            </div>
+
+
+            <div class="phone-name">
+              Tu negocio
+            </div>
+
+
+            <div class="phone-stars">
+              ★★★★★
+            </div>
+
+
+            <div class="phone-title">
+              ¿Te ha gustado tu experiencia?
+            </div>
+
+
+            <p class="phone-text">
+
+              Tu opinión nos ayuda muchísimo
+              a seguir creciendo.
+
+            </p>
+
+
+            <div class="google-button">
+
+              <span class="google-g">
+                G
+              </span>
+
+              Dejar una reseña en Google
+
+            </div>
+
           </div>
 
         </div>
 
-        <div class="preview-label">
-          Así podría verse la página de tu negocio
+
+        <div class="visual-label">
+
+          Así podría verse tu página personalizada
+
         </div>
 
       </div>
@@ -784,28 +2197,129 @@
     </section>
 
 
-    <!-- COMO FUNCIONA -->
+    <!-- ===============================
+         TRUST
+    ================================ -->
+
+    <div class="trust">
+
+      <div class="trust-item">
+
+        <strong>
+          100% personalizado
+        </strong>
+
+        Tu logo, colores y mensaje
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <strong>
+          Pago único
+        </strong>
+
+        Sin cuotas mensuales
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <strong>
+          Fácil de usar
+        </strong>
+
+        Escanear · Opinar · Google
+
+      </div>
+
+    </div>
+
+
+    <!-- ===============================
+         PROBLEMA
+    ================================ -->
+
+    <section class="section">
+
+      <div class="problem">
+
+
+        <div class="problem-box">
+
+          <div class="big-star">
+            ★
+          </div>
+
+          <h3>
+            Tus clientes ya tienen una opinión.
+          </h3>
+
+          <p>
+            Muchas veces el problema no es que no quieran
+            dejar una reseña. Es que simplemente nadie
+            se lo pone fácil.
+
+          </p>
+
+        </div>
+
+
+        <div class="problem-text">
+
+          <div class="section-kicker">
+            EL PROBLEMA
+          </div>
+
+          <h2>
+            Conseguir una reseña no debería ser complicado.
+          </h2>
+
+          <p>
+            Opina Fácil crea un punto de acceso sencillo
+            para que tus clientes puedan pasar de una
+            buena experiencia a compartirla en Google
+            en unos pocos segundos.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===============================
+         COMO FUNCIONA
+    ================================ -->
 
     <section
       class="section"
       id="como-funciona"
     >
 
-      <div class="section-heading">
+      <div class="section-heading center">
+
+        <div class="section-kicker">
+          CÓMO FUNCIONA
+        </div>
 
         <h2>
-          Tan sencillo como escanear, opinar y seguir.
+          Tan fácil como escanear, opinar y seguir.
         </h2>
 
         <p>
-          Nosotros hacemos la parte técnica. Tú solo colocas
-          el QR donde tus clientes puedan verlo.
+          Nosotros hacemos la parte técnica.
+          Tú colocas el QR donde tus clientes puedan verlo.
         </p>
 
       </div>
 
 
       <div class="steps">
+
 
         <div class="step">
 
@@ -814,11 +2328,12 @@
           </div>
 
           <h3>
-            El cliente escanea
+            Escanea
           </h3>
 
           <p>
-            Coloca el QR en recepción, mostrador, mesa o cualquier
+            Tu cliente escanea el QR desde su móvil
+            en recepción, mostrador, mesa o cualquier
             punto visible de tu negocio.
           </p>
 
@@ -832,12 +2347,12 @@
           </div>
 
           <h3>
-            Ve tu página
+            Accede
           </h3>
 
           <p>
-            El cliente llega a una página personalizada con
-            tu nombre, logo y diseño.
+            Entra en una página creada específicamente
+            para tu negocio, con tu identidad y tu mensaje.
           </p>
 
         </div>
@@ -850,34 +2365,45 @@
           </div>
 
           <h3>
-            Deja su opinión
+            Deja su reseña
           </h3>
 
           <p>
-            Desde ahí puede acceder directamente a Google
-            para escribir su reseña.
+            Pulsa el botón y accede directamente a Google
+            para compartir su experiencia.
           </p>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- CARACTERISTICAS -->
+    <!-- ===============================
+         QUE INCLUYE
+    ================================ -->
 
-    <section class="features-section">
+    <section
+      class="section"
+      id="que-incluye"
+    >
 
       <div class="section-heading">
 
+        <div class="section-kicker">
+          QUÉ RECIBES
+        </div>
+
         <h2>
           No es solo un QR.
+          Es tu propio punto de reseñas.
         </h2>
 
         <p>
-          Preparamos todo para que tu negocio tenga una experiencia
-          sencilla y profesional.
+          Preparamos todo para que tu negocio tenga
+          una experiencia profesional y fácil de utilizar.
         </p>
 
       </div>
@@ -885,20 +2411,25 @@
 
       <div class="features">
 
+
         <div class="feature">
 
           <div class="feature-icon">
-            ★
+            🎨
           </div>
 
-          <h3>
-            Página personalizada
-          </h3>
+          <div>
 
-          <p>
-            Tu negocio tiene su propia página con logo, colores,
-            mensaje y enlace directo a Google.
-          </p>
+            <h3>
+              Página personalizada
+            </h3>
+
+            <p>
+              Tu logo, tus colores, tu mensaje y
+              una experiencia adaptada a tu negocio.
+            </p>
+
+          </div>
 
         </div>
 
@@ -909,14 +2440,18 @@
             ◈
           </div>
 
-          <h3>
-            QR personalizado
-          </h3>
+          <div>
 
-          <p>
-            Te entregamos un QR preparado para imprimir y colocar
-            donde quieras.
-          </p>
+            <h3>
+              QR personalizado
+            </h3>
+
+            <p>
+              Un código propio preparado para imprimir
+              y colocar donde quieras.
+            </p>
+
+          </div>
 
         </div>
 
@@ -927,14 +2462,18 @@
             G
           </div>
 
-          <h3>
-            Acceso directo a Google
-          </h3>
+          <div>
 
-          <p>
-            El cliente no necesita buscar tu negocio manualmente.
-            Le llevamos directamente al proceso de reseña.
-          </p>
+            <h3>
+              Acceso directo a Google
+            </h3>
+
+            <p>
+              El cliente no necesita buscar tu negocio
+              manualmente para dejar su opinión.
+            </p>
+
+          </div>
 
         </div>
 
@@ -945,37 +2484,242 @@
             ✓
           </div>
 
-          <h3>
-            Diseño listo para usar
-          </h3>
+          <div>
 
-          <p>
-            También podemos preparar el cartel para que solo tengas
-            que imprimirlo y colocarlo.
-          </p>
+            <h3>
+              Cartel personalizado
+            </h3>
+
+            <p>
+              Te preparamos el diseño para que puedas
+              colocarlo fácilmente en tu negocio.
+            </p>
+
+          </div>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- CTA -->
+    <!-- ===============================
+         DEMO
+    ================================ -->
+
+    <section class="demo-section">
+
+      <div class="demo-box">
+
+
+        <div class="demo-copy">
+
+          <div class="section-kicker">
+            MIRA EL RESULTADO
+          </div>
+
+          <h2>
+            Así podría verse
+            tu negocio.
+          </h2>
+
+          <p>
+            La página que recibe tu cliente está
+            diseñada para tu negocio. No utilizamos
+            una página genérica para todos.
+          </p>
+
+
+          <ul class="demo-list">
+
+            <li>
+              Tu logo y tus colores
+            </li>
+
+            <li>
+              Tu propio mensaje
+            </li>
+
+            <li>
+              Botón directo a Google
+            </li>
+
+            <li>
+              Diseño adaptado a móvil
+            </li>
+
+          </ul>
+
+
+          <a
+            href="/demo"
+            class="demo-button"
+          >
+            Ver demo completa →
+          </a>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <div class="mini-logo">
+            TU LOGO
+          </div>
+
+
+          <div class="mini-name">
+            Tu negocio
+          </div>
+
+
+          <div class="mini-stars">
+            ★★★★★
+          </div>
+
+
+          <div class="mini-title">
+            ¿Te ha gustado tu experiencia?
+          </div>
+
+
+          <div class="mini-text">
+            Tu opinión nos ayuda muchísimo
+            a seguir creciendo.
+          </div>
+
+
+          <div class="mini-button">
+
+            <span class="google-g">
+              G
+            </span>
+
+            &nbsp;
+            Dejar una reseña en Google
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- ===============================
+         PRECIO
+    ================================ -->
 
     <section
-      class="cta"
-      id="contacto"
+      class="pricing"
+      id="precio"
     >
 
+      <div class="section-heading center">
+
+        <div class="section-kicker">
+          SENCILLO Y TRANSPARENTE
+        </div>
+
+        <h2>
+          Sin cuotas. Sin complicaciones.
+        </h2>
+
+        <p>
+          Pagas una vez y tienes tu sistema preparado
+          para empezar a utilizarlo.
+        </p>
+
+      </div>
+
+
+      <div class="price-card">
+
+        <div class="price-label">
+          OPINA FÁCIL
+        </div>
+
+
+        <div class="price-title">
+          QR + página personalizada
+        </div>
+
+
+        <div class="price">
+          29<span>,90 €</span>
+        </div>
+
+
+        <div class="price-subtitle">
+          Pago único · Sin cuotas mensuales
+        </div>
+
+
+        <ul class="price-features">
+
+          <li>
+            Página personalizada
+          </li>
+
+          <li>
+            QR personalizado
+          </li>
+
+          <li>
+            Logo y colores de tu negocio
+          </li>
+
+          <li>
+            Enlace directo a Google
+          </li>
+
+          <li>
+            Cartel preparado para imprimir
+          </li>
+
+          <li>
+            Configuración incluida
+          </li>
+
+        </ul>
+
+
+        <a
+          href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
+          class="price-button"
+          target="_blank"
+          rel="noopener"
+        >
+          Quiero mi Opina Fácil →
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===============================
+         CTA FINAL
+    ================================ -->
+
+    <section class="cta">
+
       <h2>
-        ¿Quieres facilitar las reseñas de tu negocio?
+        Dale a tus clientes
+        una forma fácil de opinar.
       </h2>
 
+
       <p>
-        Te preparamos tu página y tu QR personalizado para que
-        tus clientes puedan dejar su opinión de forma sencilla.
+        Te preparamos tu página y tu QR personalizado
+        para que puedas empezar a conseguir reseñas
+        de una forma sencilla.
       </p>
+
 
       <a
         href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20estoy%20interesado%20en%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
@@ -983,31 +2727,39 @@
         target="_blank"
         rel="noopener"
       >
-        Hablar por WhatsApp
+        Hablar por WhatsApp →
       </a>
 
     </section>
 
+
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- ===============================
+       FOOTER
+  ================================ -->
 
   <footer>
 
     <div class="footer-inner">
 
       <div>
-        © 2026 <span class="footer-brand">Opina Fácil</span>
+        © 2026
+        <span class="footer-brand">
+          Opina Fácil
+        </span>
       </div>
 
+
       <div>
-        Más opiniones, más confianza.
+        Más reseñas. Más confianza.
       </div>
 
     </div>
 
   </footer>
+
 
 </body>
 </html>
