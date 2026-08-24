@@ -6,10 +6,10 @@
 
   <meta
     name="description"
-    content="Opina Fácil: carteles QR y páginas personalizadas para conseguir más reseñas de Google."
+    content="Opina Fácil crea carteles QR y páginas personalizadas para ayudar a negocios a conseguir más reseñas en Google."
   >
 
-  <title>Opina Fácil | Más reseñas, más clientes</title>
+  <title>Opina Fácil | Más reseñas, más confianza</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
 
@@ -22,38 +22,35 @@
     rel="stylesheet"
   >
 
+  <!-- LIBRERÍA PARA QR REALES -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
   <style>
 
     :root {
       --green: #4d8b4f;
-      --green-dark: #2f6034;
-      --green-light: #e8f0e3;
+      --green-dark: #315f35;
+      --green-light: #e7f0e2;
 
       --cream: #f7f6ef;
-      --cream-dark: #efefe5;
+      --cream-2: #f0f1e7;
 
       --white: #ffffff;
 
-      --text: #17311e;
-      --muted: #617466;
+      --text: #18351f;
+      --muted: #627566;
 
-      --border: #dfe5d9;
-
-      --gold: #f5b91b;
+      --border: #dfe5da;
 
       --shadow:
-        0 22px 60px rgba(31, 55, 34, .10);
+        0 25px 70px rgba(35, 58, 39, .10);
 
       --shadow-soft:
-        0 10px 30px rgba(31, 55, 34, .08);
+        0 12px 35px rgba(35, 58, 39, .08);
 
-      --max-width: 1180px;
+      --max: 1180px;
     }
 
-
-    /* =========================
-       RESET
-    ========================= */
 
     * {
       box-sizing: border-box;
@@ -73,13 +70,17 @@
         Arial,
         sans-serif;
 
-      background: var(--cream);
+      background:
+        var(--cream);
 
-      color: var(--text);
+      color:
+        var(--text);
 
-      line-height: 1.55;
+      line-height:
+        1.55;
 
-      overflow-x: hidden;
+      overflow-x:
+        hidden;
     }
 
 
@@ -89,19 +90,17 @@
     }
 
 
-    button {
-      font: inherit;
+    img {
+      max-width: 100%;
     }
 
 
     .container {
       width:
-        min(
-          var(--max-width),
-          calc(100% - 40px)
-        );
+        min(var(--max), calc(100% - 40px));
 
-      margin: auto;
+      margin:
+        0 auto;
     }
 
 
@@ -109,41 +108,79 @@
        TIPOGRAFÍA
     ========================= */
 
-    .serif {
+    .serif,
+    h1,
+    h2,
+    h3 {
       font-family:
         "Playfair Display",
         Georgia,
         serif;
-
-      letter-spacing: -1.8px;
     }
 
 
     .section-title {
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
-        clamp(38px, 5vw, 62px);
+        clamp(40px, 5vw, 62px);
 
-      line-height: 1.04;
+      line-height:
+        1.03;
 
-      letter-spacing: -2.8px;
-
-      color: var(--text);
+      letter-spacing:
+        -2.7px;
     }
 
 
     .section-copy {
-      color: var(--muted);
+      color:
+        var(--muted);
 
-      font-size: 18px;
+      font-size:
+        18px;
 
-      line-height: 1.7;
+      line-height:
+        1.7;
 
-      max-width: 700px;
+      max-width:
+        720px;
+    }
+
+
+    /* =========================
+       REVEAL
+    ========================= */
+
+    .reveal {
+      opacity:
+        0;
+
+      transform:
+        translateY(25px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+
+    .reveal.visible {
+      opacity:
+        1;
+
+      transform:
+        translateY(0);
+    }
+
+
+    .delay-1 {
+      transition-delay:
+        .1s;
+    }
+
+
+    .delay-2 {
+      transition-delay:
+        .2s;
     }
 
 
@@ -152,48 +189,53 @@
     ========================= */
 
     .eyebrow {
-      display: inline-flex;
+      display:
+        inline-flex;
 
-      align-items: center;
+      align-items:
+        center;
 
-      gap: 9px;
+      gap:
+        9px;
 
       padding:
-        8px 13px;
+        8px 14px;
 
       border:
-        1px solid #dce7d7;
+        1px solid #dce6d8;
 
-      background: white;
+      border-radius:
+        999px;
 
-      border-radius: 999px;
-
-      box-shadow:
-        0 5px 16px rgba(30, 60, 35, .06);
+      background:
+        white;
 
       color:
-        var(--green-dark);
+        #49674d;
 
-      font-size: 13px;
+      font-size:
+        13px;
 
-      font-weight: 700;
+      font-weight:
+        800;
+
+      box-shadow:
+        0 5px 15px rgba(30,50,35,.06);
     }
 
 
     .stars {
       color:
-        #43824a;
+        #43844a;
 
       letter-spacing:
         1px;
-
-      font-size:
-        15px;
     }
 
 
     .section-label {
-      display: inline-flex;
+      display:
+        inline-flex;
 
       padding:
         7px 13px;
@@ -220,93 +262,7 @@
         800;
 
       margin-bottom:
-        16px;
-    }
-
-
-    /* =========================
-       ANIMACIONES
-    ========================= */
-
-    .reveal {
-      opacity: 0;
-
-      transform:
-        translateY(28px);
-
-      transition:
-        opacity .8s ease,
-        transform .8s ease;
-    }
-
-
-    .reveal.visible {
-      opacity: 1;
-
-      transform:
-        translateY(0);
-    }
-
-
-    .delay-1 {
-      transition-delay: .1s;
-    }
-
-
-    .delay-2 {
-      transition-delay: .2s;
-    }
-
-
-    .delay-3 {
-      transition-delay: .3s;
-    }
-
-
-    @keyframes pulseGlow {
-
-      0%,
-      100% {
-        transform: scale(1);
-        opacity: .85;
-      }
-
-      50% {
-        transform: scale(1.07);
-        opacity: 1;
-      }
-
-    }
-
-
-    @keyframes marquee {
-
-      from {
-        transform:
-          translateX(0);
-      }
-
-      to {
-        transform:
-          translateX(-50%);
-      }
-
-    }
-
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: .35;
-        transform: scale(.9);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.2);
-      }
-
+        17px;
     }
 
 
@@ -331,19 +287,19 @@
         9px;
 
       padding:
-        0 22px;
+        0 23px;
 
       border-radius:
         14px;
+
+      border:
+        1px solid transparent;
 
       font-size:
         15px;
 
       font-weight:
         800;
-
-      border:
-        1px solid transparent;
 
       transition:
         .22s ease;
@@ -358,27 +314,22 @@
         white;
 
       box-shadow:
-        0 15px 30px
-        rgba(77, 139, 79, .24);
+        0 15px 30px rgba(77,139,79,.23);
     }
 
 
     .btn-primary:hover {
+      background:
+        #427943;
+
       transform:
         translateY(-3px);
-
-      background:
-        #427a44;
-
-      box-shadow:
-        0 20px 38px
-        rgba(77, 139, 79, .29);
     }
 
 
     .btn-secondary {
       background:
-        rgba(255,255,255,.72);
+        rgba(255,255,255,.75);
 
       border-color:
         var(--border);
@@ -389,11 +340,11 @@
 
 
     .btn-secondary:hover {
-      transform:
-        translateY(-3px);
-
       background:
         white;
+
+      transform:
+        translateY(-3px);
 
       box-shadow:
         var(--shadow-soft);
@@ -415,14 +366,13 @@
         1000;
 
       background:
-        rgba(247,246,239,.88);
+        rgba(247,246,239,.90);
 
       backdrop-filter:
         blur(18px);
 
       border-bottom:
-        1px solid
-        rgba(32,55,36,.08);
+        1px solid rgba(35,55,38,.08);
     }
 
 
@@ -452,10 +402,7 @@
         center;
 
       gap:
-        11px;
-
-      min-width:
-        max-content;
+        10px;
     }
 
 
@@ -466,24 +413,20 @@
       height:
         42px;
 
+      border:
+        2px solid #71804a;
+
       border-radius:
         50%;
-
-      object-fit:
-        contain;
-
-      background:
-        white;
-
-      border:
-        2px solid #72804a;
 
       padding:
         3px;
 
-      box-shadow:
-        0 4px 14px
-        rgba(50,70,35,.10);
+      background:
+        white;
+
+      object-fit:
+        contain;
     }
 
 
@@ -512,7 +455,7 @@
         700;
 
       letter-spacing:
-        -.8px;
+        -.7px;
     }
 
 
@@ -526,20 +469,17 @@
       font-size:
         9px;
 
-      font-weight:
-        700;
-
       letter-spacing:
         3px;
+
+      font-weight:
+        700;
     }
 
 
     .nav-links {
       display:
         flex;
-
-      align-items:
-        center;
 
       gap:
         30px;
@@ -555,15 +495,6 @@
 
       font-weight:
         700;
-
-      transition:
-        .2s;
-    }
-
-
-    .nav-links a:hover {
-      color:
-        var(--green);
     }
 
 
@@ -571,45 +502,35 @@
       display:
         flex;
 
-      align-items:
-        center;
-
       gap:
         9px;
+
+      align-items:
+        center;
     }
 
 
     .phone-link {
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      gap:
-        8px;
-
-      padding:
-        10px 16px;
-
       background:
         white;
 
       border:
         1px solid var(--border);
 
+      padding:
+        10px 15px;
+
       border-radius:
         13px;
-
-      box-shadow:
-        0 4px 12px
-        rgba(30,50,35,.06);
 
       font-size:
         14px;
 
       font-weight:
         700;
+
+      box-shadow:
+        0 4px 12px rgba(30,50,35,.05);
     }
 
 
@@ -620,33 +541,17 @@
       color:
         white;
 
-      border-radius:
-        13px;
-
       padding:
         10px 17px;
+
+      border-radius:
+        13px;
 
       font-size:
         14px;
 
       font-weight:
         800;
-
-      box-shadow:
-        0 7px 18px
-        rgba(77,139,79,.18);
-
-      transition:
-        .2s;
-    }
-
-
-    .wa-btn:hover {
-      transform:
-        translateY(-2px);
-
-      background:
-        #427a44;
     }
 
 
@@ -655,11 +560,11 @@
     ========================= */
 
     .hero {
+      padding:
+        100px 0 75px;
+
       position:
         relative;
-
-      padding:
-        100px 0 76px;
 
       overflow:
         hidden;
@@ -674,16 +579,16 @@
         absolute;
 
       width:
-        650px;
+        700px;
 
       height:
-        650px;
+        700px;
 
       right:
-        -220px;
+        -250px;
 
       top:
-        -250px;
+        -300px;
 
       border-radius:
         50%;
@@ -691,12 +596,9 @@
       background:
         radial-gradient(
           circle,
-          #e9eddd 0%,
-          rgba(233,237,221,0) 70%
+          #e5ead9,
+          transparent 68%
         );
-
-      pointer-events:
-        none;
     }
 
 
@@ -708,13 +610,13 @@
         grid;
 
       grid-template-columns:
-        1.04fr .96fr;
+        1fr 1fr;
 
       align-items:
         center;
 
       gap:
-        70px;
+        65px;
     }
 
 
@@ -722,26 +624,18 @@
       margin:
         25px 0 24px;
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
-        clamp(54px,6.2vw,82px);
+        clamp(55px, 6vw, 82px);
 
       line-height:
         .98;
 
       letter-spacing:
-        -4.2px;
-
-      max-width:
-        700px;
+        -4px;
     }
 
 
-    .hero h1 .green {
+    .hero h1 span {
       color:
         var(--green);
     }
@@ -752,7 +646,7 @@
         650px;
 
       color:
-        #607262;
+        #607363;
 
       font-size:
         19px;
@@ -761,7 +655,7 @@
         1.7;
 
       margin-bottom:
-        31px;
+        30px;
     }
 
 
@@ -776,7 +670,7 @@
         12px;
 
       margin-bottom:
-        25px;
+        24px;
     }
 
 
@@ -818,20 +712,19 @@
         19px;
 
       border:
-        1.5px solid
-        var(--green);
+        1.5px solid var(--green);
 
       border-radius:
         50%;
+
+      margin-right:
+        7px;
 
       color:
         var(--green);
 
       font-size:
         11px;
-
-      margin-right:
-        7px;
     }
 
 
@@ -854,65 +747,27 @@
     }
 
 
-    .visual-glow {
-      position:
-        absolute;
-
-      width:
-        430px;
-
-      height:
-        430px;
-
-      border-radius:
-        50%;
-
-      background:
-        radial-gradient(
-          circle,
-          #e4ead7 0%,
-          #edf0e5 45%,
-          rgba(237,240,229,0) 72%
-        );
-
-      animation:
-        pulseGlow 5s ease-in-out infinite;
-    }
-
-
     .hero-photo {
       position:
         relative;
 
-      z-index:
-        2;
-
       width:
-        min(550px,100%);
+        min(550px, 100%);
 
       aspect-ratio:
-        1.12 / 1;
-
-      border-radius:
-        34px;
+        1.1 / 1;
 
       overflow:
         hidden;
 
-      background:
-        linear-gradient(
-          135deg,
-          #dfe6d3,
-          #f6f2e7
-        );
+      border:
+        7px solid rgba(255,255,255,.8);
+
+      border-radius:
+        34px;
 
       box-shadow:
-        0 35px 80px
-        rgba(37,58,39,.17);
-
-      border:
-        7px solid
-        rgba(255,255,255,.75);
+        0 35px 80px rgba(37,58,39,.16);
     }
 
 
@@ -926,17 +781,33 @@
       background:
         linear-gradient(
           135deg,
-          #dbe5cf 0%,
-          #f2ead9 50%,
-          #d8d4bd 100%
+          #dce6d1,
+          #f1eadb 55%,
+          #d6d2bc
         );
-
-      overflow:
-        hidden;
     }
 
 
-    .scene-shelf {
+    .scene::after {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      inset:
+        0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,.10),
+          transparent
+        );
+    }
+
+
+    .shelf {
       position:
         absolute;
 
@@ -947,7 +818,7 @@
         0;
 
       width:
-        35%;
+        36%;
 
       height:
         100%;
@@ -955,88 +826,62 @@
       background:
         repeating-linear-gradient(
           to bottom,
-          rgba(91,77,55,.14) 0 9px,
-          transparent 9px 92px
+          rgba(94,79,58,.13) 0 9px,
+          transparent 9px 88px
         );
-
-      filter:
-        blur(1px);
     }
 
 
-    .scene-vase {
+    .vase {
       position:
         absolute;
 
       left:
-        7%;
+        8%;
 
       bottom:
-        11%;
+        13%;
 
       width:
-        19%;
+        18%;
 
       height:
-        38%;
+        37%;
 
       border-radius:
-        44% 44% 18% 18%;
+        45% 45% 15% 15%;
 
       background:
         linear-gradient(
           90deg,
-          #b9a77e,
-          #eee2c7,
-          #b5a174
+          #bda77b,
+          #eee1c2,
+          #b39b6e
         );
-
-      box-shadow:
-        0 12px 20px
-        rgba(50,45,35,.12);
     }
 
 
-    .scene-flowers {
+    .flowers {
       position:
         absolute;
 
       left:
-        7%;
+        6%;
 
       bottom:
-        43%;
-
-      width:
-        26%;
-
-      height:
-        40%;
-    }
-
-
-    .scene-flowers::before {
-      content:
-        "✿  ✾  ✿  ❀";
-
-      position:
-        absolute;
-
-      inset:
-        0;
+        47%;
 
       color:
-        #f4f0df;
+        #f5f0dc;
 
       font-size:
-        45px;
+        42px;
 
-      transform:
-        rotate(-7deg);
+      line-height:
+        1.3;
 
       text-shadow:
-        0 3px 8px
-        rgba(80,80,55,.12);
+        0 4px 8px rgba(70,70,50,.12);
     }
 
 
@@ -1051,20 +896,16 @@
         -4%;
 
       bottom:
-        -3%;
+        -2%;
 
       height:
         31%;
 
       background:
         linear-gradient(
-          #c8a977,
-          #a98552
+          #c9aa76,
+          #aa8550
         );
-
-      transform:
-        perspective(400px)
-        rotateX(7deg);
     }
 
 
@@ -1072,7 +913,7 @@
        CARTEL HERO
     ========================= */
 
-    .sign {
+    .hero-sign {
       position:
         absolute;
 
@@ -1080,7 +921,7 @@
         4;
 
       left:
-        27%;
+        28%;
 
       top:
         11%;
@@ -1089,23 +930,19 @@
         42%;
 
       height:
-        74%;
-
-      padding:
-        20px 18px;
-
-      border-radius:
-        6px;
+        76%;
 
       background:
-        #f4f0dd;
+        #f5f0dd;
 
       border:
-        1px solid #ccd2ba;
+        1px solid #cdd3bc;
+
+      border-radius:
+        7px;
 
       box-shadow:
-        0 20px 25px
-        rgba(44,50,36,.22);
+        0 20px 30px rgba(45,50,36,.22);
 
       transform:
         rotate(-2deg);
@@ -1121,10 +958,13 @@
 
       text-align:
         center;
+
+      padding:
+        22px 18px;
     }
 
 
-    .sign-logo {
+    .hero-sign-logo {
       width:
         55px;
 
@@ -1132,8 +972,7 @@
         55px;
 
       border:
-        3px solid
-        #71824e;
+        3px solid #71824f;
 
       border-radius:
         50%;
@@ -1145,46 +984,34 @@
         center;
 
       color:
-        #51653c;
+        #52673f;
 
       font-weight:
         900;
 
-      font-size:
-        14px;
-
-      margin-bottom:
-        8px;
-
       background:
-        #f8f7ed;
+        #faf9ef;
     }
 
 
-    .sign-title {
+    .hero-sign-title {
+      margin-top:
+        9px;
+
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
+      color:
+        #5c704d;
+
       font-size:
         25px;
-
-      color:
-        #5a6d49;
-
-      font-weight:
-        700;
-
-      line-height:
-        1;
     }
 
 
-    .sign-copy {
-      margin-top:
-        8px;
-
+    .hero-sign-copy {
       color:
         #71806d;
 
@@ -1193,92 +1020,64 @@
 
       line-height:
         1.35;
+
+      margin-top:
+        4px;
     }
 
 
-    .sign-qr {
+    .real-qr {
       width:
-        112px;
+        120px;
 
       height:
-        112px;
+        120px;
 
-      margin-top:
-        15px;
+      margin:
+        16px auto 10px;
 
-      padding:
-        8px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
 
       background:
         white;
 
       border:
-        4px solid
-        #a5b28d;
+        5px solid #a8b691;
 
-      position:
-        relative;
-
-      overflow:
-        hidden;
+      padding:
+        5px;
     }
 
 
-    .sign-qr::before {
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        8px;
-
-      background:
-        repeating-conic-gradient(
-          #273126 0 8%,
-          #fff 0 16%
-        );
-    }
-
-
-    .sign-qr::after {
-      content:
-        "";
-
-      position:
-        absolute;
-
+    .real-qr img,
+    .real-qr canvas {
       width:
-        28px;
+        100% !important;
 
       height:
-        28px;
+        100% !important;
 
-      left:
-        12px;
-
-      top:
-        12px;
-
-      border:
-        6px solid
-        #273126;
+      display:
+        block;
     }
 
 
     .sign-button {
-      margin-top:
-        11px;
-
       padding:
-        6px 13px;
+        7px 14px;
 
       border-radius:
         999px;
 
       background:
-        #7d9162;
+        #789261;
 
       color:
         white;
@@ -1299,7 +1098,7 @@
         3;
 
       left:
-        22%;
+        23%;
 
       bottom:
         5%;
@@ -1314,11 +1113,10 @@
         4px;
 
       background:
-        #8c6d43;
+        #916d43;
 
       box-shadow:
-        0 7px 12px
-        rgba(49,37,23,.2);
+        0 7px 12px rgba(49,37,23,.2);
     }
 
 
@@ -1333,11 +1131,10 @@
         white;
 
       border:
-        1px solid #e0e4da;
+        1px solid #e0e5db;
 
       box-shadow:
-        0 18px 40px
-        rgba(37,57,39,.14);
+        0 18px 40px rgba(37,57,39,.13);
 
       border-radius:
         18px;
@@ -1350,27 +1147,27 @@
 
       font-weight:
         800;
+
+      color:
+        #48654c;
     }
 
 
     .floating-top {
       top:
-        34px;
+        35px;
 
       right:
         -2px;
-
-      color:
-        #456b49;
     }
 
 
     .floating-bottom {
-      bottom:
-        28px;
-
       left:
         -15px;
+
+      bottom:
+        25px;
 
       display:
         flex;
@@ -1386,19 +1183,18 @@
     }
 
 
-    .mini-round {
+    .mini-circle {
       width:
         38px;
 
       height:
         38px;
 
+      border:
+        2px solid #71834e;
+
       border-radius:
         50%;
-
-      border:
-        2px solid
-        #70824e;
 
       display:
         grid;
@@ -1407,13 +1203,10 @@
         center;
 
       color:
-        #526b42;
+        #52653e;
 
       font-size:
         11px;
-
-      background:
-        #fafaf2;
     }
 
 
@@ -1435,37 +1228,34 @@
 
       font-size:
         11px;
-
-      font-weight:
-        600;
     }
 
 
     /* =========================
-       BARRA DE NEGOCIOS
+       CATEGORÍAS
     ========================= */
 
     .category-strip {
       overflow:
         hidden;
 
-      border-top:
-        1px solid #dde5d8;
-
-      border-bottom:
-        1px solid #dde5d8;
-
       background:
         #edf3e9;
+
+      border-top:
+        1px solid #dce5d9;
+
+      border-bottom:
+        1px solid #dce5d9;
     }
 
 
     .category-track {
-      display:
-        flex;
-
       width:
         max-content;
+
+      display:
+        flex;
 
       animation:
         marquee 28s linear infinite;
@@ -1473,20 +1263,14 @@
 
 
     .category-item {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        11px;
-
       padding:
         17px 27px;
 
+      white-space:
+        nowrap;
+
       color:
-        #627663;
+        #607563;
 
       font-size:
         13px;
@@ -1499,9 +1283,6 @@
 
       letter-spacing:
         3px;
-
-      white-space:
-        nowrap;
     }
 
 
@@ -1510,86 +1291,23 @@
         "⌘";
 
       color:
-        #5e8d60;
+        #5b8b60;
 
-      font-size:
-        17px;
+      margin-right:
+        10px;
     }
 
 
-    /* =========================
-       STATS
-    ========================= */
+    @keyframes marquee {
+      from {
+        transform:
+          translateX(0);
+      }
 
-    .stats {
-      padding:
-        72px 0 20px;
-    }
-
-
-    .stats-grid {
-      display:
-        grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
-      gap:
-        18px;
-    }
-
-
-    .stat {
-      background:
-        white;
-
-      border:
-        1px solid var(--border);
-
-      border-radius:
-        24px;
-
-      padding:
-        28px;
-
-      text-align:
-        center;
-
-      box-shadow:
-        0 5px 15px
-        rgba(31,55,34,.05);
-    }
-
-
-    .stat strong {
-      display:
-        block;
-
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-      color:
-        #5a9760;
-
-      font-size:
-        40px;
-
-      line-height:
-        1;
-
-      margin-bottom:
-        11px;
-    }
-
-
-    .stat span {
-      color:
-        #637465;
-
-      font-size:
-        15px;
+      to {
+        transform:
+          translateX(-50%);
+      }
     }
 
 
@@ -1597,21 +1315,21 @@
        SECCIONES
     ========================= */
 
-    section.content-section {
+    section {
       padding:
         100px 0;
     }
 
 
     .center-heading {
-      text-align:
-        center;
-
       max-width:
-        800px;
+        820px;
 
       margin:
         0 auto 55px;
+
+      text-align:
+        center;
     }
 
 
@@ -1647,6 +1365,9 @@
       padding:
         30px;
 
+      overflow:
+        hidden;
+
       background:
         white;
 
@@ -1656,11 +1377,8 @@
       border-radius:
         27px;
 
-      overflow:
-        hidden;
-
       transition:
-        .25s;
+        .25s ease;
     }
 
 
@@ -1681,24 +1399,18 @@
         22px;
 
       top:
-        13px;
+        12px;
 
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
-      color:
-        #e2eee0;
-
       font-size:
         70px;
 
-      line-height:
-        1;
-
-      font-weight:
-        700;
+      color:
+        #e1eee0;
     }
 
 
@@ -1709,35 +1421,30 @@
       height:
         48px;
 
-      display:
-        grid;
-
-      place-items:
-        center;
-
       border-radius:
         16px;
 
       background:
         var(--green-light);
 
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      margin-bottom:
+        27px;
+
       color:
         var(--green-dark);
 
       font-size:
-        22px;
-
-      margin-bottom:
-        27px;
+        20px;
     }
 
 
     .step h3 {
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
         24px;
 
@@ -1788,7 +1495,7 @@
         repeat(2,1fr);
 
       gap:
-        26px 55px;
+        27px 55px;
 
       margin-top:
         38px;
@@ -1820,17 +1527,17 @@
       border-radius:
         50%;
 
-      display:
-        grid;
-
-      place-items:
-        center;
-
       background:
         var(--green-light);
 
       color:
         var(--green);
+
+      display:
+        grid;
+
+      place-items:
+        center;
 
       font-weight:
         900;
@@ -1838,11 +1545,6 @@
 
 
     .benefit h3 {
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
         20px;
 
@@ -1864,7 +1566,7 @@
 
 
     /* =========================
-       EXPERIENCIA
+       EXPERIENCIA DEMO
     ========================= */
 
     .experience {
@@ -1872,7 +1574,7 @@
         grid;
 
       grid-template-columns:
-        .9fr 1.1fr;
+        .85fr 1.15fr;
 
       gap:
         55px;
@@ -1887,19 +1589,19 @@
         none;
 
       margin:
-        27px 0 31px;
+        27px 0 30px;
     }
 
 
     .experience-copy li {
-      margin:
-        13px 0;
+      color:
+        #46604c;
 
       font-size:
         15px;
 
-      color:
-        #445c49;
+      margin:
+        13px 0;
     }
 
 
@@ -1920,8 +1622,7 @@
         21px;
 
       border:
-        1.5px solid
-        var(--green);
+        1.5px solid var(--green);
 
       border-radius:
         50%;
@@ -1937,15 +1638,23 @@
     }
 
 
-    .experience-card {
-      min-height:
-        450px;
+    /* DEMO PREVIEW */
 
+    .demo-preview {
       position:
         relative;
 
+      min-height:
+        560px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
       background:
-        white;
+        #eef0e7;
 
       border:
         1px solid var(--border);
@@ -1961,203 +1670,242 @@
     }
 
 
-    .browser {
+    .preview-glow {
       position:
         absolute;
 
-      left:
-        9%;
-
-      top:
-        11%;
-
       width:
-        70%;
+        450px;
 
       height:
-        74%;
-
-      background:
-        #fdfdf9;
-
-      border:
-        8px solid
-        #6b6255;
+        450px;
 
       border-radius:
-        16px;
+        50%;
+
+      background:
+        radial-gradient(
+          circle,
+          #e1e8d6,
+          transparent 70%
+        );
+    }
+
+
+    .phone {
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      width:
+        290px;
+
+      min-height:
+        470px;
+
+      background:
+        #f7f6ef;
+
+      border:
+        8px solid #314a35;
+
+      border-radius:
+        37px;
+
+      padding:
+        14px;
+
+      box-shadow:
+        0 30px 60px rgba(32,54,37,.20);
 
       overflow:
         hidden;
     }
 
 
-    .browser-bar {
+    .phone-top {
+      width:
+        80px;
+
       height:
-        27px;
+        18px;
+
+      border-radius:
+        999px;
 
       background:
-        #eee9de;
+        #314a35;
 
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        5px;
-
-      padding-left:
-        9px;
+      margin:
+        -4px auto 12px;
     }
 
 
-    .browser-bar i {
+    .phone-content {
+      background:
+        white;
+
+      border:
+        1px solid #e0e4da;
+
+      border-radius:
+        25px;
+
+      min-height:
+        410px;
+
+      padding:
+        24px 17px;
+
+      text-align:
+        center;
+    }
+
+
+    .preview-logo {
       width:
-        6px;
+        54px;
 
       height:
-        6px;
+        54px;
+
+      margin:
+        0 auto 10px;
+
+      border:
+        2px solid #71834e;
 
       border-radius:
         50%;
 
-      background:
-        #9c9c91;
-    }
+      display:
+        grid;
 
+      place-items:
+        center;
 
-    .browser-content {
-      position:
-        relative;
-
-      height:
-        calc(100% - 27px);
-
-      padding:
-        25px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #fff,
-          #edf1e7
-        );
-    }
-
-
-    .fake-stars {
       color:
-        #f3b716;
+        #566c44;
 
       font-size:
-        30px;
+        12px;
+
+      font-weight:
+        900;
+    }
+
+
+    .preview-business {
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      color:
+        #263d2b;
+
+      font-size:
+        23px;
+    }
+
+
+    .preview-stars {
+      color:
+        #f1b313;
+
+      font-size:
+        23px;
 
       letter-spacing:
-        3px;
+        2px;
+
+      margin:
+        13px 0;
+    }
+
+
+    .preview-title {
+      font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+      color:
+        #1d3824;
+
+      font-size:
+        24px;
+
+      line-height:
+        1.1;
+
+      margin-bottom:
+        9px;
+    }
+
+
+    .preview-text {
+      color:
+        #69776b;
+
+      font-size:
+        11px;
+
+      line-height:
+        1.5;
 
       margin-bottom:
         18px;
     }
 
 
-    .fake-qr {
-      width:
-        125px;
+    .preview-button {
+      display:
+        flex;
 
-      height:
-        125px;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        8px;
+
+      width:
+        100%;
+
+      padding:
+        14px 10px;
 
       background:
-        repeating-conic-gradient(
-          #2f322c 0 8%,
-          #fff 0 16%
-        );
+        var(--green);
 
-      border:
-        8px solid white;
+      color:
+        white;
 
-      box-shadow:
-        0 0 0 1px #d7d8cd;
+      border-radius:
+        13px;
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
     }
 
 
-    .fake-plant {
-      position:
-        absolute;
+    .preview-note {
+      margin-top:
+        12px;
 
-      left:
-        18px;
+      color:
+        #8a958b;
 
-      bottom:
-        0;
-
-      width:
-        80px;
-
-      height:
-        125px;
-
-      background:
-        #a9c78e;
-
-      border-radius:
-        55% 55% 0 0;
-
-      opacity:
-        .8;
-    }
-
-
-    .fake-person {
-      position:
-        absolute;
-
-      right:
-        0;
-
-      bottom:
-        -10px;
-
-      width:
-        40%;
-
-      height:
-        72%;
-
-      background:
-        #ead9b7;
-
-      border-radius:
-        50% 45% 0 0;
-    }
-
-
-    .fake-person::before {
-      content:
-        "";
-
-      position:
-        absolute;
-
-      left:
-        12%;
-
-      top:
-        -17%;
-
-      width:
-        75%;
-
-      height:
-        35%;
-
-      border-radius:
-        50%;
-
-      background:
-        #584b3f;
+      font-size:
+        9px;
     }
 
 
@@ -2165,25 +1913,7 @@
        CARTEL SHOWCASE
     ========================= */
 
-    .cartel-showcase {
-      padding:
-        100px 0;
-    }
-
-
     .showcase {
-      background:
-        #f0f1e7;
-
-      border:
-        1px solid #dde4d7;
-
-      border-radius:
-        36px;
-
-      padding:
-        65px;
-
       display:
         grid;
 
@@ -2195,6 +1925,18 @@
 
       align-items:
         center;
+
+      padding:
+        65px;
+
+      background:
+        #eef0e6;
+
+      border:
+        1px solid #dce4d8;
+
+      border-radius:
+        36px;
 
       overflow:
         hidden;
@@ -2229,17 +1971,17 @@
 
 
     .showcase-list li {
-      margin:
-        10px 0;
-
       color:
-        #4d6552;
+        #4c6550;
 
       font-size:
         14px;
 
       font-weight:
         700;
+
+      margin:
+        10px 0;
     }
 
 
@@ -2250,20 +1992,17 @@
       color:
         var(--green);
 
-      font-weight:
-        900;
-
       margin-right:
         9px;
     }
 
 
     .cartel-stage {
-      min-height:
-        500px;
-
       position:
         relative;
+
+      min-height:
+        500px;
 
       display:
         grid;
@@ -2289,14 +2028,13 @@
       background:
         linear-gradient(
           135deg,
-          #d8e4d0,
-          #f5ecdd 55%,
-          #d2cfb9
+          #d9e4d0,
+          #f5eddf 55%,
+          #d2ceb9
         );
 
       box-shadow:
-        0 25px 55px
-        rgba(49,61,42,.13);
+        0 25px 55px rgba(49,61,42,.12);
     }
 
 
@@ -2326,24 +2064,13 @@
         1px solid #cbd1bd;
 
       box-shadow:
-        0 25px 35px
-        rgba(49,53,39,.22);
+        0 25px 35px rgba(49,53,39,.22);
 
       text-align:
         center;
 
       transform:
         rotate(-2deg);
-
-      transition:
-        transform .4s ease;
-    }
-
-
-    .cartel:hover {
-      transform:
-        rotate(0deg)
-        translateY(-6px);
     }
 
 
@@ -2359,9 +2086,6 @@
       color:
         #5d6f4d;
 
-      margin-bottom:
-        6px;
-
       transition:
         .3s;
     }
@@ -2376,6 +2100,9 @@
 
       min-height:
         30px;
+
+      margin-top:
+        6px;
 
       transition:
         .3s;
@@ -2393,62 +2120,23 @@
         18px auto 11px;
 
       padding:
-        9px;
+        5px;
 
       background:
         white;
 
       border:
         5px solid #a5b48c;
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
     }
 
 
-    .cartel-qr::before {
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        9px;
-
-      background:
-        repeating-conic-gradient(
-          #202720 0 7%,
-          #fff 0 14%
-        );
-    }
-
-
-    .cartel-qr::after {
-      content:
-        "";
-
-      position:
-        absolute;
-
+    .cartel-qr img,
+    .cartel-qr canvas {
       width:
-        32px;
+        100% !important;
 
       height:
-        32px;
-
-      left:
-        14px;
-
-      top:
-        14px;
-
-      border:
-        6px solid
-        #202720;
+        100% !important;
     }
 
 
@@ -2496,8 +2184,7 @@
         #916d3f;
 
       box-shadow:
-        0 8px 14px
-        rgba(45,35,22,.2);
+        0 8px 14px rgba(45,35,22,.2);
 
       z-index:
         2;
@@ -2518,8 +2205,7 @@
         1px solid var(--border);
 
       box-shadow:
-        0 16px 35px
-        rgba(40,57,43,.12);
+        0 16px 35px rgba(40,57,43,.12);
 
       border-radius:
         999px;
@@ -2527,20 +2213,14 @@
       padding:
         11px 17px;
 
+      color:
+        #48654c;
+
       font-size:
         12px;
 
       font-weight:
         800;
-
-      color:
-        #48654c;
-
-      white-space:
-        nowrap;
-
-      transition:
-        .3s;
     }
 
 
@@ -2562,30 +2242,6 @@
     }
 
 
-    .bubble-dot {
-      display:
-        inline-block;
-
-      width:
-        8px;
-
-      height:
-        8px;
-
-      border-radius:
-        50%;
-
-      background:
-        #5e9862;
-
-      margin-right:
-        7px;
-
-      animation:
-        blink 1.8s ease-in-out infinite;
-    }
-
-
     /* =========================
        PRECIO
     ========================= */
@@ -2603,11 +2259,11 @@
 
 
     .price-card {
-      position:
-        relative;
-
       margin-top:
         38px;
+
+      padding:
+        48px;
 
       background:
         white;
@@ -2618,56 +2274,20 @@
       border-radius:
         34px;
 
-      padding:
-        48px;
-
       box-shadow:
         var(--shadow);
-
-      overflow:
-        hidden;
-    }
-
-
-    .price-card::before {
-      content:
-        "";
-
-      position:
-        absolute;
-
-      width:
-        260px;
-
-      height:
-        260px;
-
-      right:
-        -100px;
-
-      top:
-        -130px;
-
-      border-radius:
-        50%;
-
-      background:
-        #edf4e8;
     }
 
 
     .price-badge {
-      position:
-        relative;
-
       color:
-        #5c765f;
-
-      letter-spacing:
-        3px;
+        #5d775f;
 
       font-size:
         11px;
+
+      letter-spacing:
+        3px;
 
       font-weight:
         800;
@@ -2675,26 +2295,15 @@
 
 
     .price-card h3 {
-      position:
-        relative;
-
-      margin-top:
-        12px;
-
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
         31px;
+
+      margin-top:
+        10px;
     }
 
 
     .price {
-      position:
-        relative;
-
       margin:
         10px 0 2px;
 
@@ -2706,21 +2315,14 @@
       font-size:
         76px;
 
-      line-height:
-        1;
-
       letter-spacing:
         -4px;
-
-      color:
-        #203a25;
     }
 
 
     .price small {
       font-family:
         "DM Sans",
-        Arial,
         sans-serif;
 
       font-size:
@@ -2732,9 +2334,6 @@
 
 
     .price-note {
-      position:
-        relative;
-
       color:
         #718171;
 
@@ -2744,9 +2343,6 @@
 
 
     .price-features {
-      position:
-        relative;
-
       max-width:
         670px;
 
@@ -2799,8 +2395,7 @@
         21px;
 
       border:
-        1.5px solid
-        var(--green);
+        1.5px solid var(--green);
 
       border-radius:
         50%;
@@ -2830,20 +2425,29 @@
 
 
     details {
-      border-bottom:
-        1px solid #dce2d7;
-
       padding:
         20px 0;
+
+      border-bottom:
+        1px solid #dce2d7;
     }
 
 
     summary {
+      cursor:
+        pointer;
+
       list-style:
         none;
 
-      cursor:
-        pointer;
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
 
       font-family:
         "Playfair Display",
@@ -2855,15 +2459,6 @@
 
       font-weight:
         700;
-
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      gap:
-        20px;
     }
 
 
@@ -2881,11 +2476,11 @@
         "DM Sans",
         sans-serif;
 
-      font-size:
-        24px;
-
       color:
         #5c765f;
+
+      font-size:
+        24px;
     }
 
 
@@ -2896,6 +2491,9 @@
 
 
     details p {
+      padding:
+        12px 40px 2px 0;
+
       color:
         var(--muted);
 
@@ -2904,9 +2502,6 @@
 
       line-height:
         1.7;
-
-      padding:
-        12px 40px 2px 0;
     }
 
 
@@ -2915,20 +2510,17 @@
     ========================= */
 
     .cta {
-      margin:
-        25px auto 80px;
-
       width:
-        min(
-          var(--max-width),
-          calc(100% - 40px)
-        );
+        min(var(--max), calc(100% - 40px));
 
-      border-radius:
-        35px;
+      margin:
+        20px auto 80px;
 
       padding:
         75px 30px;
+
+      text-align:
+        center;
 
       background:
         var(--green);
@@ -2936,84 +2528,31 @@
       color:
         white;
 
-      text-align:
-        center;
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
+      border-radius:
+        35px;
 
       box-shadow:
-        0 30px 80px
-        rgba(48,95,52,.22);
+        0 30px 80px rgba(48,95,52,.22);
     }
 
 
-    .cta::before,
-    .cta::after {
-      content:
-        "";
+    .cta-logo {
+      width:
+        62px;
 
-      position:
-        absolute;
+      height:
+        62px;
+
+      border:
+        3px solid white;
 
       border-radius:
         50%;
 
+      padding:
+        4px;
+
       background:
-        rgba(255,255,255,.08);
-
-      animation:
-        pulseGlow 6s ease-in-out infinite;
-    }
-
-
-    .cta::before {
-      width:
-        340px;
-
-      height:
-        340px;
-
-      right:
-        -120px;
-
-      top:
-        -200px;
-    }
-
-
-    .cta::after {
-      width:
-        260px;
-
-      height:
-        260px;
-
-      left:
-        -100px;
-
-      bottom:
-        -180px;
-    }
-
-
-    .cta > * {
-      position:
-        relative;
-
-      z-index:
-        2;
-    }
-
-
-    .cta .brand-logo {
-      background:
-        white;
-
-      border-color:
         white;
 
       margin-bottom:
@@ -3028,13 +2567,8 @@
       margin:
         0 auto 14px;
 
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
       font-size:
-        clamp(36px,5vw,58px);
+        clamp(37px,5vw,58px);
 
       line-height:
         1.05;
@@ -3065,9 +2599,6 @@
 
       color:
         var(--green-dark);
-
-      min-width:
-        230px;
     }
 
 
@@ -3105,49 +2636,11 @@
     }
 
 
-    .footer-brand {
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      gap:
-        9px;
-
-      color:
-        var(--text);
-
-      font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
-      font-size:
-        21px;
-
-      font-weight:
-        700;
-    }
-
-
-    .footer-brand img {
-      width:
-        34px;
-
-      height:
-        34px;
-
-      border-radius:
-        50%;
-    }
-
-
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 980px) {
+    @media(max-width:980px) {
 
       .nav-links {
         display:
@@ -3168,38 +2661,14 @@
           70px;
       }
 
-
-      .hero-visual {
-        min-height:
-          470px;
-      }
-
-
-      .showcase {
-        padding:
-          42px;
-      }
-
-
-      .cartel-stage {
-        min-height:
-          480px;
-      }
-
     }
 
 
-    @media (max-width: 760px) {
+    @media(max-width:760px) {
 
       .container {
         width:
           calc(100% - 28px);
-      }
-
-
-      .nav {
-        height:
-          64px;
       }
 
 
@@ -3224,24 +2693,6 @@
       }
 
 
-      .brand-sub {
-        font-size:
-          7px;
-
-        letter-spacing:
-          2.2px;
-      }
-
-
-      .brand-logo {
-        width:
-          38px;
-
-        height:
-          38px;
-      }
-
-
       .hero {
         padding:
           55px 0;
@@ -3250,7 +2701,7 @@
 
       .hero h1 {
         font-size:
-          clamp(47px,14vw,65px);
+          clamp(46px,14vw,65px);
 
         letter-spacing:
           -3px;
@@ -3281,31 +2732,7 @@
       }
 
 
-      .hero-photo {
-        border-width:
-          5px;
-
-        border-radius:
-          24px;
-      }
-
-
-      .floating-top {
-        right:
-          -5px;
-      }
-
-
-      .floating-bottom {
-        left:
-          -4px;
-
-        bottom:
-          12px;
-      }
-
-
-      .sign {
+      .hero-sign {
         width:
           43%;
 
@@ -3316,59 +2743,40 @@
           28%;
 
         padding:
-          12px;
+          13px;
       }
 
 
-      .sign-logo {
+      .hero-sign-logo {
         width:
-          42px;
+          43px;
 
         height:
-          42px;
-
-        font-size:
-          10px;
+          43px;
       }
 
 
-      .sign-title {
+      .hero-sign-title {
         font-size:
           18px;
       }
 
 
-      .sign-copy {
+      .hero-sign-copy {
         font-size:
           8px;
       }
 
 
-      .sign-qr {
+      .real-qr {
         width:
-          86px;
+          84px;
 
         height:
-          86px;
+          84px;
       }
 
 
-      .sign-button {
-        font-size:
-          8px;
-      }
-
-
-      .sign-base {
-        width:
-          47%;
-
-        left:
-          26%;
-      }
-
-
-      .stats-grid,
       .steps-grid,
       .benefit-grid,
       .price-features {
@@ -3377,13 +2785,7 @@
       }
 
 
-      .stats {
-        padding-top:
-          45px;
-      }
-
-
-      section.content-section {
+      section {
         padding:
           70px 0;
       }
@@ -3407,9 +2809,6 @@
       .showcase {
         padding:
           30px 20px;
-
-        border-radius:
-          28px;
       }
 
 
@@ -3425,15 +2824,6 @@
 
         height:
           305px;
-
-        padding:
-          16px;
-      }
-
-
-      .cartel-business {
-        font-size:
-          19px;
       }
 
 
@@ -3449,27 +2839,6 @@
       .cartel-base {
         width:
           210px;
-      }
-
-
-      .category-bubble {
-        font-size:
-          10px;
-
-        padding:
-          9px 12px;
-      }
-
-
-      .bubble-top {
-        right:
-          -4px;
-      }
-
-
-      .bubble-bottom {
-        left:
-          -4px;
       }
 
 
@@ -3513,27 +2882,6 @@
 
     }
 
-
-    @media (prefers-reduced-motion: reduce) {
-
-      *,
-      *::before,
-      *::after {
-        animation-duration:
-          .01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        scroll-behavior:
-          auto !important;
-
-        transition-duration:
-          .01ms !important;
-      }
-
-    }
-
   </style>
 </head>
 
@@ -3541,918 +2889,498 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-  ========================= -->
+<header>
 
-  <header>
+  <nav class="container nav">
 
-    <nav class="container nav">
+    <a href="/" class="brand">
 
-      <a href="/" class="brand">
+      <img
+        src="favicon.png"
+        class="brand-logo"
+        alt="Opina Fácil"
+      >
 
-        <img
-          src="favicon.png"
-          class="brand-logo"
-          alt="Opina Fácil"
-        >
+      <span class="brand-text">
 
-        <span class="brand-text">
-
-          <span class="brand-name">
-            Opina Fácil
-          </span>
-
-          <span class="brand-sub">
-            RESEÑAS GOOGLE
-          </span>
-
+        <span class="brand-name">
+          Opina Fácil
         </span>
 
+        <span class="brand-sub">
+          RESEÑAS GOOGLE
+        </span>
+
+      </span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+      <a href="#como-funciona">
+        Cómo funciona
       </a>
 
-
-      <div class="nav-links">
-
-        <a href="#como-funciona">
-          Cómo funciona
-        </a>
-
-        <a href="#ventajas">
-          Ventajas
-        </a>
-
-        <a href="#ejemplo">
-          Ejemplo
-        </a>
-
-        <a href="#precio">
-          Precio
-        </a>
-
-        <a href="#faq">
-          FAQ
-        </a>
-
-      </div>
-
-
-      <div class="nav-actions">
-
-        <a
-          class="phone-link"
-          href="tel:+34606390082"
-        >
-          ☎ 606 390 082
-        </a>
-
-
-        <a
-          class="wa-btn"
-          target="_blank"
-          rel="noopener"
-          href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20me%20interesa%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
-        >
-          ◯ WhatsApp
-        </a>
-
-      </div>
-
-    </nav>
-
-  </header>
-
-
-
-  <main>
-
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero">
-
-      <div class="container hero-grid">
-
-
-        <div class="reveal">
-
-          <div class="eyebrow">
-
-            <span class="stars">
-              ★★★★★
-            </span>
-
-            Más reseñas, más confianza
-
-          </div>
-
-
-          <h1>
-
-            Convierte a tus clientes felices en
-
-            <span class="green">
-              reseñas de Google.
-            </span>
-
-          </h1>
-
-
-          <p class="hero-text">
-
-            Diseñamos un cartel con QR y una página personalizada
-            con tus colores, tu logo y un botón directo a Google.
-
-            Tu cliente escanea, pulsa y listo.
-
-          </p>
-
-
-          <div class="hero-actions">
-
-            <a
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener"
-              href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20saber%20c%C3%B3mo%20funciona%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
-            >
-              💬 Quiero mi cartel
-            </a>
-
-
-            <a
-              class="btn btn-secondary"
-              href="#ejemplo"
-            >
-              Ver cómo queda →
-            </a>
-
-          </div>
-
-
-          <div class="hero-checks">
-
-            <span>
-              Sin apps ni registros
-            </span>
-
-            <span>
-              Diseño a medida
-            </span>
-
-            <span>
-              Listo para usar
-            </span>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- VISUAL -->
-
-        <div class="hero-visual reveal delay-1">
-
-          <div class="visual-glow"></div>
-
-
-          <div class="hero-photo">
-
-            <div class="scene">
-
-              <div class="scene-shelf"></div>
-
-              <div class="scene-vase"></div>
-
-              <div class="scene-flowers"></div>
-
-              <div class="table"></div>
-
-
-              <div class="sign">
-
-                <div class="sign-logo">
-                  OF
-                </div>
-
-                <div class="sign-title">
-                  Opina Fácil
-                </div>
-
-                <div class="sign-copy">
-                  Tu opinión nos ayuda
-                  <br>
-                  a crecer y mejorar
-                </div>
-
-                <div class="sign-qr"></div>
-
-                <div class="sign-button">
-                  ¡Escanéame!
-                </div>
-
-              </div>
-
-
-              <div class="sign-base"></div>
-
-            </div>
-
-          </div>
-
-
-          <div class="floating-card floating-top">
-            ✦ Cartel + web + QR
-          </div>
-
-
-          <div class="floating-card floating-bottom">
-
-            <div class="mini-round">
-              OF
-            </div>
-
-            <div>
-
-              <strong>
-                Escanea y opina
-              </strong>
-
-              <small>
-                en menos de 15 segundos
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         NEGOCIOS
-    ========================= -->
-
-    <div class="category-strip">
-
-      <div class="category-track">
-
-        <div class="category-item">
-          TIENDAS
-        </div>
-
-        <div class="category-item">
-          GIMNASIOS
-        </div>
-
-        <div class="category-item">
-          HOTELES
-        </div>
-
-        <div class="category-item">
-          ESTÉTICA
-        </div>
-
-        <div class="category-item">
-          FISIOTERAPIA
-        </div>
-
-        <div class="category-item">
-          RESTAURANTES
-        </div>
-
-        <div class="category-item">
-          PELUQUERÍAS
-        </div>
-
-        <div class="category-item">
-          TALLERES
-        </div>
-
-
-        <!-- DUPLICADO PARA LOOP -->
-
-        <div class="category-item">
-          TIENDAS
-        </div>
-
-        <div class="category-item">
-          GIMNASIOS
-        </div>
-
-        <div class="category-item">
-          HOTELES
-        </div>
-
-        <div class="category-item">
-          ESTÉTICA
-        </div>
-
-        <div class="category-item">
-          FISIOTERAPIA
-        </div>
-
-        <div class="category-item">
-          RESTAURANTES
-        </div>
-
-        <div class="category-item">
-          PELUQUERÍAS
-        </div>
-
-        <div class="category-item">
-          TALLERES
-        </div>
-
-      </div>
+      <a href="#ventajas">
+        Ventajas
+      </a>
+
+      <a href="#ejemplo">
+        Ejemplo
+      </a>
+
+      <a href="#precio">
+        Precio
+      </a>
+
+      <a href="#faq">
+        FAQ
+      </a>
 
     </div>
 
 
+    <div class="nav-actions">
 
-    <!-- =========================
-         STATS
-    ========================= -->
+      <a
+        class="phone-link"
+        href="tel:+34606390082"
+      >
+        ☎ 606 390 082
+      </a>
 
-    <section class="stats container">
+      <a
+        class="wa-btn"
+        target="_blank"
+        rel="noopener"
+        href="https://wa.me/34606390082?text=Hola%2C%20me%20interesa%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
+      >
+        WhatsApp
+      </a>
 
-      <div class="stats-grid">
+    </div>
+
+  </nav>
+
+</header>
 
 
-        <div class="stat reveal">
+<main>
 
-          <strong>
-            1 QR
-          </strong>
 
-          <span>
-            para que el cliente llegue directo a tu reseña
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+
+      <div class="reveal">
+
+        <div class="eyebrow">
+
+          <span class="stars">
+            ★★★★★
           </span>
 
+          Más reseñas, más confianza
+
         </div>
 
 
-        <div class="stat reveal delay-1">
+        <h1>
 
-          <strong>
-            15 s
-          </strong>
+          Convierte a tus clientes felices en
 
           <span>
-            objetivo: hacerlo rápido y sin fricción
+            reseñas de Google.
           </span>
 
-        </div>
+        </h1>
 
 
-        <div class="stat reveal delay-2">
+        <p class="hero-text">
 
-          <strong>
-            1 pago
-          </strong>
+          Diseñamos un cartel con QR y una página web
+          personalizada con tus colores, tu logo y un
+          botón directo para opinar.
 
-          <span>
-            sin convertirlo en otra suscripción mensual
-          </span>
+          Tu cliente escanea, pulsa y listo.
 
-        </div>
+        </p>
 
 
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         COMO FUNCIONA
-    ========================= -->
-
-    <section
-      class="content-section"
-      id="como-funciona"
-    >
-
-      <div class="container">
-
-
-        <div class="center-heading reveal">
-
-          <div class="section-label">
-            ASÍ DE FÁCIL
-          </div>
-
-          <h2 class="section-title">
-            3 pasos para conseguir más reseñas
-          </h2>
-
-          <p class="section-copy">
-
-            Nosotros hacemos el trabajo técnico y creativo.
-
-            Tú solo colocas el cartel en un punto visible
-            de tu negocio.
-
-          </p>
-
-        </div>
-
-
-        <div class="steps-grid">
-
-
-          <article class="step reveal">
-
-            <span class="step-number">
-              01
-            </span>
-
-            <div class="step-icon">
-              💬
-            </div>
-
-            <h3>
-              Nos cuentas tu negocio
-            </h3>
-
-            <p>
-
-              Nos escribes por WhatsApp y nos pasas
-              tu logo, colores y el enlace de tu ficha
-              de Google.
-
-            </p>
-
-          </article>
-
-
-
-          <article class="step reveal delay-1">
-
-            <span class="step-number">
-              02
-            </span>
-
-            <div class="step-icon">
-              🎨
-            </div>
-
-            <h3>
-              Diseñamos cartel y web
-            </h3>
-
-            <p>
-
-              Creamos tu cartel y una página personalizada
-              para que la experiencia se sienta hecha
-              para tu marca.
-
-            </p>
-
-          </article>
-
-
-
-          <article class="step reveal delay-2">
-
-            <span class="step-number">
-              03
-            </span>
-
-            <div class="step-icon">
-              ⌁
-            </div>
-
-            <h3>
-              Colocas y recibes reseñas
-            </h3>
-
-            <p>
-
-              El cliente escanea, entra en tu página
-              y tiene un acceso claro para compartir
-              su experiencia en Google.
-
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         VENTAJAS
-    ========================= -->
-
-    <section
-      class="content-section"
-      id="ventajas"
-    >
-
-      <div class="container">
-
-
-        <div class="benefits reveal">
-
-          <div class="section-label">
-            POR QUÉ FUNCIONA
-          </div>
-
-
-          <h2 class="section-title">
-            Menos pasos.
-            Más fácil para tu cliente.
-          </h2>
-
-
-          <p
-            class="section-copy"
-            style="margin-top:18px"
-          >
-
-            Una buena experiencia no debería perderse
-            porque el cliente no sabe dónde dejar
-            la reseña.
-
-          </p>
-
-
-          <div class="benefit-grid">
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ↗
-              </div>
-
-              <div>
-
-                <h3>
-                  Acceso directo
-                </h3>
-
-                <p>
-                  El cliente no tiene que buscar
-                  tu negocio manualmente para opinar.
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ▣
-              </div>
-
-              <div>
-
-                <h3>
-                  Proceso sin fricción
-                </h3>
-
-                <p>
-                  Escanea, abre la página y pulsa.
-                  Todo pensado para móvil.
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ✦
-              </div>
-
-              <div>
-
-                <h3>
-                  Diseño con tu marca
-                </h3>
-
-                <p>
-                  Tu logo, tus colores y tu mensaje.
-                  No entregamos un cartel genérico.
-                </p>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="benefit">
-
-              <div class="benefit-icon">
-                ✓
-              </div>
-
-              <div>
-
-                <h3>
-                  Todo preparado
-                </h3>
-
-                <p>
-                  QR, página personalizada y diseño
-                  listo para colocar en tu negocio.
-                </p>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         EXPERIENCIA
-    ========================= -->
-
-    <section
-      class="content-section"
-      id="ejemplo"
-    >
-
-      <div class="container experience">
-
-
-        <div class="experience-copy reveal">
-
-          <div class="section-label">
-            ASÍ LO VE TU CLIENTE
-          </div>
-
-
-          <h2 class="section-title">
-            La experiencia de tu cliente,
-            simplificada.
-          </h2>
-
-
-          <p
-            class="section-copy"
-            style="margin-top:18px"
-          >
-
-            Al escanear el QR llega a una página
-            con la identidad de tu negocio,
-            un mensaje cercano y un botón claro
-            para compartir su opinión.
-
-          </p>
-
-
-          <ul>
-
-            <li>
-              Página web propia con tu imagen de marca
-            </li>
-
-            <li>
-              Botón directo a Google
-            </li>
-
-            <li>
-              Diseño adaptado a móvil
-            </li>
-
-            <li>
-              Sin publicidad de terceros
-            </li>
-
-          </ul>
-
+        <div class="hero-actions">
 
           <a
             class="btn btn-primary"
             target="_blank"
             rel="noopener"
-            href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20ver%20un%20ejemplo%20para%20mi%20negocio."
+            href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20de%20Opina%20F%C3%A1cil."
           >
-            💬 Quiero ver un ejemplo
+            💬 Quiero mi cartel
+          </a>
+
+
+          <a
+            class="btn btn-secondary"
+            href="#ejemplo"
+          >
+            Ver un ejemplo →
           </a>
 
         </div>
 
 
+        <div class="hero-checks">
 
-        <div class="experience-card reveal delay-1">
+          <span>
+            Sin apps ni registros
+          </span>
 
-          <div class="browser">
+          <span>
+            Diseño a medida
+          </span>
 
-            <div class="browser-bar">
-
-              <i></i>
-              <i></i>
-              <i></i>
-
-            </div>
-
-
-            <div class="browser-content">
-
-              <div class="fake-stars">
-                ★★★★★
-              </div>
-
-
-              <h3
-                class="serif"
-                style="
-                  font-size:28px;
-                  margin-bottom:9px;
-                "
-              >
-                Tu opinión nos inspira
-              </h3>
-
-
-              <p
-                style="
-                  color:#68766a;
-                  font-size:13px;
-                  max-width:260px;
-                  margin-bottom:20px;
-                "
-              >
-
-                Gracias por formar parte
-                de nuestra comunidad.
-
-                Cuéntanos cómo fue
-                tu experiencia.
-
-              </p>
-
-
-              <div class="fake-qr"></div>
-
-              <div class="fake-plant"></div>
-
-              <div class="fake-person"></div>
-
-            </div>
-
-          </div>
+          <span>
+            Listo para usar
+          </span>
 
         </div>
 
       </div>
 
-    </section>
 
+      <div class="hero-visual reveal delay-1">
 
+        <div class="hero-photo">
 
-    <!-- =========================
-         CARTEL ANIMADO
-    ========================= -->
+          <div class="scene">
 
-    <section class="cartel-showcase">
+            <div class="shelf"></div>
 
-      <div class="container">
-
-
-        <div class="showcase reveal">
-
-
-          <div class="showcase-copy">
-
-            <div class="section-label">
-              UN CARTEL PARA TU NEGOCIO
+            <div class="flowers">
+              ✿　✾<br>
+              ❀　✿
             </div>
 
+            <div class="vase"></div>
 
-            <h2 class="section-title">
-              No vendemos un QR.
-              Vendemos una experiencia.
-            </h2>
+            <div class="table"></div>
 
 
-            <p>
+            <div class="hero-sign">
 
-              El cartel se adapta al estilo de cada negocio.
+              <div class="hero-sign-logo">
+                OF
+              </div>
 
-              Y aquí puedes ver cómo cambia automáticamente
-              entre distintos tipos de clientes.
+              <div class="hero-sign-title">
+                Opina Fácil
+              </div>
 
-            </p>
-
-
-            <ul class="showcase-list">
-
-              <li>
-                Diseño personalizado con tu identidad
-              </li>
-
-              <li>
-                QR preparado para tu ficha de Google
-              </li>
-
-              <li>
-                Página propia para quien escanea
-              </li>
-
-              <li>
-                Preparado para mostrador, mesa o recepción
-              </li>
-
-            </ul>
-
-
-            <a
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener"
-              href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20cartel%20personalizado."
-            >
-              Quiero el mío →
-            </a>
-
-          </div>
-
-
-
-          <div class="cartel-stage">
-
-            <div class="cartel-bg"></div>
-
-
-            <div class="category-bubble bubble-top">
-
-              <span class="bubble-dot"></span>
-
-              Adaptado a tu negocio
-
-            </div>
-
-
-            <div class="cartel">
-
-              <div
-                class="cartel-business"
-                id="businessName"
-              >
-                Café Bosque
+              <div class="hero-sign-copy">
+                Tu opinión nos ayuda<br>
+                a crecer y mejorar
               </div>
 
 
+              <!-- QR REAL -->
+
               <div
-                class="cartel-sub"
-                id="businessSub"
-              >
-                Tu opinión nos ayuda a crecer
-              </div>
+                class="real-qr"
+                id="heroQR"
+              ></div>
 
 
-              <div class="cartel-qr"></div>
-
-
-              <div class="cartel-scan">
+              <div class="sign-button">
                 ¡Escanéame!
               </div>
 
             </div>
 
 
-            <div class="cartel-base"></div>
+            <div class="sign-base"></div>
+
+          </div>
+
+        </div>
 
 
-            <div
-              class="category-bubble bubble-bottom"
-              id="businessBubble"
-            >
-              ☕ Cafeterías
+        <div class="floating-card floating-top">
+          ✦ Cartel + web + QR
+        </div>
+
+
+        <div class="floating-card floating-bottom">
+
+          <div class="mini-circle">
+            OF
+          </div>
+
+          <div>
+
+            <strong>
+              Escanea y opina
+            </strong>
+
+            <small>
+              en menos de 15 segundos
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORÍAS -->
+
+  <div class="category-strip">
+
+    <div class="category-track">
+
+      <div class="category-item">TIENDAS</div>
+      <div class="category-item">GIMNASIOS</div>
+      <div class="category-item">HOTELES</div>
+      <div class="category-item">ESTÉTICA</div>
+      <div class="category-item">FISIOTERAPIA</div>
+      <div class="category-item">RESTAURANTES</div>
+      <div class="category-item">PELUQUERÍAS</div>
+      <div class="category-item">TALLERES</div>
+
+      <div class="category-item">TIENDAS</div>
+      <div class="category-item">GIMNASIOS</div>
+      <div class="category-item">HOTELES</div>
+      <div class="category-item">ESTÉTICA</div>
+      <div class="category-item">FISIOTERAPIA</div>
+      <div class="category-item">RESTAURANTES</div>
+      <div class="category-item">PELUQUERÍAS</div>
+      <div class="category-item">TALLERES</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PASOS -->
+
+  <section id="como-funciona">
+
+    <div class="container">
+
+      <div class="center-heading reveal">
+
+        <div class="section-label">
+          ASÍ DE FÁCIL
+        </div>
+
+        <h2 class="section-title">
+          3 pasos para conseguir más reseñas
+        </h2>
+
+        <p class="section-copy">
+
+          Nosotros hacemos el trabajo técnico y creativo.
+          Tú solo colocas el cartel.
+
+        </p>
+
+      </div>
+
+
+      <div class="steps-grid">
+
+        <article class="step reveal">
+
+          <span class="step-number">
+            01
+          </span>
+
+          <div class="step-icon">
+            💬
+          </div>
+
+          <h3>
+            Nos cuentas tu negocio
+          </h3>
+
+          <p>
+            Nos escribes por WhatsApp y nos pasas tu logo,
+            colores y el enlace de tu ficha de Google.
+          </p>
+
+        </article>
+
+
+        <article class="step reveal delay-1">
+
+          <span class="step-number">
+            02
+          </span>
+
+          <div class="step-icon">
+            🎨
+          </div>
+
+          <h3>
+            Diseñamos cartel y web
+          </h3>
+
+          <p>
+            Creamos un cartel personalizado y una página
+            web adaptada a la imagen de tu negocio.
+          </p>
+
+        </article>
+
+
+        <article class="step reveal delay-2">
+
+          <span class="step-number">
+            03
+          </span>
+
+          <div class="step-icon">
+            ⌁
+          </div>
+
+          <h3>
+            Colocas y recibes reseñas
+          </h3>
+
+          <p>
+            El cliente escanea, llega a tu página y tiene
+            un acceso claro para compartir su experiencia.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VENTAJAS -->
+
+  <section id="ventajas">
+
+    <div class="container">
+
+      <div class="benefits reveal">
+
+        <div class="section-label">
+          POR QUÉ FUNCIONA
+        </div>
+
+        <h2 class="section-title">
+          Menos pasos.<br>
+          Más fácil para tu cliente.
+        </h2>
+
+        <p
+          class="section-copy"
+          style="margin-top:18px"
+        >
+          Una buena experiencia no debería perderse
+          porque el cliente no sabe dónde dejar la reseña.
+        </p>
+
+
+        <div class="benefit-grid">
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ↗
+            </div>
+
+            <div>
+
+              <h3>
+                Acceso directo
+              </h3>
+
+              <p>
+                El cliente no tiene que buscar tu negocio
+                manualmente para opinar.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ▣
+            </div>
+
+            <div>
+
+              <h3>
+                Proceso sin fricción
+              </h3>
+
+              <p>
+                Escanea, abre la página y pulsa.
+                Todo pensado para móvil.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ✦
+            </div>
+
+            <div>
+
+              <h3>
+                Diseño con tu marca
+              </h3>
+
+              <p>
+                Tu logo, tus colores y tu mensaje.
+                Nada de carteles genéricos.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="benefit">
+
+            <div class="benefit-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <h3>
+                Todo incluido
+              </h3>
+
+              <p>
+                Cartel, QR, página personalizada y
+                configuración inicial.
+              </p>
+
             </div>
 
           </div>
@@ -4462,96 +3390,186 @@
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
+  <!-- EXPERIENCIA -->
 
-    <!-- =========================
-         PRECIO
-    ========================= -->
+  <section id="ejemplo">
 
-    <section
-      class="content-section"
-      id="precio"
-    >
-
-      <div class="container pricing-wrap">
+    <div class="container experience">
 
 
-        <div class="reveal">
+      <div class="experience-copy reveal">
+
+        <div class="section-label">
+          ASÍ SE VE
+        </div>
+
+
+        <h2 class="section-title">
+          La experiencia de tu cliente,
+          simplificada.
+        </h2>
+
+
+        <p
+          class="section-copy"
+          style="margin-top:18px"
+        >
+          Al escanear el QR llega a una página con
+          la identidad de tu negocio, un mensaje cercano
+          y un botón claro para escribir su reseña.
+        </p>
+
+
+        <ul>
+
+          <li>
+            Página web propia con tu imagen de marca
+          </li>
+
+          <li>
+            Botón directo a Google
+          </li>
+
+          <li>
+            Diseño adaptado a móvil
+          </li>
+
+          <li>
+            Sin publicidad de terceros
+          </li>
+
+        </ul>
+
+
+        <a
+          class="btn btn-primary"
+          href="https://opinafacil.es/demo"
+          target="_blank"
+        >
+          💬 Ver la demo
+        </a>
+
+      </div>
+
+
+      <!-- PREVIEW PARECIDO A LA DEMO REAL -->
+
+      <div class="demo-preview reveal delay-1">
+
+        <div class="preview-glow"></div>
+
+
+        <div class="phone">
+
+          <div class="phone-top"></div>
+
+
+          <div class="phone-content">
+
+            <div class="preview-logo">
+              OF
+            </div>
+
+
+            <div class="preview-business">
+              Tu negocio
+            </div>
+
+
+            <div class="preview-stars">
+              ★★★★★
+            </div>
+
+
+            <div class="preview-title">
+              ¿Te ha gustado
+              tu experiencia?
+            </div>
+
+
+            <p class="preview-text">
+              Tu opinión nos ayuda muchísimo
+              a seguir creciendo. Si has disfrutado
+              de tu experiencia, nos encantaría
+              conocer tu opinión.
+            </p>
+
+
+            <a
+              href="https://opinafacil.es/demo"
+              class="preview-button"
+            >
+              <span>G</span>
+              Dejar una reseña en Google
+            </a>
+
+
+            <div class="preview-note">
+              Página personalizada con tu logo,
+              tus colores y tu enlace.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CARTEL CAMBIANTE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="showcase reveal">
+
+
+        <div class="showcase-copy">
 
           <div class="section-label">
-            UN ÚNICO PAGO
+            UN CARTEL PARA CADA NEGOCIO
           </div>
 
 
           <h2 class="section-title">
-            Todo preparado para empezar.
+            No vendemos un QR.
+            Vendemos una experiencia.
           </h2>
 
 
-          <p
-            class="section-copy"
-            style="margin:18px auto 0"
-          >
-
-            Sin suscripciones ni cuotas mensuales.
-
-            Te entregamos el sistema personalizado
-            para tu negocio.
-
+          <p>
+            El diseño cambia según el tipo de negocio.
+            Aquí puedes ver algunos ejemplos de cómo
+            podría adaptarse.
           </p>
 
-        </div>
 
-
-
-        <div class="price-card reveal delay-1">
-
-          <div class="price-badge">
-            PACK COMPLETO
-          </div>
-
-
-          <h3>
-            Cartel + QR + página personalizada
-          </h3>
-
-
-          <div class="price">
-            39<small>,90 €</small>
-          </div>
-
-
-          <div class="price-note">
-            pago único · sin cuotas mensuales
-          </div>
-
-
-          <ul class="price-features">
+          <ul class="showcase-list">
 
             <li>
-              Cartel personalizado listo para imprimir
+              Diseño personalizado
             </li>
 
             <li>
-              Página web con QR personalizado
+              QR real y escaneable
             </li>
 
             <li>
-              Logo y colores de tu negocio
+              Página web personalizada
             </li>
 
             <li>
-              Enlace directo a Google
-            </li>
-
-            <li>
-              Configuración inicial incluida
-            </li>
-
-            <li>
-              Revisión de textos y diseño
+              Preparado para mostrador, mesa o recepción
             </li>
 
           </ul>
@@ -4560,440 +3578,513 @@
           <a
             class="btn btn-primary"
             target="_blank"
-            rel="noopener"
-            href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20mi%20pack%20Opina%20F%C3%A1cil%20por%2039%2C90%E2%82%AC."
+            href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20personalizado."
           >
-            💬 Pedir mi pack ahora
+            Quiero el mío →
           </a>
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="cartel-stage">
 
-
-
-    <!-- =========================
-         FAQ
-    ========================= -->
-
-    <section
-      class="content-section"
-      id="faq"
-    >
-
-      <div class="container">
+          <div class="cartel-bg"></div>
 
 
-        <div class="center-heading reveal">
-
-          <div class="section-label">
-            FAQ
+          <div class="category-bubble bubble-top">
+            ✦ Cartel personalizado
           </div>
 
 
-          <h2 class="section-title">
-            Preguntas frecuentes
-          </h2>
+          <div class="cartel">
+
+            <div
+              class="cartel-business"
+              id="businessName"
+            >
+              Café Bosque
+            </div>
 
 
-          <p class="section-copy">
-            Lo importante antes de poner tu QR a trabajar.
-          </p>
-
-        </div>
-
-
-
-        <div class="faq reveal delay-1">
+            <div
+              class="cartel-sub"
+              id="businessSub"
+            >
+              Tu opinión nos ayuda a crecer
+            </div>
 
 
-          <details>
-
-            <summary>
-              ¿Necesito saber de tecnología para usarlo?
-            </summary>
-
-            <p>
-              No. Te entregamos el QR preparado y tú
-              solo tienes que colocarlo en un lugar visible.
-            </p>
-
-          </details>
+            <div
+              class="cartel-qr"
+              id="showcaseQR"
+            ></div>
 
 
-          <details>
+            <div class="cartel-scan">
+              ¡Escanéame!
+            </div>
 
-            <summary>
-              ¿Puedo cambiar el diseño después?
-            </summary>
-
-            <p>
-              Sí. Podemos ajustar textos, colores y pequeños
-              detalles. Si quieres un rediseño completo
-              más adelante, lo hablamos.
-            </p>
-
-          </details>
+          </div>
 
 
-          <details>
-
-            <summary>
-              ¿El QR deja de funcionar con el tiempo?
-            </summary>
-
-            <p>
-              El QR está pensado para permanecer asociado
-              a tu página. Si necesitas modificar el destino
-              o hacer cambios, escríbenos y lo revisamos.
-            </p>
-
-          </details>
+          <div class="cartel-base"></div>
 
 
-          <details>
-
-            <summary>
-              ¿Funciona con cualquier tipo de negocio?
-            </summary>
-
-            <p>
-              Sí. Cafeterías, restaurantes, gimnasios,
-              tiendas, peluquerías, hoteles, talleres,
-              centros de estética y muchos más.
-            </p>
-
-          </details>
-
-
-          <details>
-
-            <summary>
-              ¿Cómo os contacto?
-            </summary>
-
-            <p>
-              Por WhatsApp o Instagram.
-              Te respondemos y vemos juntos qué necesita
-              tu negocio.
-            </p>
-
-          </details>
-
+          <div
+            class="category-bubble bubble-bottom"
+            id="businessBubble"
+          >
+            ☕ Cafeterías
+          </div>
 
         </div>
 
       </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         CTA
-    ========================= -->
-
-    <section class="cta reveal">
-
-      <img
-        class="brand-logo"
-        src="favicon.png"
-        alt="Opina Fácil"
-      >
-
-
-      <h2>
-        Haz que dejar una reseña
-        sea tan fácil como escanear un QR.
-      </h2>
-
-
-      <p>
-
-        Cuéntanos qué negocio tienes y te explicamos
-        cómo quedaría tu propio cartel y página personalizada.
-
-      </p>
-
-
-      <a
-        class="btn"
-        target="_blank"
-        rel="noopener"
-        href="https://wa.me/34606390082?text=Hola%20%C3%81lvaro%2C%20quiero%20informaci%C3%B3n%20sobre%20Opina%20F%C3%A1cil."
-      >
-        WhatsApp · 606 390 082
-      </a>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
-  <footer>
-
-    <div class="container footer-inner">
-
-
-      <div class="footer-brand">
-
-        <img
-          src="favicon.png"
-          alt=""
-        >
-
-        Opina Fácil
-
-      </div>
-
-
-      <div>
-
-        <a
-          href="https://www.instagram.com/opinafacil.es/"
-          target="_blank"
-          rel="noopener"
-        >
-          @opinafacil.es
-        </a>
-
-        &nbsp; · &nbsp;
-
-        © 2026 Opina Fácil
-
-      </div>
-
 
     </div>
 
-  </footer>
+  </section>
 
 
+  <!-- PRECIO -->
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+  <section id="precio">
 
-  <script>
-
-
-    /* =================================
-       ANIMACIONES AL HACER SCROLL
-    ================================= */
-
-    const revealItems =
-      document.querySelectorAll(".reveal");
+    <div class="container pricing-wrap">
 
 
-    const observer =
-      new IntersectionObserver(
+      <div class="reveal">
 
-        (entries) => {
-
-          entries.forEach(
-
-            (entry) => {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                entry.target.classList.add(
-                  "visible"
-                );
-
-                observer.unobserve(
-                  entry.target
-                );
-
-              }
-
-            }
-
-          );
-
-        },
-
-        {
-          threshold: .12
-        }
-
-      );
+        <div class="section-label">
+          UN ÚNICO PAGO
+        </div>
 
 
-    revealItems.forEach(
-      element => observer.observe(element)
-    );
+        <h2 class="section-title">
+          Todo preparado para empezar.
+        </h2>
 
 
+        <p
+          class="section-copy"
+          style="margin:18px auto 0"
+        >
+          Sin suscripciones ni cuotas mensuales.
+          Te entregamos todo lo necesario para empezar.
+        </p>
 
-    /* =================================
-       CARTEL CAMBIANTE
-    ================================= */
+      </div>
 
-    const businesses = [
 
-      {
-        name: "Café Bosque",
-        sub: "Tu opinión nos ayuda a crecer",
-        label: "☕ Cafeterías"
+      <div class="price-card reveal delay-1">
+
+        <div class="price-badge">
+          PACK COMPLETO
+        </div>
+
+
+        <h3>
+          Cartel + QR + página personalizada
+        </h3>
+
+
+        <div class="price">
+          39<small>,90 €</small>
+        </div>
+
+
+        <div class="price-note">
+          pago único · sin cuotas mensuales
+        </div>
+
+
+        <ul class="price-features">
+
+          <li>
+            Cartel personalizado
+          </li>
+
+          <li>
+            Página web con QR
+          </li>
+
+          <li>
+            Logo y colores de tu negocio
+          </li>
+
+          <li>
+            Enlace directo a Google
+          </li>
+
+          <li>
+            Configuración inicial
+          </li>
+
+          <li>
+            Revisión incluida
+          </li>
+
+        </ul>
+
+
+        <a
+          class="btn btn-primary"
+          target="_blank"
+          href="https://wa.me/34606390082?text=Hola%2C%20quiero%20el%20pack%20de%20Opina%20F%C3%A1cil."
+        >
+          💬 Pedir mi pack ahora
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="center-heading reveal">
+
+        <div class="section-label">
+          FAQ
+        </div>
+
+        <h2 class="section-title">
+          Preguntas frecuentes
+        </h2>
+
+        <p class="section-copy">
+          Todo lo que necesitas saber antes de poner
+          tu QR a trabajar.
+        </p>
+
+      </div>
+
+
+      <div class="faq reveal delay-1">
+
+
+        <details>
+
+          <summary>
+            ¿Necesito saber de tecnología para usarlo?
+          </summary>
+
+          <p>
+            No. Nosotros preparamos el cartel, el QR
+            y la página. Tú solo tienes que colocarlo
+            en un lugar visible.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Puedo cambiar el diseño después?
+          </summary>
+
+          <p>
+            Sí. Incluimos una revisión para ajustar
+            textos o colores. Si más adelante quieres
+            un rediseño completo, podemos hacerlo.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿El QR deja de funcionar?
+          </summary>
+
+          <p>
+            El QR está asociado a tu página. Si necesitas
+            realizar algún cambio, puedes contactar con
+            nosotros.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Funciona con cualquier negocio?
+          </summary>
+
+          <p>
+            Sí. Restaurantes, gimnasios, tiendas,
+            peluquerías, hoteles, talleres, centros
+            de estética y muchos más.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            ¿Cómo os contacto?
+          </summary>
+
+          <p>
+            Puedes escribirnos directamente por WhatsApp.
+          </p>
+
+        </details>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta reveal">
+
+    <img
+      src="favicon.png"
+      class="cta-logo"
+      alt="Opina Fácil"
+    >
+
+
+    <h2>
+      Haz que dejar una reseña
+      sea tan fácil como escanear un QR.
+    </h2>
+
+
+    <p>
+      Cuéntanos qué negocio tienes y te explicamos
+      cómo quedaría tu propio cartel.
+    </p>
+
+
+    <a
+      class="btn"
+      target="_blank"
+      href="https://wa.me/34606390082?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Opina%20F%C3%A1cil."
+    >
+      WhatsApp · 606 390 082
+    </a>
+
+  </section>
+
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-inner">
+
+    <div>
+      © 2026 Opina Fácil
+    </div>
+
+    <div>
+      606 390 082 · @opinafacil.es
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  /* =========================
+     REVEAL
+  ========================= */
+
+  const revealItems =
+    document.querySelectorAll(".reveal");
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
       },
-
       {
-        name: "Studio Fit",
-        sub: "Cuéntanos cómo fue tu entrenamiento",
-        label: "🏋️ Gimnasios"
-      },
-
-      {
-        name: "Hotel Oliva",
-        sub: "Gracias por compartir tu estancia",
-        label: "🏨 Hoteles"
-      },
-
-      {
-        name: "Luna Estética",
-        sub: "Tu opinión nos ayuda a mejorar",
-        label: "✨ Estética"
-      },
-
-      {
-        name: "Clínica Vital",
-        sub: "Ayúdanos a seguir cuidándote",
-        label: "🧘 Fisioterapia"
-      },
-
-      {
-        name: "Taller Norte",
-        sub: "¿Qué te pareció nuestro servicio?",
-        label: "🔧 Talleres"
-      },
-
-      {
-        name: "Casa Nostra",
-        sub: "Nos encanta saber de tu experiencia",
-        label: "🍽️ Restaurantes"
-      },
-
-      {
-        name: "Peluquería Alma",
-        sub: "Tu opinión nos ayuda a crecer",
-        label: "✂️ Peluquerías"
+        threshold: .12
       }
-
-    ];
-
-
-    let businessIndex = 0;
-
-
-    const nameEl =
-      document.getElementById(
-        "businessName"
-      );
-
-
-    const subEl =
-      document.getElementById(
-        "businessSub"
-      );
-
-
-    const bubbleEl =
-      document.getElementById(
-        "businessBubble"
-      );
-
-
-    setInterval(
-
-      () => {
-
-        businessIndex =
-          (
-            businessIndex + 1
-          ) %
-          businesses.length;
-
-
-        nameEl.style.opacity = "0";
-        subEl.style.opacity = "0";
-        bubbleEl.style.opacity = "0";
-
-
-        nameEl.style.transform =
-          "translateY(8px)";
-
-        subEl.style.transform =
-          "translateY(8px)";
-
-        bubbleEl.style.transform =
-          "translateY(8px)";
-
-
-        setTimeout(
-
-          () => {
-
-            const business =
-              businesses[
-                businessIndex
-              ];
-
-
-            nameEl.textContent =
-              business.name;
-
-
-            subEl.textContent =
-              business.sub;
-
-
-            bubbleEl.textContent =
-              business.label;
-
-
-            nameEl.style.opacity =
-              "1";
-
-            subEl.style.opacity =
-              "1";
-
-            bubbleEl.style.opacity =
-              "1";
-
-
-            nameEl.style.transform =
-              "translateY(0)";
-
-            subEl.style.transform =
-              "translateY(0)";
-
-            bubbleEl.style.transform =
-              "translateY(0)";
-
-          },
-
-          280
-
-        );
-
-      },
-
-      2600
-
     );
 
 
-  </script>
+  revealItems.forEach(
+    item => observer.observe(item)
+  );
+
+
+  /* =========================
+     QR REAL
+     LOS DOS LLEVAN A LA DEMO
+  ========================= */
+
+  const demoURL =
+    "https://opinafacil.es/demo";
+
+
+  new QRCode(
+    document.getElementById("heroQR"),
+    {
+      text: demoURL,
+      width: 110,
+      height: 110,
+      colorDark: "#263126",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    }
+  );
+
+
+  new QRCode(
+    document.getElementById("showcaseQR"),
+    {
+      text: demoURL,
+      width: 125,
+      height: 125,
+      colorDark: "#263126",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    }
+  );
+
+
+  /* =========================
+     CARTEL CAMBIANTE
+  ========================= */
+
+  const businesses = [
+
+    {
+      name: "Café Bosque",
+      sub: "Tu opinión nos ayuda a crecer",
+      label: "☕ Cafeterías"
+    },
+
+    {
+      name: "Studio Fit",
+      sub: "Cuéntanos cómo fue tu entrenamiento",
+      label: "🏋️ Gimnasios"
+    },
+
+    {
+      name: "Hotel Oliva",
+      sub: "Gracias por compartir tu estancia",
+      label: "🏨 Hoteles"
+    },
+
+    {
+      name: "Luna Estética",
+      sub: "Tu opinión nos ayuda a mejorar",
+      label: "✨ Estética"
+    },
+
+    {
+      name: "Clínica Vital",
+      sub: "Ayúdanos a seguir cuidándote",
+      label: "🧘 Fisioterapia"
+    },
+
+    {
+      name: "Taller Norte",
+      sub: "¿Qué te pareció nuestro servicio?",
+      label: "🔧 Talleres"
+    },
+
+    {
+      name: "Casa Nostra",
+      sub: "Nos encanta saber de tu experiencia",
+      label: "🍽️ Restaurantes"
+    },
+
+    {
+      name: "Peluquería Alma",
+      sub: "Tu opinión nos ayuda a crecer",
+      label: "✂️ Peluquerías"
+    }
+
+  ];
+
+
+  let businessIndex = 0;
+
+
+  const nameEl =
+    document.getElementById("businessName");
+
+
+  const subEl =
+    document.getElementById("businessSub");
+
+
+  const bubbleEl =
+    document.getElementById("businessBubble");
+
+
+  setInterval(() => {
+
+    businessIndex =
+      (businessIndex + 1) %
+      businesses.length;
+
+
+    nameEl.style.opacity = "0";
+    subEl.style.opacity = "0";
+    bubbleEl.style.opacity = "0";
+
+
+    setTimeout(() => {
+
+      const business =
+        businesses[businessIndex];
+
+
+      nameEl.textContent =
+        business.name;
+
+      subEl.textContent =
+        business.sub;
+
+      bubbleEl.textContent =
+        business.label;
+
+
+      nameEl.style.opacity = "1";
+      subEl.style.opacity = "1";
+      bubbleEl.style.opacity = "1";
+
+    }, 300);
+
+  }, 2600);
+
+</script>
 
 
 </body>
