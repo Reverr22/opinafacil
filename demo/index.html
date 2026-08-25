@@ -12,10 +12,20 @@
 
   <meta
     name="theme-color"
-    content="#f6f5ee"
+    content="#f5f4ed"
+  >
+
+  <meta
+    name="description"
+    content="Comparte tu experiencia y ayúdanos a seguir creciendo."
   >
 
   <title>Tu negocio | Opina Fácil</title>
+
+
+  <!-- =========================
+       FUENTES
+  ========================== -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -26,45 +36,63 @@
   >
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
     rel="stylesheet"
   >
 
 
   <style>
 
+    /* =========================================
+       VARIABLES
+    ========================================= */
+
     :root {
 
-      --bg: #f5f4ed;
+      --background: #f5f4ed;
 
       --card: #ffffff;
 
-      --green: #4c8a50;
+      --green: #4d8b50;
 
-      --green-dark: #285331;
+      --green-dark: #315f35;
 
-      --green-soft: #e9f1e5;
+      --green-soft: #e8f0e4;
 
-      --text: #17341f;
+      --green-softer: #f2f6ef;
 
-      --muted: #6d7c70;
+      --text: #17351f;
 
-      --gold: #f4b51f;
+      --muted: #6f7d72;
 
-      --line: #e4e8df;
+      --border: #e0e7dc;
+
+      --gold: #f2b51d;
 
     }
 
 
+    /* =========================================
+       RESET
+    ========================================= */
+
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
     html {
+
       min-height: 100%;
+
+      scroll-behavior: smooth;
+
     }
 
 
@@ -77,23 +105,24 @@
         Arial,
         sans-serif;
 
-      color: var(--text);
+      color:
+        var(--text);
 
       background:
 
         radial-gradient(
-          circle at 10% 10%,
-          rgba(211,226,205,.65),
-          transparent 30%
+          circle at 8% 8%,
+          rgba(218, 230, 211, .65),
+          transparent 28%
         ),
 
         radial-gradient(
-          circle at 90% 85%,
-          rgba(221,231,214,.6),
-          transparent 32%
+          circle at 92% 90%,
+          rgba(222, 232, 215, .7),
+          transparent 30%
         ),
 
-        var(--bg);
+        var(--background);
 
       display: flex;
 
@@ -101,35 +130,46 @@
 
       justify-content: center;
 
-      padding: 28px 16px;
+      padding:
+        28px 16px;
 
     }
 
 
-    /* =================================
-       PAGE
-    ================================= */
+    a {
+
+      color: inherit;
+
+      text-decoration: none;
+
+    }
+
+
+    /* =========================================
+       CONTENEDOR
+    ========================================= */
 
     .page {
 
       width: 100%;
 
-      max-width: 520px;
+      max-width: 510px;
 
       animation:
-        pageIn .7s ease both;
+        pageAppear .7s ease both;
 
     }
 
 
-    @keyframes pageIn {
+    @keyframes pageAppear {
 
       from {
 
         opacity: 0;
 
         transform:
-          translateY(20px);
+          translateY(22px)
+          scale(.985);
 
       }
 
@@ -138,16 +178,17 @@
         opacity: 1;
 
         transform:
-          translateY(0);
+          translateY(0)
+          scale(1);
 
       }
 
     }
 
 
-    /* =================================
-       MAIN CARD
-    ================================= */
+    /* =========================================
+       TARJETA PRINCIPAL
+    ========================================= */
 
     .card {
 
@@ -155,41 +196,46 @@
 
       overflow: hidden;
 
-      background: var(--card);
+      width: 100%;
+
+      padding:
+        34px 34px 27px;
 
       border:
         1px solid
-        rgba(214,222,211,.9);
+        rgba(215, 224, 212, .95);
 
       border-radius: 34px;
 
-      padding:
-        34px 32px 28px;
+      background:
+        rgba(255, 255, 255, .96);
 
       box-shadow:
 
         0 35px 90px
-        rgba(40,65,44,.13),
+        rgba(42, 66, 46, .13),
 
         0 8px 25px
-        rgba(40,65,44,.05);
+        rgba(42, 66, 46, .05);
 
     }
 
 
-    /* decoraciones */
+    /* =========================================
+       DECORACIONES
+    ========================================= */
 
-    .decoration-one {
+    .decoration-top {
 
       position: absolute;
 
-      width: 230px;
+      width: 235px;
 
-      height: 230px;
+      height: 235px;
 
-      right: -130px;
+      top: -145px;
 
-      top: -135px;
+      right: -125px;
 
       border-radius: 50%;
 
@@ -199,22 +245,22 @@
     }
 
 
-    .decoration-two {
+    .decoration-bottom {
 
       position: absolute;
 
-      width: 150px;
+      width: 155px;
 
-      height: 150px;
+      height: 155px;
 
-      left: -100px;
+      left: -110px;
 
-      bottom: -95px;
+      bottom: -105px;
 
       border-radius: 50%;
 
       background:
-        #f0f4ec;
+        #f0f5ec;
 
     }
 
@@ -225,19 +271,26 @@
 
       z-index: 2;
 
+      text-align: center;
+
     }
 
 
-    /* =================================
-       TOP LABEL
-    ================================= */
+    /* =========================================
+       ETIQUETA SUPERIOR
+    ========================================= */
 
     .label {
 
-      width: fit-content;
+      display: inline-flex;
 
-      margin:
-        0 auto 26px;
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      margin-bottom: 25px;
 
       padding:
         8px 14px;
@@ -252,51 +305,37 @@
 
       font-size: 10px;
 
-      font-weight: 700;
+      font-weight: 800;
 
-      letter-spacing: 1.6px;
+      letter-spacing: 1.45px;
 
       text-transform: uppercase;
 
     }
 
 
-    .label span {
+    .label-star {
 
       color:
         var(--green);
 
-      margin-right: 5px;
+      font-size: 12px;
 
     }
 
 
-    /* =================================
-       BUSINESS HEADER
-    ================================= */
-
-    .business-header {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 15px;
-
-      margin-bottom: 23px;
-
-    }
-
+    /* =========================================
+       LOGO
+    ========================================= */
 
     .logo {
 
-      flex-shrink: 0;
+      width: 78px;
 
-      width: 67px;
+      height: 78px;
 
-      height: 67px;
-
-      border-radius: 21px;
+      margin:
+        0 auto 15px;
 
       display: flex;
 
@@ -304,15 +343,20 @@
 
       justify-content: center;
 
+      overflow: hidden;
+
+      border-radius: 24px;
+
+      border:
+        1px solid
+        #d5e0cf;
+
       background:
         linear-gradient(
           145deg,
-          #f1f5eb,
-          #e2ecdc
+          #f2f6ec,
+          #e5eedf
         );
-
-      border:
-        1px solid #d6e1d0;
 
       color:
         var(--green-dark);
@@ -322,13 +366,32 @@
       font-weight: 800;
 
       box-shadow:
-        0 8px 20px
-        rgba(51,79,55,.07);
 
-      overflow: hidden;
+        0 10px 25px
+        rgba(53, 80, 56, .08);
+
+      transition:
+        transform .25s ease;
 
     }
 
+
+    .logo:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    /*
+      PARA UN CLIENTE REAL:
+
+      <img
+        src="logo.png"
+        alt="Logo del negocio"
+      >
+    */
 
     .logo img {
 
@@ -341,12 +404,9 @@
     }
 
 
-    .business-info {
-
-      text-align: left;
-
-    }
-
+    /* =========================================
+       NOMBRE DEL NEGOCIO
+    ========================================= */
 
     .business-name {
 
@@ -355,66 +415,86 @@
         Georgia,
         serif;
 
-      font-size: 27px;
+      font-size: 31px;
 
       line-height: 1.05;
 
-      letter-spacing: -.6px;
+      letter-spacing: -.8px;
 
-      margin-bottom: 5px;
+      color:
+        var(--text);
+
+      margin-bottom: 6px;
 
     }
 
 
-    .business-location {
+    .business-subtitle {
 
       display: flex;
 
       align-items: center;
 
-      gap: 5px;
+      justify-content: center;
+
+      gap: 6px;
 
       color:
         var(--muted);
 
       font-size: 12px;
 
+      font-weight: 500;
+
+      margin-bottom: 21px;
+
     }
 
 
-    .business-location::before {
+    .business-dot {
 
-      content: "●";
+      width: 5px;
 
-      color:
+      height: 5px;
+
+      border-radius: 50%;
+
+      background:
         var(--green);
 
-      font-size: 7px;
-
     }
 
 
-    /* =================================
-       STARS
-    ================================= */
+    /* =========================================
+       VALORACIÓN
+    ========================================= */
 
     .rating {
 
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin:
+        0 auto 28px;
+
       padding:
-        18px 18px;
+        15px 18px 14px;
 
-      border-radius: 20px;
-
-      background:
-        #fafbf8;
+      max-width: 330px;
 
       border:
         1px solid
-        var(--line);
+        var(--border);
 
-      text-align: center;
+      border-radius: 18px;
 
-      margin-bottom: 28px;
+      background:
+        #fafbf8;
 
     }
 
@@ -424,13 +504,17 @@
       color:
         var(--gold);
 
-      font-size: 26px;
-
-      letter-spacing: 4px;
+      font-size: 25px;
 
       line-height: 1;
 
-      margin-bottom: 7px;
+      letter-spacing: 3px;
+
+      margin-bottom: 6px;
+
+      text-shadow:
+        0 5px 14px
+        rgba(242, 181, 29, .14);
 
     }
 
@@ -440,25 +524,25 @@
       color:
         var(--muted);
 
-      font-size: 11px;
+      font-size: 10px;
 
       font-weight: 600;
 
     }
 
 
-    /* =================================
-       MAIN MESSAGE
-    ================================= */
+    /* =========================================
+       PEQUEÑO EYEBROW
+    ========================================= */
 
     .eyebrow {
 
-      text-align: center;
+      margin-bottom: 9px;
 
       color:
         var(--green);
 
-      font-size: 11px;
+      font-size: 10px;
 
       font-weight: 800;
 
@@ -466,56 +550,61 @@
 
       text-transform: uppercase;
 
-      margin-bottom: 10px;
-
     }
 
 
+    /* =========================================
+       TITULAR
+    ========================================= */
+
     h1 {
+
+      max-width: 430px;
+
+      margin:
+        0 auto 15px;
 
       font-family:
         "Playfair Display",
         Georgia,
         serif;
 
-      font-size: 38px;
+      font-size: 37px;
 
-      line-height: 1.04;
+      line-height: 1.07;
 
-      letter-spacing: -1.4px;
-
-      text-align: center;
+      letter-spacing: -1.25px;
 
       color:
         var(--text);
 
-      margin-bottom: 17px;
-
     }
 
 
+    /* =========================================
+       DESCRIPCIÓN
+    ========================================= */
+
     .description {
 
-      max-width: 410px;
+      max-width: 415px;
 
       margin:
-        0 auto 26px;
-
-      text-align: center;
+        0 auto 25px;
 
       color:
         var(--muted);
 
-      font-size: 15px;
+      font-size: 14.5px;
 
       line-height: 1.65;
 
     }
 
 
-    /* =================================
-       GOOGLE BUTTON
-    ================================= */
+    /* =========================================
+       BOTÓN GOOGLE
+    ========================================= */
 
     .review-button {
 
@@ -529,56 +618,75 @@
 
       justify-content: center;
 
-      gap: 12px;
+      gap: 11px;
 
       border-radius: 17px;
 
       background:
-        var(--green);
+        linear-gradient(
+          135deg,
+          #559358,
+          #438248
+        );
 
-      color: white;
+      color:
+        #ffffff;
 
       font-size: 15px;
 
-      font-weight: 700;
+      font-weight: 800;
 
       box-shadow:
-        0 16px 30px
-        rgba(76,138,80,.22);
+        0 17px 34px
+        rgba(76, 139, 80, .24);
 
       transition:
+
         transform .22s ease,
-        background .22s ease,
-        box-shadow .22s ease;
+
+        box-shadow .22s ease,
+
+        background .22s ease;
 
     }
 
 
     .review-button:hover {
 
-      background:
-        var(--green-dark);
-
       transform:
         translateY(-3px);
 
+      background:
+        linear-gradient(
+          135deg,
+          #4e8c52,
+          #376f3c
+        );
+
       box-shadow:
-        0 20px 38px
-        rgba(76,138,80,.28);
+        0 21px 40px
+        rgba(76, 139, 80, .29);
 
     }
 
 
-    .google {
+    .review-button:active {
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    /* =========================================
+       GOOGLE ICON
+    ========================================= */
+
+    .google-icon {
 
       width: 31px;
 
       height: 31px;
-
-      border-radius: 50%;
-
-      background:
-        white;
 
       display: flex;
 
@@ -586,34 +694,47 @@
 
       justify-content: center;
 
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background:
+        #ffffff;
+
       color:
         #4285f4;
+
+      font-family:
+        Arial,
+        sans-serif;
 
       font-size: 18px;
 
       font-weight: 900;
 
       box-shadow:
-        0 3px 8px
-        rgba(0,0,0,.12);
+        0 3px 9px
+        rgba(0, 0, 0, .11);
 
     }
 
 
     .arrow {
 
+      margin-left: 3px;
+
       font-size: 18px;
 
-      opacity: .8;
+      line-height: 1;
 
-      margin-left: 2px;
+      opacity: .85;
 
     }
 
 
-    /* =================================
-       TRUST
-    ================================= */
+    /* =========================================
+       SEGURIDAD / CONFIANZA
+    ========================================= */
 
     .trust {
 
@@ -623,25 +744,25 @@
 
       justify-content: center;
 
-      gap: 8px;
+      gap: 7px;
 
-      margin-top: 16px;
+      margin-top: 14px;
 
       color:
-        #78867a;
+        #7b887d;
 
-      font-size: 11px;
+      font-size: 10.5px;
 
       font-weight: 600;
 
     }
 
 
-    .check {
+    .trust-check {
 
-      width: 20px;
+      width: 19px;
 
-      height: 20px;
+      height: 19px;
 
       display: flex;
 
@@ -657,16 +778,16 @@
       color:
         var(--green);
 
-      font-size: 11px;
+      font-size: 10px;
 
       font-weight: 900;
 
     }
 
 
-    /* =================================
-       SEPARATOR
-    ================================= */
+    /* =========================================
+       SEPARADOR
+    ========================================= */
 
     .separator {
 
@@ -677,12 +798,14 @@
       gap: 12px;
 
       margin:
-        27px 0 20px;
+        25px 0 18px;
 
       color:
-        #a0aaa1;
+        #a1aaa3;
 
-      font-size: 9px;
+      font-size: 8px;
+
+      font-weight: 600;
 
       letter-spacing: 1.8px;
 
@@ -701,64 +824,66 @@
       height: 1px;
 
       background:
-        var(--line);
+        var(--border);
 
     }
 
 
-    /* =================================
-       BOTTOM MESSAGE
-    ================================= */
+    /* =========================================
+       MENSAJE FINAL
+    ========================================= */
 
     .bottom-message {
-
-      text-align: center;
 
       color:
         var(--muted);
 
-      font-size: 12px;
+      font-size: 11.5px;
 
-      line-height: 1.5;
+      line-height: 1.55;
 
     }
 
 
     .bottom-message strong {
 
+      display: block;
+
+      margin-bottom: 3px;
+
       color:
         var(--text);
+
+      font-size: 12px;
 
       font-weight: 700;
 
     }
 
 
-    /* =================================
-       BRAND
-    ================================= */
+    /* =========================================
+       MARCA
+    ========================================= */
 
     .brand {
 
-      margin-top: 23px;
+      margin-top: 20px;
 
-      padding-top: 18px;
+      padding-top: 17px;
 
       border-top:
         1px solid
-        var(--line);
-
-      text-align: center;
+        var(--border);
 
       color:
         #9aa39c;
 
-      font-size: 10px;
+      font-size: 9.5px;
 
     }
 
 
-    .brand a {
+    .brand-link {
 
       color:
         var(--green);
@@ -768,16 +893,24 @@
     }
 
 
-    /* =================================
+    .brand-link:hover {
+
+      text-decoration:
+        underline;
+
+    }
+
+
+    /* =========================================
        MOBILE
-    ================================= */
+    ========================================= */
 
     @media (max-width: 520px) {
 
       body {
 
         padding:
-          14px 11px;
+          13px 10px;
 
       }
 
@@ -785,9 +918,9 @@
       .card {
 
         padding:
-          27px 20px 22px;
+          28px 19px 22px;
 
-        border-radius: 28px;
+        border-radius: 29px;
 
       }
 
@@ -796,32 +929,45 @@
 
         font-size: 8px;
 
-        letter-spacing: 1.25px;
+        letter-spacing: 1.15px;
+
+        padding:
+          8px 11px;
 
       }
 
 
       .logo {
 
-        width: 60px;
+        width: 70px;
 
-        height: 60px;
+        height: 70px;
 
-        border-radius: 18px;
+        border-radius: 22px;
 
       }
 
 
       .business-name {
 
-        font-size: 24px;
+        font-size: 28px;
 
       }
 
 
-      .business-location {
+      .business-subtitle {
 
-        font-size: 10px;
+        font-size: 11px;
+
+      }
+
+
+      .rating {
+
+        max-width: 300px;
+
+        padding:
+          13px 15px;
 
       }
 
@@ -830,14 +976,16 @@
 
         font-size: 23px;
 
-        letter-spacing: 3px;
+        letter-spacing: 2px;
 
       }
 
 
       h1 {
 
-        font-size: 32px;
+        font-size: 31px;
+
+        line-height: 1.06;
 
         letter-spacing: -1px;
 
@@ -846,7 +994,9 @@
 
       .description {
 
-        font-size: 14px;
+        font-size: 13.5px;
+
+        line-height: 1.6;
 
       }
 
@@ -856,6 +1006,73 @@
         min-height: 58px;
 
         font-size: 14px;
+
+      }
+
+
+      .trust {
+
+        font-size: 9.5px;
+
+      }
+
+    }
+
+
+    /* =========================================
+       PANTALLAS MUY PEQUEÑAS
+    ========================================= */
+
+    @media (max-width: 360px) {
+
+      .card {
+
+        padding:
+          24px 16px 20px;
+
+      }
+
+
+      .label {
+
+        font-size: 7px;
+
+      }
+
+
+      .logo {
+
+        width: 64px;
+
+        height: 64px;
+
+      }
+
+
+      .business-name {
+
+        font-size: 25px;
+
+      }
+
+
+      h1 {
+
+        font-size: 28px;
+
+      }
+
+
+      .description {
+
+        font-size: 13px;
+
+      }
+
+
+      .review-button {
+
+        font-size: 13px;
 
       }
 
@@ -875,99 +1092,119 @@
     <main class="card">
 
 
-      <div class="decoration-one"></div>
+      <!-- DECORACIÓN -->
 
-      <div class="decoration-two"></div>
+      <div class="decoration-top"></div>
+
+      <div class="decoration-bottom"></div>
 
 
       <div class="content">
 
 
-        <!-- =================================
-             LABEL
-        ================================== -->
+        <!-- =========================
+             ETIQUETA
+        ========================== -->
 
         <div class="label">
 
-          <span>✦</span>
+          <span class="label-star">
+            ✦
+          </span>
 
           Tu opinión nos importa
 
         </div>
 
 
-        <!-- =================================
-             NEGOCIO
-        ================================== -->
+        <!-- =========================
+             LOGO
+        ========================== -->
 
-        <div class="business-header">
+        <div class="logo">
 
+          <!--
+            CUANDO SEA UN CLIENTE REAL:
 
-          <div class="logo">
+            <img
+              src="logo.png"
+              alt="Logo del negocio"
+            >
+          -->
 
-            <!--
-
-              PARA UN CLIENTE REAL:
-
-              <img
-                src="logo.png"
-                alt="Logo del negocio"
-              >
-
-            -->
-
-            OF
-
-          </div>
-
-
-          <div class="business-info">
-
-            <div class="business-name">
-              Tu negocio
-            </div>
-
-            <div class="business-location">
-              Tu experiencia cuenta
-            </div>
-
-          </div>
-
+          OF
 
         </div>
 
 
-        <!-- =================================
-             RATING
-        ================================== -->
+        <!-- =========================
+             NEGOCIO
+        ========================== -->
+
+        <div class="business-name">
+
+          Tu negocio
+
+        </div>
+
+
+        <div class="business-subtitle">
+
+          <span class="business-dot"></span>
+
+          Tu experiencia cuenta
+
+        </div>
+
+
+        <!-- =========================
+             ESTRELLAS
+        ========================== -->
 
         <div class="rating">
 
           <div class="stars">
+
             ★★★★★
+
           </div>
+
 
           <div class="rating-text">
+
             Ayúdanos a seguir creciendo
+
           </div>
 
         </div>
 
 
-        <!-- =================================
-             MESSAGE
-        ================================== -->
+        <!-- =========================
+             EYEBROW
+        ========================== -->
 
         <div class="eyebrow">
+
           Queremos saber de ti
+
         </div>
 
 
+        <!-- =========================
+             TITULAR
+        ========================== -->
+
         <h1>
+
           ¿Qué te ha parecido
           tu experiencia?
+
         </h1>
 
+
+        <!-- =========================
+             DESCRIPCIÓN
+        ========================== -->
 
         <p class="description">
 
@@ -980,24 +1217,26 @@
         </p>
 
 
-        <!-- =================================
+        <!-- =========================
              GOOGLE
-        ================================== -->
+        ========================== -->
 
         <a
           class="review-button"
           href="https://www.google.com/"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
 
-          <span class="google">
+          <span class="google-icon">
             G
           </span>
+
 
           <span>
             Dejar una reseña en Google
           </span>
+
 
           <span class="arrow">
             →
@@ -1006,13 +1245,13 @@
         </a>
 
 
-        <!-- =================================
-             TRUST
-        ================================== -->
+        <!-- =========================
+             CONFIANZA
+        ========================== -->
 
         <div class="trust">
 
-          <span class="check">
+          <span class="trust-check">
             ✓
           </span>
 
@@ -1021,18 +1260,20 @@
         </div>
 
 
-        <!-- =================================
-             SEPARATOR
-        ================================== -->
+        <!-- =========================
+             SEPARADOR
+        ========================== -->
 
         <div class="separator">
+
           Gracias
+
         </div>
 
 
-        <!-- =================================
-             BOTTOM
-        ================================== -->
+        <!-- =========================
+             MENSAJE FINAL
+        ========================== -->
 
         <div class="bottom-message">
 
@@ -1040,23 +1281,24 @@
             Gracias por elegirnos.
           </strong>
 
-          <br>
-
           Tu opinión puede ayudar a que otras
           personas también nos conozcan.
 
         </div>
 
 
-        <!-- =================================
-             BRAND
-        ================================== -->
+        <!-- =========================
+             OPINA FÁCIL
+        ========================== -->
 
         <div class="brand">
 
           Experiencia creada por
 
-          <a href="/">
+          <a
+            href="/"
+            class="brand-link"
+          >
             Opina Fácil
           </a>
 
