@@ -2258,12 +2258,30 @@
     }
 
 
-    .price-card {
+    .pricing-grid {
       margin-top:
         38px;
 
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        22px;
+
+      align-items:
+        stretch;
+    }
+
+
+    .price-card {
+      position:
+        relative;
+
       padding:
-        48px;
+        42px 38px;
 
       background:
         white;
@@ -2276,6 +2294,78 @@
 
       box-shadow:
         var(--shadow);
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      transition:
+        .25s ease;
+    }
+
+
+    .price-card:hover {
+      transform:
+        translateY(-6px);
+
+      box-shadow:
+        0 30px 75px rgba(35, 58, 39, .13);
+    }
+
+
+    .price-card.featured {
+      border:
+        2px solid var(--green);
+
+      box-shadow:
+        0 28px 70px rgba(77,139,79,.15);
+    }
+
+
+    .price-card.featured::before {
+      content:
+        "MÁS ELEGIDO";
+
+      position:
+        absolute;
+
+      top:
+        -13px;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      padding:
+        6px 14px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      font-size:
+        10px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        1.8px;
+
+      white-space:
+        nowrap;
+
+      box-shadow:
+        0 8px 18px rgba(77,139,79,.22);
     }
 
 
@@ -2363,6 +2453,9 @@
 
       list-style:
         none;
+
+      flex:
+        1;
     }
 
 
@@ -2842,6 +2935,15 @@
       }
 
 
+      .pricing-grid {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          28px;
+      }
+
+
       .price-card {
         padding:
           35px 20px;
@@ -2888,630 +2990,241 @@
 
 <body>
 
+  <header>
 
-<header>
+    <nav class="container nav">
 
-  <nav class="container nav">
+      <a href="/" class="brand">
 
-    <a href="/" class="brand">
+        <img
+          src="favicon.png"
+          class="brand-logo"
+          alt="Opina Fácil"
+        >
 
-      <img
-        src="favicon.png"
-        class="brand-logo"
-        alt="Opina Fácil"
-      >
+        <span class="brand-text">
 
-      <span class="brand-text">
+          <span class="brand-name">
+            Opina Fácil
+          </span>
 
-        <span class="brand-name">
-          Opina Fácil
+          <span class="brand-sub">
+            RESEÑAS GOOGLE
+          </span>
+
         </span>
 
-        <span class="brand-sub">
-          RESEÑAS GOOGLE
-        </span>
-
-      </span>
-
-    </a>
-
-
-    <div class="nav-links">
-
-      <a href="#como-funciona">
-        Cómo funciona
       </a>
 
-      <a href="#ventajas">
-        Ventajas
-      </a>
 
-      <a href="#ejemplo">
-        Ejemplo
-      </a>
+      <div class="nav-links">
 
-      <a href="#precio">
-        Precio
-      </a>
+        <a href="#como-funciona">
+          Cómo funciona
+        </a>
 
-      <a href="#faq">
-        FAQ
-      </a>
+        <a href="#ventajas">
+          Ventajas
+        </a>
 
-    </div>
+        <a href="#ejemplo">
+          Ejemplo
+        </a>
 
+        <a href="#precio">
+          Precio
+        </a>
 
-    <div class="nav-actions">
-
-      <a
-        class="phone-link"
-        href="tel:+34606390082"
-      >
-        ☎ 606 390 082
-      </a>
-
-      <a
-        class="wa-btn"
-        target="_blank"
-        rel="noopener"
-        href="https://wa.me/34606390082?text=Hola%2C%20me%20interesa%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
-      >
-        WhatsApp
-      </a>
-
-    </div>
-
-  </nav>
-
-</header>
-
-
-<main>
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="container hero-grid">
-
-
-      <div class="reveal">
-
-        <div class="eyebrow">
-
-          <span class="stars">
-            ★★★★★
-          </span>
-
-          Más reseñas, más confianza
-
-        </div>
-
-
-        <h1>
-
-          Convierte a tus clientes felices en
-
-          <span>
-            reseñas de Google.
-          </span>
-
-        </h1>
-
-
-        <p class="hero-text">
-
-          Diseñamos un cartel con QR y una página web
-          personalizada con tus colores, tu logo y un
-          botón directo para opinar.
-
-          Tu cliente escanea, pulsa y listo.
-
-        </p>
-
-
-        <div class="hero-actions">
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener"
-            href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20de%20Opina%20F%C3%A1cil."
-          >
-            💬 Quiero mi cartel
-          </a>
-
-
-          <a
-            class="btn btn-secondary"
-            href="#ejemplo"
-          >
-            Ver un ejemplo →
-          </a>
-
-        </div>
-
-
-        <div class="hero-checks">
-
-          <span>
-            Sin apps ni registros
-          </span>
-
-          <span>
-            Diseño a medida
-          </span>
-
-          <span>
-            Listo para usar
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="hero-visual reveal delay-1">
-
-        <div class="hero-photo">
-
-          <div class="scene">
-
-            <div class="shelf"></div>
-
-            <div class="flowers">
-              ✿　✾<br>
-              ❀　✿
-            </div>
-
-            <div class="vase"></div>
-
-            <div class="table"></div>
-
-
-            <div class="hero-sign">
-
-              <div class="hero-sign-logo">
-                OF
-              </div>
-
-              <div class="hero-sign-title">
-                Opina Fácil
-              </div>
-
-              <div class="hero-sign-copy">
-                Tu opinión nos ayuda<br>
-                a crecer y mejorar
-              </div>
-
-
-              <!-- QR REAL -->
-
-              <div
-                class="real-qr"
-                id="heroQR"
-              ></div>
-
-
-              <div class="sign-button">
-                ¡Escanéame!
-              </div>
-
-            </div>
-
-
-            <div class="sign-base"></div>
-
-          </div>
-
-        </div>
-
-
-        <div class="floating-card floating-top">
-          ✦ Cartel + web + QR
-        </div>
-
-
-        <div class="floating-card floating-bottom">
-
-          <div class="mini-circle">
-            OF
-          </div>
-
-          <div>
-
-            <strong>
-              Escanea y opina
-            </strong>
-
-            <small>
-              en menos de 15 segundos
-            </small>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CATEGORÍAS -->
-
-  <div class="category-strip">
-
-    <div class="category-track">
-
-      <div class="category-item">TIENDAS</div>
-      <div class="category-item">GIMNASIOS</div>
-      <div class="category-item">HOTELES</div>
-      <div class="category-item">ESTÉTICA</div>
-      <div class="category-item">FISIOTERAPIA</div>
-      <div class="category-item">RESTAURANTES</div>
-      <div class="category-item">PELUQUERÍAS</div>
-      <div class="category-item">TALLERES</div>
-
-      <div class="category-item">TIENDAS</div>
-      <div class="category-item">GIMNASIOS</div>
-      <div class="category-item">HOTELES</div>
-      <div class="category-item">ESTÉTICA</div>
-      <div class="category-item">FISIOTERAPIA</div>
-      <div class="category-item">RESTAURANTES</div>
-      <div class="category-item">PELUQUERÍAS</div>
-      <div class="category-item">TALLERES</div>
-
-    </div>
-
-  </div>
-
-
-  <!-- PASOS -->
-
-  <section id="como-funciona">
-
-    <div class="container">
-
-      <div class="center-heading reveal">
-
-        <div class="section-label">
-          ASÍ DE FÁCIL
-        </div>
-
-        <h2 class="section-title">
-          3 pasos para conseguir más reseñas
-        </h2>
-
-        <p class="section-copy">
-
-          Nosotros hacemos el trabajo técnico y creativo.
-          Tú solo colocas el cartel.
-
-        </p>
-
-      </div>
-
-
-      <div class="steps-grid">
-
-        <article class="step reveal">
-
-          <span class="step-number">
-            01
-          </span>
-
-          <div class="step-icon">
-            💬
-          </div>
-
-          <h3>
-            Nos cuentas tu negocio
-          </h3>
-
-          <p>
-            Nos escribes por WhatsApp y nos pasas tu logo,
-            colores y el enlace de tu ficha de Google.
-          </p>
-
-        </article>
-
-
-        <article class="step reveal delay-1">
-
-          <span class="step-number">
-            02
-          </span>
-
-          <div class="step-icon">
-            🎨
-          </div>
-
-          <h3>
-            Diseñamos cartel y web
-          </h3>
-
-          <p>
-            Creamos un cartel personalizado y una página
-            web adaptada a la imagen de tu negocio.
-          </p>
-
-        </article>
-
-
-        <article class="step reveal delay-2">
-
-          <span class="step-number">
-            03
-          </span>
-
-          <div class="step-icon">
-            ⌁
-          </div>
-
-          <h3>
-            Colocas y recibes reseñas
-          </h3>
-
-          <p>
-            El cliente escanea, llega a tu página y tiene
-            un acceso claro para compartir su experiencia.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- VENTAJAS -->
-
-  <section id="ventajas">
-
-    <div class="container">
-
-      <div class="benefits reveal">
-
-        <div class="section-label">
-          POR QUÉ FUNCIONA
-        </div>
-
-        <h2 class="section-title">
-          Menos pasos.<br>
-          Más fácil para tu cliente.
-        </h2>
-
-        <p
-          class="section-copy"
-          style="margin-top:18px"
-        >
-          Una buena experiencia no debería perderse
-          porque el cliente no sabe dónde dejar la reseña.
-        </p>
-
-
-        <div class="benefit-grid">
-
-
-          <div class="benefit">
-
-            <div class="benefit-icon">
-              ↗
-            </div>
-
-            <div>
-
-              <h3>
-                Acceso directo
-              </h3>
-
-              <p>
-                El cliente no tiene que buscar tu negocio
-                manualmente para opinar.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="benefit">
-
-            <div class="benefit-icon">
-              ▣
-            </div>
-
-            <div>
-
-              <h3>
-                Proceso sin fricción
-              </h3>
-
-              <p>
-                Escanea, abre la página y pulsa.
-                Todo pensado para móvil.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="benefit">
-
-            <div class="benefit-icon">
-              ✦
-            </div>
-
-            <div>
-
-              <h3>
-                Diseño con tu marca
-              </h3>
-
-              <p>
-                Tu logo, tus colores y tu mensaje.
-                Nada de carteles genéricos.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="benefit">
-
-            <div class="benefit-icon">
-              ✓
-            </div>
-
-            <div>
-
-              <h3>
-                Todo incluido
-              </h3>
-
-              <p>
-                Cartel, QR, página personalizada y
-                configuración inicial.
-              </p>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EXPERIENCIA -->
-
-  <section id="ejemplo">
-
-    <div class="container experience">
-
-
-      <div class="experience-copy reveal">
-
-        <div class="section-label">
-          ASÍ SE VE
-        </div>
-
-
-        <h2 class="section-title">
-          La experiencia de tu cliente,
-          simplificada.
-        </h2>
-
-
-        <p
-          class="section-copy"
-          style="margin-top:18px"
-        >
-          Al escanear el QR llega a una página con
-          la identidad de tu negocio, un mensaje cercano
-          y un botón claro para escribir su reseña.
-        </p>
-
-
-        <ul>
-
-          <li>
-            Página web propia con tu imagen de marca
-          </li>
-
-          <li>
-            Botón directo a Google
-          </li>
-
-          <li>
-            Diseño adaptado a móvil
-          </li>
-
-          <li>
-            Sin publicidad de terceros
-          </li>
-
-        </ul>
-
-
-        <a
-          class="btn btn-primary"
-          href="https://opinafacil.es/demo"
-          target="_blank"
-        >
-          💬 Ver la demo
+        <a href="#faq">
+          FAQ
         </a>
 
       </div>
 
 
-      <!-- PREVIEW PARECIDO A LA DEMO REAL -->
+      <div class="nav-actions">
 
-      <div class="demo-preview reveal delay-1">
+        <a
+          class="phone-link"
+          href="tel:+34606390082"
+        >
+          ☎ 606 390 082
+        </a>
 
-        <div class="preview-glow"></div>
+        <a
+          class="wa-btn"
+          target="_blank"
+          rel="noopener"
+          href="https://wa.me/34606390082?text=Hola%2C%20me%20interesa%20Opina%20F%C3%A1cil%20para%20mi%20negocio."
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
 
 
-        <div class="phone">
+  <main>
 
-          <div class="phone-top"></div>
+    <!-- HERO -->
 
+    <section class="hero">
 
-          <div class="phone-content">
+      <div class="container hero-grid">
 
-            <div class="preview-logo">
-              OF
-            </div>
+        <div class="reveal">
 
+          <div class="eyebrow">
 
-            <div class="preview-business">
-              Tu negocio
-            </div>
-
-
-            <div class="preview-stars">
+            <span class="stars">
               ★★★★★
-            </div>
+            </span>
+
+            Más reseñas, más confianza
+
+          </div>
 
 
-            <div class="preview-title">
-              ¿Te ha gustado
-              tu experiencia?
-            </div>
+          <h1>
+
+            Convierte a tus clientes felices en
+
+            <span>
+              reseñas de Google.
+            </span>
+
+          </h1>
 
 
-            <p class="preview-text">
-              Tu opinión nos ayuda muchísimo
-              a seguir creciendo. Si has disfrutado
-              de tu experiencia, nos encantaría
-              conocer tu opinión.
-            </p>
+          <p class="hero-text">
 
+            Diseñamos un cartel con QR y una página web
+            personalizada con tus colores, tu logo y un
+            botón directo para opinar.
+
+            Tu cliente escanea, pulsa y listo.
+
+          </p>
+
+
+          <div class="hero-actions">
 
             <a
-              href="https://opinafacil.es/demo"
-              class="preview-button"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20de%20Opina%20F%C3%A1cil."
             >
-              <span>G</span>
-              Dejar una reseña en Google
+              💬 Quiero mi cartel
             </a>
 
 
-            <div class="preview-note">
-              Página personalizada con tu logo,
-              tus colores y tu enlace.
+            <a
+              class="btn btn-secondary"
+              href="#ejemplo"
+            >
+              Ver un ejemplo →
+            </a>
+
+          </div>
+
+
+          <div class="hero-checks">
+
+            <span>
+              Sin apps ni registros
+            </span>
+
+            <span>
+              Diseño a medida
+            </span>
+
+            <span>
+              Listo para usar
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual reveal delay-1">
+
+          <div class="hero-photo">
+
+            <div class="scene">
+
+              <div class="shelf"></div>
+
+              <div class="flowers">
+                ✿　✾<br>
+                ❀　✿
+              </div>
+
+              <div class="vase"></div>
+
+              <div class="table"></div>
+
+
+              <div class="hero-sign">
+
+                <div class="hero-sign-logo">
+                  OF
+                </div>
+
+                <div class="hero-sign-title">
+                  Opina Fácil
+                </div>
+
+                <div class="hero-sign-copy">
+                  Tu opinión nos ayuda<br>
+                  a crecer y mejorar
+                </div>
+
+
+                <div
+                  class="real-qr"
+                  id="heroQR"
+                ></div>
+
+
+                <div class="sign-button">
+                  ¡Escanéame!
+                </div>
+
+              </div>
+
+
+              <div class="sign-base"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card floating-top">
+            ✦ Cartel + web + QR
+          </div>
+
+          <div class="floating-card floating-bottom">
+
+            <div class="mini-circle">
+              OF
+            </div>
+
+            <div>
+
+              <strong>
+                Escanea y opina
+              </strong>
+
+              <small>
+                en menos de 15 segundos
+              </small>
+
             </div>
 
           </div>
@@ -3520,265 +3233,631 @@
 
       </div>
 
+    </section>
+
+
+    <!-- CATEGORÍAS -->
+
+    <div class="category-strip">
+
+      <div class="category-track">
+
+        <div class="category-item">TIENDAS</div>
+        <div class="category-item">GIMNASIOS</div>
+        <div class="category-item">HOTELES</div>
+        <div class="category-item">ESTÉTICA</div>
+        <div class="category-item">FISIOTERAPIA</div>
+        <div class="category-item">RESTAURANTES</div>
+        <div class="category-item">PELUQUERÍAS</div>
+        <div class="category-item">TALLERES</div>
+
+        <div class="category-item">TIENDAS</div>
+        <div class="category-item">GIMNASIOS</div>
+        <div class="category-item">HOTELES</div>
+        <div class="category-item">ESTÉTICA</div>
+        <div class="category-item">FISIOTERAPIA</div>
+        <div class="category-item">RESTAURANTES</div>
+        <div class="category-item">PELUQUERÍAS</div>
+        <div class="category-item">TALLERES</div>
+
+      </div>
+
     </div>
 
-  </section>
 
+    <!-- PASOS -->
 
-  <!-- CARTEL CAMBIANTE -->
+    <section id="como-funciona">
 
-  <section>
+      <div class="container">
 
-    <div class="container">
-
-      <div class="showcase reveal">
-
-
-        <div class="showcase-copy">
+        <div class="center-heading reveal">
 
           <div class="section-label">
-            UN CARTEL PARA CADA NEGOCIO
+            ASÍ DE FÁCIL
           </div>
-
 
           <h2 class="section-title">
-            No vendemos un QR.
-            Vendemos una experiencia.
+            3 pasos para conseguir más reseñas
           </h2>
 
+          <p class="section-copy">
 
-          <p>
-            El diseño cambia según el tipo de negocio.
-            Aquí puedes ver algunos ejemplos de cómo
-            podría adaptarse.
+            Nosotros hacemos el trabajo técnico y creativo.
+            Tú solo colocas el cartel.
+
           </p>
-
-
-          <ul class="showcase-list">
-
-            <li>
-              Diseño personalizado
-            </li>
-
-            <li>
-              QR real y escaneable
-            </li>
-
-            <li>
-              Página web personalizada
-            </li>
-
-            <li>
-              Preparado para mostrador, mesa o recepción
-            </li>
-
-          </ul>
-
-
-          <a
-            class="btn btn-primary"
-            target="_blank"
-            href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20personalizado."
-          >
-            Quiero el mío →
-          </a>
 
         </div>
 
 
-        <div class="cartel-stage">
+        <div class="steps-grid">
 
-          <div class="cartel-bg"></div>
+          <article class="step reveal">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <div class="step-icon">
+              💬
+            </div>
+
+            <h3>
+              Nos cuentas tu negocio
+            </h3>
+
+            <p>
+              Nos escribes por WhatsApp y nos pasas tu logo,
+              colores y el enlace de tu ficha de Google.
+            </p>
+
+          </article>
 
 
-          <div class="category-bubble bubble-top">
-            ✦ Cartel personalizado
+          <article class="step reveal delay-1">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <div class="step-icon">
+              🎨
+            </div>
+
+            <h3>
+              Diseñamos cartel y web
+            </h3>
+
+            <p>
+              Creamos un cartel personalizado y una página
+              web adaptada a la imagen de tu negocio.
+            </p>
+
+          </article>
+
+
+          <article class="step reveal delay-2">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <div class="step-icon">
+              ⌁
+            </div>
+
+            <h3>
+              Colocas y recibes reseñas
+            </h3>
+
+            <p>
+              El cliente escanea, llega a tu página y tiene
+              un acceso claro para compartir su experiencia.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VENTAJAS -->
+
+    <section id="ventajas">
+
+      <div class="container">
+
+        <div class="benefits reveal">
+
+          <div class="section-label">
+            POR QUÉ FUNCIONA
           </div>
 
+          <h2 class="section-title">
+            Hacerlo fácil cambia el resultado.
+          </h2>
 
-          <div class="cartel">
+          <div class="benefit-grid">
 
-            <div
-              class="cartel-business"
-              id="businessName"
+            <div class="benefit">
+
+              <div class="benefit-icon">
+                ✓
+              </div>
+
+              <div>
+
+                <h3>
+                  Menos pasos
+                </h3>
+
+                <p>
+                  El cliente no tiene que buscar tu negocio
+                  manualmente en Google.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+              <div class="benefit-icon">
+                ★
+              </div>
+
+              <div>
+
+                <h3>
+                  Más confianza
+                </h3>
+
+                <p>
+                  Una buena presencia en Google ayuda a que
+                  nuevos clientes confíen en tu negocio.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+              <div class="benefit-icon">
+                QR
+              </div>
+
+              <div>
+
+                <h3>
+                  Fácil de usar
+                </h3>
+
+                <p>
+                  Solo necesitan abrir la cámara del móvil
+                  y escanear.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+              <div class="benefit-icon">
+                ∞
+              </div>
+
+              <div>
+
+                <h3>
+                  Sin cuotas
+                </h3>
+
+                <p>
+                  Un único pago y el sistema queda preparado
+                  para utilizarlo.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCIA -->
+
+    <section id="ejemplo">
+
+      <div class="container">
+
+        <div class="experience">
+
+          <div class="experience-copy reveal">
+
+            <div class="section-label">
+              LA EXPERIENCIA
+            </div>
+
+            <h2 class="section-title">
+              Tu cliente escanea.
+              Tú ganas una oportunidad.
+            </h2>
+
+            <ul>
+
+              <li>
+                Página personalizada con tu identidad
+              </li>
+
+              <li>
+                Mensaje claro y directo
+              </li>
+
+              <li>
+                Botón directo a Google
+              </li>
+
+              <li>
+                Experiencia rápida desde el móvil
+              </li>
+
+            </ul>
+
+            <a
+              href="https://opinafacil.es/demo"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
             >
-              Café Bosque
-            </div>
-
-
-            <div
-              class="cartel-sub"
-              id="businessSub"
-            >
-              Tu opinión nos ayuda a crecer
-            </div>
-
-
-            <div
-              class="cartel-qr"
-              id="showcaseQR"
-            ></div>
-
-
-            <div class="cartel-scan">
-              ¡Escanéame!
-            </div>
+              Ver demo real →
+            </a>
 
           </div>
 
 
-          <div class="cartel-base"></div>
+          <div class="demo-preview reveal delay-1">
+
+            <div class="preview-glow"></div>
+
+            <div class="phone">
+
+              <div class="phone-top"></div>
+
+              <div class="phone-content">
+
+                <div class="preview-logo">
+                  TU LOGO
+                </div>
+
+                <div class="preview-business">
+                  Tu negocio
+                </div>
+
+                <div class="preview-stars">
+                  ★★★★★
+                </div>
+
+                <div class="preview-title">
+                  ¿Te ha gustado tu experiencia?
+                </div>
+
+                <div class="preview-text">
+                  Tu opinión nos ayuda muchísimo.
+                  Comparte tu experiencia en Google.
+                </div>
+
+                <div class="preview-button">
+                  G&nbsp;&nbsp; Dejar una reseña en Google
+                </div>
+
+                <div class="preview-note">
+                  Gracias por confiar en nosotros ❤️
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-          <div
-            class="category-bubble bubble-bottom"
-            id="businessBubble"
+    <!-- CARTEL SHOWCASE -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="showcase">
+
+          <div class="showcase-copy reveal">
+
+            <div class="section-label">
+              EL CARTEL
+            </div>
+
+            <h2 class="section-title">
+              Diseñado para que
+              se vea y se use.
+            </h2>
+
+            <p>
+              Un cartel elegante y personalizado para colocar
+              en recepción, mostrador o cualquier punto donde
+              tus clientes tengan un momento para dejar su opinión.
+            </p>
+
+            <ul class="showcase-list">
+
+              <li>
+                Diseño personalizado
+              </li>
+
+              <li>
+                QR grande y fácil de escanear
+              </li>
+
+              <li>
+                Adaptado a tu marca
+              </li>
+
+              <li>
+                Formato pensado para el negocio
+              </li>
+
+            </ul>
+
+          </div>
+
+
+          <div class="cartel-stage reveal delay-1">
+
+            <div class="cartel-bg"></div>
+
+            <div class="category-bubble bubble-top">
+              QR personalizado
+            </div>
+
+            <div class="category-bubble bubble-bottom">
+              Listo para colocar
+            </div>
+
+            <div class="cartel">
+
+              <div class="cartel-business">
+                Tu negocio
+              </div>
+
+              <div class="cartel-sub">
+                Tu opinión nos ayuda a crecer
+              </div>
+
+              <div
+                class="cartel-qr"
+                id="showcaseQR"
+              ></div>
+
+              <div class="cartel-scan">
+                ESCANEA Y OPINA
+              </div>
+
+            </div>
+
+            <div class="cartel-base"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRECIO -->
+
+    <section id="precio">
+
+      <div class="container pricing-wrap">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            UN ÚNICO PAGO
+          </div>
+
+          <h2 class="section-title">
+            Todo preparado para empezar.
+          </h2>
+
+          <p
+            class="section-copy"
+            style="margin:18px auto 0"
           >
-            ☕ Cafeterías
+            Elige la opción que mejor se adapte a tu negocio.
+            Sin suscripciones ni cuotas mensuales.
+          </p>
+
+        </div>
+
+
+        <div class="pricing-grid">
+
+
+          <!-- PLAN DIGITAL -->
+
+          <div class="price-card reveal">
+
+            <div class="price-badge">
+              PLAN DIGITAL
+            </div>
+
+            <h3>
+              QR + página personalizada
+            </h3>
+
+            <div class="price">
+              39<small>,90 €</small>
+            </div>
+
+            <div class="price-note">
+              pago único · sin cuotas mensuales
+            </div>
+
+            <ul class="price-features">
+
+              <li>
+                Cartel personalizado
+              </li>
+
+              <li>
+                Página web con QR
+              </li>
+
+              <li>
+                Logo y colores de tu negocio
+              </li>
+
+              <li>
+                Enlace directo a Google
+              </li>
+
+              <li>
+                Configuración inicial
+              </li>
+
+              <li>
+                Revisión incluida
+              </li>
+
+            </ul>
+
+            <a
+              class="btn btn-secondary"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/34606390082?text=Hola%2C%20quiero%20el%20plan%20digital%20de%20Opina%20F%C3%A1cil."
+            >
+              💬 Quiero el plan digital
+            </a>
+
           </div>
 
+
+          <!-- PACK COMPLETO -->
+
+          <div class="price-card featured reveal delay-1">
+
+            <div class="price-badge">
+              PACK COMPLETO
+            </div>
+
+            <h3>
+              Cartel + soporte + página
+            </h3>
+
+            <div class="price">
+              49<small>,90 €</small>
+            </div>
+
+            <div class="price-note">
+              todo listo para colocar · sin cuotas mensuales
+            </div>
+
+            <ul class="price-features">
+
+              <li>
+                Todo lo del plan digital
+              </li>
+
+              <li>
+                Soporte A5 de madera
+              </li>
+
+              <li>
+                Cartel A5 impreso
+              </li>
+
+              <li>
+                QR listo para usar
+              </li>
+
+              <li>
+                Diseño personalizado
+              </li>
+
+              <li>
+                Configuración inicial
+              </li>
+
+            </ul>
+
+            <a
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              href="https://wa.me/34606390082?text=Hola%2C%20quiero%20el%20pack%20completo%20de%20Opina%20F%C3%A1cil."
+            >
+              💬 Quiero el pack completo
+            </a>
+
+          </div>
+
+
         </div>
 
       </div>
 
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- PRECIO -->
+    <!-- FAQ -->
 
-  <section id="precio">
+    <section id="faq">
 
-    <div class="container pricing-wrap">
+      <div class="container faq">
 
+        <div class="center-heading reveal">
 
-      <div class="reveal">
+          <div class="section-label">
+            FAQ
+          </div>
 
-        <div class="section-label">
-          UN ÚNICO PAGO
+          <h2 class="section-title">
+            Preguntas frecuentes
+          </h2>
+
         </div>
-
-
-        <h2 class="section-title">
-          Todo preparado para empezar.
-        </h2>
-
-
-        <p
-          class="section-copy"
-          style="margin:18px auto 0"
-        >
-          Sin suscripciones ni cuotas mensuales.
-          Te entregamos todo lo necesario para empezar.
-        </p>
-
-      </div>
-
-
-      <div class="price-card reveal delay-1">
-
-        <div class="price-badge">
-          PACK COMPLETO
-        </div>
-
-
-        <h3>
-          Cartel + QR + página personalizada
-        </h3>
-
-
-        <div class="price">
-          39<small>,90 €</small>
-        </div>
-
-
-        <div class="price-note">
-          pago único · sin cuotas mensuales
-        </div>
-
-
-        <ul class="price-features">
-
-          <li>
-            Cartel personalizado
-          </li>
-
-          <li>
-            Página web con QR
-          </li>
-
-          <li>
-            Logo y colores de tu negocio
-          </li>
-
-          <li>
-            Enlace directo a Google
-          </li>
-
-          <li>
-            Configuración inicial
-          </li>
-
-          <li>
-            Revisión incluida
-          </li>
-
-        </ul>
-
-
-        <a
-          class="btn btn-primary"
-          target="_blank"
-          href="https://wa.me/34606390082?text=Hola%2C%20quiero%20el%20pack%20de%20Opina%20F%C3%A1cil."
-        >
-          💬 Pedir mi pack ahora
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FAQ -->
-
-  <section id="faq">
-
-    <div class="container">
-
-      <div class="center-heading reveal">
-
-        <div class="section-label">
-          FAQ
-        </div>
-
-        <h2 class="section-title">
-          Preguntas frecuentes
-        </h2>
-
-        <p class="section-copy">
-          Todo lo que necesitas saber antes de poner
-          tu QR a trabajar.
-        </p>
-
-      </div>
-
-
-      <div class="faq reveal delay-1">
 
 
         <details>
 
           <summary>
-            ¿Necesito saber de tecnología para usarlo?
+            ¿Hay alguna cuota mensual?
           </summary>
 
           <p>
-            No. Nosotros preparamos el cartel, el QR
-            y la página. Tú solo tienes que colocarlo
-            en un lugar visible.
+            No. El precio es un único pago.
           </p>
 
         </details>
@@ -3787,13 +3866,12 @@
         <details>
 
           <summary>
-            ¿Puedo cambiar el diseño después?
+            ¿Necesito tener conocimientos técnicos?
           </summary>
 
           <p>
-            Sí. Incluimos una revisión para ajustar
-            textos o colores. Si más adelante quieres
-            un rediseño completo, podemos hacerlo.
+            No. Nosotros nos encargamos de preparar
+            la página, el QR y la configuración inicial.
           </p>
 
         </details>
@@ -3802,13 +3880,12 @@
         <details>
 
           <summary>
-            ¿El QR deja de funcionar?
+            ¿Puedo utilizar mi propio logo y colores?
           </summary>
 
           <p>
-            El QR está asociado a tu página. Si necesitas
-            realizar algún cambio, puedes contactar con
-            nosotros.
+            Sí. Personalizamos el diseño para que encaje
+            con la imagen de tu negocio.
           </p>
 
         </details>
@@ -3817,26 +3894,13 @@
         <details>
 
           <summary>
-            ¿Funciona con cualquier negocio?
+            ¿El QR lleva directamente a Google?
           </summary>
 
           <p>
-            Sí. Restaurantes, gimnasios, tiendas,
-            peluquerías, hoteles, talleres, centros
-            de estética y muchos más.
-          </p>
-
-        </details>
-
-
-        <details>
-
-          <summary>
-            ¿Cómo os contacto?
-          </summary>
-
-          <p>
-            Puedes escribirnos directamente por WhatsApp.
+            El QR lleva a una página personalizada desde
+            la que el cliente puede acceder directamente
+            al enlace de reseñas de Google.
           </p>
 
         </details>
@@ -3844,248 +3908,169 @@
 
       </div>
 
+    </section>
+
+
+    <!-- CTA -->
+
+    <div class="cta">
+
+      <img
+        src="favicon.png"
+        class="cta-logo"
+        alt="Opina Fácil"
+      >
+
+      <h2>
+        ¿Listo para conseguir más reseñas?
+      </h2>
+
+      <p>
+        Te preparamos tu cartel, QR y página personalizada
+        para que tus clientes puedan dejar su opinión fácilmente.
+      </p>
+
+      <a
+        class="btn"
+        target="_blank"
+        rel="noopener"
+        href="https://wa.me/34606390082?text=Hola%2C%20quiero%20mi%20cartel%20de%20Opina%20F%C3%A1cil."
+      >
+        💬 Hablar por WhatsApp
+      </a>
+
     </div>
 
-  </section>
+
+  </main>
 
 
-  <!-- CTA -->
+  <footer>
 
-  <section class="cta reveal">
+    <div class="container footer-inner">
 
-    <img
-      src="favicon.png"
-      class="cta-logo"
-      alt="Opina Fácil"
-    >
+      <div>
+        © 2026 Opina Fácil
+      </div>
 
+      <div>
+        Más reseñas. Más confianza.
+      </div>
 
-    <h2>
-      Haz que dejar una reseña
-      sea tan fácil como escanear un QR.
-    </h2>
-
-
-    <p>
-      Cuéntanos qué negocio tienes y te explicamos
-      cómo quedaría tu propio cartel.
-    </p>
-
-
-    <a
-      class="btn"
-      target="_blank"
-      href="https://wa.me/34606390082?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Opina%20F%C3%A1cil."
-    >
-      WhatsApp · 606 390 082
-    </a>
-
-  </section>
-
-
-</main>
-
-
-<footer>
-
-  <div class="container footer-inner">
-
-    <div>
-      © 2026 Opina Fácil
     </div>
 
-    <div>
-      606 390 082 · @opinafacil.es
-    </div>
-
-  </div>
-
-</footer>
+  </footer>
 
 
-<script>
+  <script>
 
-  /* =========================
-     REVEAL
-  ========================= */
+    /* =========================
+       QR
+    ========================= */
 
-  const revealItems =
-    document.querySelectorAll(".reveal");
+    const qrTarget =
+      "https://opinafacil.es/demo";
 
+    if (document.getElementById("heroQR")) {
 
-  const observer =
-    new IntersectionObserver(
-      entries => {
+      new QRCode(
+        document.getElementById("heroQR"),
+        {
+          text:
+            qrTarget,
 
-        entries.forEach(entry => {
+          width:
+            110,
 
-          if (entry.isIntersecting) {
+          height:
+            110,
 
-            entry.target.classList.add("visible");
+          colorDark:
+            "#263d2b",
 
-            observer.unobserve(entry.target);
+          colorLight:
+            "#ffffff",
 
-          }
+          correctLevel:
+            QRCode.CorrectLevel.H
+        }
+      );
 
-        });
-
-      },
-      {
-        threshold: .12
-      }
-    );
-
-
-  revealItems.forEach(
-    item => observer.observe(item)
-  );
-
-
-  /* =========================
-     QR REAL
-     LOS DOS LLEVAN A LA DEMO
-  ========================= */
-
-  const demoURL =
-    "https://opinafacil.es/demo";
-
-
-  new QRCode(
-    document.getElementById("heroQR"),
-    {
-      text: demoURL,
-      width: 110,
-      height: 110,
-      colorDark: "#263126",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    }
-  );
-
-
-  new QRCode(
-    document.getElementById("showcaseQR"),
-    {
-      text: demoURL,
-      width: 125,
-      height: 125,
-      colorDark: "#263126",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    }
-  );
-
-
-  /* =========================
-     CARTEL CAMBIANTE
-  ========================= */
-
-  const businesses = [
-
-    {
-      name: "Café Bosque",
-      sub: "Tu opinión nos ayuda a crecer",
-      label: "☕ Cafeterías"
-    },
-
-    {
-      name: "Studio Fit",
-      sub: "Cuéntanos cómo fue tu entrenamiento",
-      label: "🏋️ Gimnasios"
-    },
-
-    {
-      name: "Hotel Oliva",
-      sub: "Gracias por compartir tu estancia",
-      label: "🏨 Hoteles"
-    },
-
-    {
-      name: "Luna Estética",
-      sub: "Tu opinión nos ayuda a mejorar",
-      label: "✨ Estética"
-    },
-
-    {
-      name: "Clínica Vital",
-      sub: "Ayúdanos a seguir cuidándote",
-      label: "🧘 Fisioterapia"
-    },
-
-    {
-      name: "Taller Norte",
-      sub: "¿Qué te pareció nuestro servicio?",
-      label: "🔧 Talleres"
-    },
-
-    {
-      name: "Casa Nostra",
-      sub: "Nos encanta saber de tu experiencia",
-      label: "🍽️ Restaurantes"
-    },
-
-    {
-      name: "Peluquería Alma",
-      sub: "Tu opinión nos ayuda a crecer",
-      label: "✂️ Peluquerías"
     }
 
-  ];
+
+    if (document.getElementById("showcaseQR")) {
+
+      new QRCode(
+        document.getElementById("showcaseQR"),
+        {
+          text:
+            qrTarget,
+
+          width:
+            128,
+
+          height:
+            128,
+
+          colorDark:
+            "#263d2b",
+
+          colorLight:
+            "#ffffff",
+
+          correctLevel:
+            QRCode.CorrectLevel.H
+        }
+      );
+
+    }
 
 
-  let businessIndex = 0;
+    /* =========================
+       REVEAL
+    ========================= */
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold:
+            0.12
+        }
+      );
 
 
-  const nameEl =
-    document.getElementById("businessName");
+    document
+      .querySelectorAll(".reveal")
+      .forEach(
+        el =>
+          observer.observe(el)
+      );
 
-
-  const subEl =
-    document.getElementById("businessSub");
-
-
-  const bubbleEl =
-    document.getElementById("businessBubble");
-
-
-  setInterval(() => {
-
-    businessIndex =
-      (businessIndex + 1) %
-      businesses.length;
-
-
-    nameEl.style.opacity = "0";
-    subEl.style.opacity = "0";
-    bubbleEl.style.opacity = "0";
-
-
-    setTimeout(() => {
-
-      const business =
-        businesses[businessIndex];
-
-
-      nameEl.textContent =
-        business.name;
-
-      subEl.textContent =
-        business.sub;
-
-      bubbleEl.textContent =
-        business.label;
-
-
-      nameEl.style.opacity = "1";
-      subEl.style.opacity = "1";
-      bubbleEl.style.opacity = "1";
-
-    }, 300);
-
-  }, 2600);
-
-</script>
-
+  </script>
 
 </body>
 </html>
