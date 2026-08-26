@@ -22,7 +22,7 @@
     rel="stylesheet"
   >
 
-  <!-- LIBRERÍA PARA QR REALES -->
+  <!-- LIBRERÍA PARA QR -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
   <style>
@@ -507,6 +507,50 @@
 
       align-items:
         center;
+    }
+
+
+    /* INSTAGRAM */
+
+    .instagram-link {
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      padding:
+        10px 15px;
+
+      border-radius:
+        13px;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      color:
+        #536856;
+
+      box-shadow:
+        0 4px 12px rgba(30,50,35,.05);
+
+      transition:
+        .22s ease;
+    }
+
+
+    .instagram-link:hover {
+      transform:
+        translateY(-2px);
+
+      color:
+        var(--green);
+
+      box-shadow:
+        0 8px 18px rgba(30,50,35,.08);
     }
 
 
@@ -2085,9 +2129,6 @@
 
       color:
         #5d6f4d;
-
-      transition:
-        .3s;
     }
 
 
@@ -2103,9 +2144,6 @@
 
       margin-top:
         6px;
-
-      transition:
-        .3s;
     }
 
 
@@ -2729,6 +2767,24 @@
     }
 
 
+    .footer-instagram {
+      color:
+        #536856;
+
+      font-weight:
+        700;
+
+      transition:
+        .2s ease;
+    }
+
+
+    .footer-instagram:hover {
+      color:
+        var(--green);
+    }
+
+
     /* =========================
        RESPONSIVE
     ========================= */
@@ -2768,6 +2824,15 @@
       .phone-link {
         display:
           none;
+      }
+
+
+      .instagram-link {
+        padding:
+          9px 11px;
+
+        font-size:
+          12px;
       }
 
 
@@ -2990,6 +3055,10 @@
 
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
+
   <header>
 
     <nav class="container nav">
@@ -3045,11 +3114,23 @@
       <div class="nav-actions">
 
         <a
+          class="instagram-link"
+          href="https://www.instagram.com/opinafacil.es/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram de Opina Fácil"
+        >
+          📸 Instagram
+        </a>
+
+
+        <a
           class="phone-link"
           href="tel:+34606390082"
         >
           ☎ 606 390 082
         </a>
+
 
         <a
           class="wa-btn"
@@ -3069,7 +3150,9 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero">
 
@@ -3209,6 +3292,7 @@
             ✦ Cartel + web + QR
           </div>
 
+
           <div class="floating-card floating-bottom">
 
             <div class="mini-circle">
@@ -3236,7 +3320,9 @@
     </section>
 
 
-    <!-- CATEGORÍAS -->
+    <!-- =========================
+         CATEGORÍAS
+    ========================= -->
 
     <div class="category-strip">
 
@@ -3265,7 +3351,9 @@
     </div>
 
 
-    <!-- PASOS -->
+    <!-- =========================
+         PASOS
+    ========================= -->
 
     <section id="como-funciona">
 
@@ -3365,7 +3453,9 @@
     </section>
 
 
-    <!-- VENTAJAS -->
+    <!-- =========================
+         VENTAJAS
+    ========================= -->
 
     <section id="ventajas">
 
@@ -3380,6 +3470,7 @@
           <h2 class="section-title">
             Hacerlo fácil cambia el resultado.
           </h2>
+
 
           <div class="benefit-grid">
 
@@ -3479,7 +3570,9 @@
     </section>
 
 
-    <!-- EXPERIENCIA -->
+    <!-- =========================
+         EXPERIENCIA
+    ========================= -->
 
     <section id="ejemplo">
 
@@ -3497,6 +3590,7 @@
               Tu cliente escanea.
               Tú ganas una oportunidad.
             </h2>
+
 
             <ul>
 
@@ -3518,6 +3612,7 @@
 
             </ul>
 
+
             <a
               href="https://opinafacil.es/demo"
               class="btn btn-primary"
@@ -3534,9 +3629,11 @@
 
             <div class="preview-glow"></div>
 
+
             <div class="phone">
 
               <div class="phone-top"></div>
+
 
               <div class="phone-content">
 
@@ -3544,26 +3641,32 @@
                   TU LOGO
                 </div>
 
+
                 <div class="preview-business">
                   Tu negocio
                 </div>
+
 
                 <div class="preview-stars">
                   ★★★★★
                 </div>
 
+
                 <div class="preview-title">
                   ¿Te ha gustado tu experiencia?
                 </div>
+
 
                 <div class="preview-text">
                   Tu opinión nos ayuda muchísimo.
                   Comparte tu experiencia en Google.
                 </div>
 
+
                 <div class="preview-button">
                   G&nbsp;&nbsp; Dejar una reseña en Google
                 </div>
+
 
                 <div class="preview-note">
                   Gracias por confiar en nosotros ❤️
@@ -3582,7 +3685,9 @@
     </section>
 
 
-    <!-- CARTEL SHOWCASE -->
+    <!-- =========================
+         CARTEL SHOWCASE
+    ========================= -->
 
     <section>
 
@@ -3596,16 +3701,19 @@
               EL CARTEL
             </div>
 
+
             <h2 class="section-title">
               Diseñado para que
               se vea y se use.
             </h2>
+
 
             <p>
               Un cartel elegante y personalizado para colocar
               en recepción, mostrador o cualquier punto donde
               tus clientes tengan un momento para dejar su opinión.
             </p>
+
 
             <ul class="showcase-list">
 
@@ -3634,13 +3742,16 @@
 
             <div class="cartel-bg"></div>
 
+
             <div class="category-bubble bubble-top">
               QR personalizado
             </div>
 
+
             <div class="category-bubble bubble-bottom">
               Listo para colocar
             </div>
+
 
             <div class="cartel">
 
@@ -3648,20 +3759,24 @@
                 Tu negocio
               </div>
 
+
               <div class="cartel-sub">
                 Tu opinión nos ayuda a crecer
               </div>
+
 
               <div
                 class="cartel-qr"
                 id="showcaseQR"
               ></div>
 
+
               <div class="cartel-scan">
                 ESCANEA Y OPINA
               </div>
 
             </div>
+
 
             <div class="cartel-base"></div>
 
@@ -3674,7 +3789,9 @@
     </section>
 
 
-    <!-- PRECIO -->
+    <!-- =========================
+         PRECIO
+    ========================= -->
 
     <section id="precio">
 
@@ -3686,9 +3803,11 @@
             UN ÚNICO PAGO
           </div>
 
+
           <h2 class="section-title">
             Todo preparado para empezar.
           </h2>
+
 
           <p
             class="section-copy"
@@ -3712,17 +3831,21 @@
               PLAN DIGITAL
             </div>
 
+
             <h3>
               QR + página personalizada
             </h3>
+
 
             <div class="price">
               39<small>,90 €</small>
             </div>
 
+
             <div class="price-note">
               pago único · sin cuotas mensuales
             </div>
+
 
             <ul class="price-features">
 
@@ -3752,6 +3875,7 @@
 
             </ul>
 
+
             <a
               class="btn btn-secondary"
               target="_blank"
@@ -3772,17 +3896,21 @@
               PACK COMPLETO
             </div>
 
+
             <h3>
               Cartel + soporte + página
             </h3>
+
 
             <div class="price">
               49<small>,90 €</small>
             </div>
 
+
             <div class="price-note">
               todo listo para colocar · sin cuotas mensuales
             </div>
+
 
             <ul class="price-features">
 
@@ -3812,6 +3940,7 @@
 
             </ul>
 
+
             <a
               class="btn btn-primary"
               target="_blank"
@@ -3831,7 +3960,9 @@
     </section>
 
 
-    <!-- FAQ -->
+    <!-- =========================
+         FAQ
+    ========================= -->
 
     <section id="faq">
 
@@ -3842,6 +3973,7 @@
           <div class="section-label">
             FAQ
           </div>
+
 
           <h2 class="section-title">
             Preguntas frecuentes
@@ -3911,7 +4043,9 @@
     </section>
 
 
-    <!-- CTA -->
+    <!-- =========================
+         CTA
+    ========================= -->
 
     <div class="cta">
 
@@ -3921,14 +4055,17 @@
         alt="Opina Fácil"
       >
 
+
       <h2>
         ¿Listo para conseguir más reseñas?
       </h2>
+
 
       <p>
         Te preparamos tu cartel, QR y página personalizada
         para que tus clientes puedan dejar su opinión fácilmente.
       </p>
+
 
       <a
         class="btn"
@@ -3941,9 +4078,12 @@
 
     </div>
 
-
   </main>
 
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
@@ -3953,8 +4093,22 @@
         © 2026 Opina Fácil
       </div>
 
+
       <div>
+
         Más reseñas. Más confianza.
+
+        &nbsp;·&nbsp;
+
+        <a
+          class="footer-instagram"
+          href="https://www.instagram.com/opinafacil.es/"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram · @opinafacil.es
+        </a>
+
       </div>
 
     </div>
@@ -3971,7 +4125,10 @@
     const qrTarget =
       "https://opinafacil.es/demo";
 
-    if (document.getElementById("heroQR")) {
+
+    if (
+      document.getElementById("heroQR")
+    ) {
 
       new QRCode(
         document.getElementById("heroQR"),
@@ -3999,7 +4156,9 @@
     }
 
 
-    if (document.getElementById("showcaseQR")) {
+    if (
+      document.getElementById("showcaseQR")
+    ) {
 
       new QRCode(
         document.getElementById("showcaseQR"),
