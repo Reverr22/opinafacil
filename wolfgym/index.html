@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080808">
   <meta name="description" content="Comparte tu experiencia en WOLF GYM.">
-
   <title>WOLF GYM | Tu opinión cuenta</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +16,13 @@
   >
 
   <style>
-
     :root {
       --black: #080808;
-      --black-soft: #101010;
-      --black-card: #151515;
+      --card: #111111;
       --white: #ffffff;
-      --off-white: #eeeeee;
-      --muted: #a0a0a0;
+      --grey: #a0a0a0;
       --line: #292929;
-      --accent: #e5e5e5;
+      --soft: #e5e5e5;
     }
 
     * {
@@ -35,15 +31,14 @@
       padding: 0;
     }
 
-    html {
-      min-height: 100%;
-    }
-
     body {
       min-height: 100vh;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       font-family: "DM Sans", Arial, sans-serif;
-
       color: var(--white);
 
       background:
@@ -54,190 +49,105 @@
         ),
         radial-gradient(
           circle at 100% 100%,
-          rgba(255,255,255,.045),
+          rgba(255,255,255,.04),
           transparent 30%
         ),
         var(--black);
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 15px 10px;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     .page {
       width: 100%;
       max-width: 490px;
-
-      animation: pageIn .7s ease both;
     }
-
-    @keyframes pageIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(.985);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-    }
-
-    /* ================================
-       CARD
-    ================================= */
 
     .card {
-
       position: relative;
       overflow: hidden;
 
       width: 100%;
-
-      padding: 27px 27px 22px;
+      padding: 23px 17px 18px;
 
       border: 1px solid var(--line);
-
-      border-radius: 28px;
+      border-radius: 25px;
 
       background:
-        linear-gradient(
-          145deg,
-          #171717,
-          #0d0d0d
-        );
+        linear-gradient(145deg, #171717, #0d0d0d);
 
       box-shadow:
         0 30px 75px rgba(0,0,0,.55),
         0 0 60px rgba(255,255,255,.035);
     }
 
-    /* ================================
-       DECORACIÓN
-    ================================= */
-
-    .wolf-orb {
-
+    .orb {
       position: absolute;
-
-      width: 230px;
-      height: 230px;
-
-      top: -155px;
+      width: 220px;
+      height: 220px;
+      top: -150px;
       right: -120px;
-
       border-radius: 50%;
-
-      background:
-        rgba(255,255,255,.055);
+      background: rgba(255,255,255,.05);
     }
 
-    .wolf-orb-small {
-
+    .orb-small {
       position: absolute;
-
-      width: 120px;
-      height: 120px;
-
-      left: -85px;
-      bottom: -80px;
-
+      width: 110px;
+      height: 110px;
+      left: -80px;
+      bottom: -75px;
       border-radius: 50%;
-
-      background:
-        rgba(255,255,255,.035);
+      background: rgba(255,255,255,.035);
     }
 
     .content {
-
       position: relative;
-
       z-index: 2;
-
       text-align: center;
     }
 
-    /* ================================
-       TOP LINE
-    ================================= */
+    /* TOP */
 
     .top-line {
-
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       gap: 8px;
 
-      margin-bottom: 18px;
+      margin-bottom: 16px;
 
-      color: var(--accent);
-
-      font-size: 8px;
-
+      color: #ddd;
+      font-size: 7px;
       font-weight: 800;
-
-      letter-spacing: 1.9px;
-
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
     .top-line::before,
     .top-line::after {
-
       content: "";
-
-      width: 30px;
+      width: 28px;
       height: 1px;
-
       background: #666;
-
-      opacity: .8;
     }
 
-    /* ================================
-       LOGO
-    ================================= */
+    /* LOGO */
 
     .logo {
+      width: 72px;
+      height: 72px;
 
-      width: 84px;
-      height: 84px;
-
-      margin: 0 auto 14px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
+      margin: 0 auto 11px;
 
       overflow: hidden;
 
       border: 1px solid rgba(255,255,255,.25);
-
       border-radius: 50%;
 
       background: #0b0b0b;
-
-      color: #fff;
-
-      font-family: "Oswald", Arial, sans-serif;
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      letter-spacing: 1.5px;
 
       box-shadow:
         0 0 0 4px rgba(255,255,255,.025),
@@ -245,245 +155,186 @@
     }
 
     .logo img {
-
       width: 100%;
       height: 100%;
-
-      object-fit: contain;
-
-      padding: 6px;
+      object-fit: cover;
     }
 
-    /* ================================
-       BUSINESS NAME
-    ================================= */
+    /* BUSINESS */
 
     .business-name {
+      margin-bottom: 4px;
 
       font-family: "Oswald", Arial, sans-serif;
-
-      font-size: 36px;
-
+      font-size: 31px;
       line-height: 1;
-
-      letter-spacing: 1px;
-
       font-weight: 700;
-
+      letter-spacing: 1px;
       text-transform: uppercase;
-
-      margin-bottom: 5px;
     }
 
-    .business-location {
+    .location {
+      margin-bottom: 9px;
 
-      color: #9c9c9c;
-
-      font-size: 9px;
-
+      color: #999;
+      font-size: 8px;
       font-weight: 600;
-
       letter-spacing: 1.2px;
-
       text-transform: uppercase;
-
-      margin-bottom: 10px;
     }
 
-    /* ================================
-       WOLF MOTTO
-    ================================= */
+    /* FRASE WOLF */
 
     .wolf-motto {
-
-      margin: 2px auto 10px;
+      margin: 5px auto 10px;
 
       font-family: "Oswald", Arial, sans-serif;
-
-      font-size: 16px;
-
-      line-height: 1.05;
-
+      font-size: 14px;
+      line-height: 1.15;
       font-weight: 700;
-
       letter-spacing: 1.2px;
-
       text-transform: uppercase;
-
-      color: #f2f2f2;
     }
 
     .wolf-motto span {
-
-      color: #a9a9a9;
-
-      font-size: 14px;
-
-      letter-spacing: 1.5px;
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 1.4px;
     }
 
-    /* ================================
-       FEATURES
-    ================================= */
+    /* CARACTERÍSTICAS */
 
     .features {
-
       display: flex;
-
-      align-items: center;
       justify-content: center;
-
+      align-items: center;
       flex-wrap: wrap;
 
-      gap: 6px;
-
       max-width: 420px;
+      margin: 0 auto 12px;
 
-      margin: 0 auto 16px;
+      gap: 5px;
 
       color: #8d8d8d;
-
-      font-size: 7px;
-
+      font-size: 6.5px;
       font-weight: 800;
-
-      letter-spacing: .9px;
-
-      line-height: 1.3;
+      letter-spacing: .8px;
+      line-height: 1.4;
     }
 
     .features i {
-
       width: 3px;
       height: 3px;
-
       border-radius: 50%;
-
       background: #777;
-
-      flex-shrink: 0;
     }
 
-    /* ================================
-       STARS
-    ================================= */
+    /* HORARIO */
+
+    .schedule {
+      margin: 0 auto 14px;
+
+      padding: 8px 10px;
+
+      border: 1px solid #242424;
+      border-radius: 9px;
+
+      background: rgba(255,255,255,.025);
+
+      color: #999;
+
+      font-size: 8px;
+      line-height: 1.45;
+    }
+
+    .schedule strong {
+      color: #ddd;
+      font-weight: 800;
+    }
+
+    /* ESTRELLAS */
 
     .stars {
+      margin-bottom: 4px;
 
-      color: var(--accent);
+      color: #eee;
 
-      font-size: 24px;
-
+      font-size: 22px;
       line-height: 1;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 5px;
+      letter-spacing: 2px;
 
       text-shadow:
         0 4px 15px rgba(255,255,255,.13);
     }
 
     .rating-text {
+      margin-bottom: 16px;
 
       color: #888;
-
-      font-size: 9px;
-
+      font-size: 8px;
       font-weight: 600;
-
-      margin-bottom: 18px;
     }
 
-    /* ================================
-       EYEBROW
-    ================================= */
+    /* MENSAJE */
 
     .eyebrow {
+      margin-bottom: 6px;
 
-      color: var(--accent);
+      color: #ddd;
 
-      font-size: 8px;
-
+      font-size: 7px;
       font-weight: 800;
-
-      letter-spacing: 2px;
-
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-
-      margin-bottom: 7px;
     }
 
-    /* ================================
-       TITLE
-    ================================= */
-
     h1 {
-
       max-width: 430px;
 
-      margin: 0 auto 10px;
+      margin: 0 auto 9px;
 
       font-family: "Oswald", Arial, sans-serif;
 
-      font-size: 34px;
-
-      line-height: 1.02;
-
+      font-size: 27px;
+      line-height: 1.03;
       font-weight: 600;
-
-      letter-spacing: -.3px;
 
       text-transform: uppercase;
     }
 
     h1 span {
-      color: var(--accent);
+      color: #eee;
     }
 
-    /* ================================
-       DESCRIPTION
-    ================================= */
-
     .description {
-
       max-width: 410px;
 
-      margin: 0 auto 19px;
+      margin: 0 auto 16px;
 
       color: #a6a6a6;
 
-      font-size: 13px;
-
+      font-size: 12px;
       line-height: 1.5;
     }
 
     .description strong {
-
       color: #e8e8e8;
-
       font-weight: 800;
     }
 
-    /* ================================
-       GOOGLE BUTTON
-    ================================= */
+    /* BOTÓN GOOGLE */
 
     .review-button {
-
       width: 100%;
-
-      min-height: 56px;
+      min-height: 53px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      gap: 9px;
+      gap: 8px;
 
-      border: 1px solid rgba(255,255,255,.10);
-
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 12px;
 
       background:
@@ -495,328 +346,178 @@
 
       color: #101010;
 
-      font-size: 13px;
-
+      font-size: 12px;
       font-weight: 900;
 
       box-shadow:
         0 15px 30px rgba(255,255,255,.08);
 
-      transition:
-        transform .22s ease,
-        box-shadow .22s ease,
-        filter .22s ease;
+      transition: .2s ease;
     }
 
     .review-button:hover {
-
-      transform: translateY(-3px);
-
+      transform: translateY(-2px);
       filter: brightness(1.05);
-
-      box-shadow:
-        0 20px 38px rgba(255,255,255,.13);
     }
-
-    .review-button:active {
-      transform: translateY(-1px);
-    }
-
-    /* ================================
-       GOOGLE ICON
-    ================================= */
 
     .google-icon {
-
-      width: 28px;
-      height: 28px;
+      width: 27px;
+      height: 27px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      flex-shrink: 0;
-
       border-radius: 50%;
 
-      background: #fff;
+      background: white;
 
       color: #4285f4;
 
       font-family: Arial, sans-serif;
-
-      font-size: 17px;
-
+      font-size: 16px;
       font-weight: 900;
-
-      box-shadow:
-        0 3px 8px rgba(0,0,0,.18);
     }
 
     .arrow {
-
-      font-size: 17px;
-
-      margin-left: 2px;
+      font-size: 16px;
     }
 
-    /* ================================
-       TRUST
-    ================================= */
+    /* TRUST */
 
     .trust {
-
       display: flex;
-
       align-items: center;
       justify-content: center;
 
-      gap: 6px;
+      gap: 5px;
 
-      margin-top: 9px;
+      margin-top: 8px;
 
       color: #777;
 
-      font-size: 9px;
-
+      font-size: 8px;
       font-weight: 600;
     }
 
-    .trust-check {
-
-      width: 17px;
-      height: 17px;
+    .check {
+      width: 16px;
+      height: 16px;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
+      border: 1px solid rgba(255,255,255,.25);
       border-radius: 50%;
 
-      border: 1px solid rgba(255,255,255,.25);
-
-      color: var(--accent);
-
+      color: #ddd;
       font-size: 8px;
     }
 
-    /* ================================
-       SEPARATOR
-    ================================= */
+    /* SEPARADOR */
 
     .separator {
-
       display: flex;
-
       align-items: center;
 
-      gap: 10px;
+      gap: 9px;
 
-      margin: 19px 0 14px;
+      margin: 16px 0 12px;
 
       color: #666;
 
       font-size: 7px;
-
       font-weight: 700;
-
-      letter-spacing: 1.8px;
-
+      letter-spacing: 1.6px;
       text-transform: uppercase;
     }
 
     .separator::before,
     .separator::after {
-
       content: "";
-
       flex: 1;
-
       height: 1px;
-
       background: var(--line);
     }
 
-    /* ================================
-       FINAL MESSAGE
-    ================================= */
+    /* FINAL */
 
     .bottom-message {
-
       color: #858585;
 
-      font-size: 10px;
-
+      font-size: 9px;
       line-height: 1.5;
     }
 
     .bottom-message strong {
-
       display: block;
 
       margin-bottom: 2px;
 
       color: #ddd;
 
-      font-size: 11px;
-
+      font-size: 10px;
       font-weight: 700;
     }
 
-    /* ================================
-       OPINA FÁCIL
-    ================================= */
+    /* OPINA FÁCIL */
 
     .brand {
-
-      margin-top: 14px;
-
-      padding-top: 11px;
+      margin-top: 12px;
+      padding-top: 10px;
 
       border-top: 1px solid var(--line);
 
       color: #555;
 
-      font-size: 8px;
+      font-size: 7px;
     }
 
-    .brand-link {
-
+    .brand a {
       color: #aaa;
-
       font-weight: 800;
     }
 
-    /* ================================
-       MOBILE
-    ================================= */
-
-    @media (max-width: 520px) {
-
-      body {
-        padding: 8px 7px;
-      }
-
-      .card {
-
-        padding: 23px 17px 18px;
-
-        border-radius: 25px;
-      }
-
-      .top-line {
-
-        font-size: 7px;
-
-        letter-spacing: 1.5px;
-
-        margin-bottom: 17px;
-      }
-
-      .logo {
-
-        width: 72px;
-        height: 72px;
-
-        margin-bottom: 12px;
-      }
-
-      .business-name {
-        font-size: 31px;
-      }
-
-      .business-location {
-        font-size: 8px;
-      }
-
-      .wolf-motto {
-        font-size: 14px;
-      }
-
-      .wolf-motto span {
-        font-size: 12px;
-      }
-
-      .features {
-
-        font-size: 6.5px;
-
-        gap: 4px;
-
-        margin-bottom: 14px;
-      }
-
-      .stars {
-
-        font-size: 22px;
-
-        letter-spacing: 2px;
-      }
-
-      .rating-text {
-
-        font-size: 8px;
-
-        margin-bottom: 16px;
-      }
-
-      .eyebrow {
-        font-size: 7px;
-      }
-
-      h1 {
-        font-size: 27px;
-      }
-
-      .description {
-        font-size: 12.5px;
-        margin-bottom: 17px;
-      }
-
-      .review-button {
-
-        min-height: 53px;
-
-        font-size: 12px;
-      }
-
-      .trust {
-        font-size: 8px;
-      }
-
-      .separator {
-        margin-top: 17px;
-      }
-    }
-
-    /* ================================
-       VERY SMALL
-    ================================= */
+    /* MÓVIL MUY PEQUEÑO */
 
     @media (max-width: 360px) {
 
       .card {
-        padding: 20px 14px 16px;
+        padding: 19px 13px 15px;
       }
 
       .logo {
-
-        width: 64px;
-        height: 64px;
+        width: 62px;
+        height: 62px;
       }
 
       .business-name {
         font-size: 27px;
       }
 
+      .wolf-motto {
+        font-size: 13px;
+      }
+
+      .wolf-motto span {
+        font-size: 11px;
+      }
+
+      .features {
+        font-size: 6px;
+      }
+
+      .schedule {
+        font-size: 7px;
+      }
+
       h1 {
-        font-size: 26px;
+        font-size: 25px;
       }
 
       .description {
-        font-size: 12px;
+        font-size: 11.5px;
       }
     }
 
@@ -829,67 +530,59 @@
 
     <main class="card">
 
-      <div class="wolf-orb"></div>
-      <div class="wolf-orb-small"></div>
+      <div class="orb"></div>
+      <div class="orb-small"></div>
 
       <div class="content">
 
-        <!-- =========================
-             TOP
-        ========================== -->
+        <!-- FRASE SUPERIOR -->
 
         <div class="top-line">
-          Bienvenido a una nueva era
+          Bienvenido a una nueva Era
         </div>
 
 
-        <!-- =========================
-             LOGO
-        ========================== -->
+        <!-- LOGO REAL DE WOLF GYM -->
 
         <div class="logo">
 
-          <!--
-            CUANDO WOLF GYM NOS PASE EL LOGO:
-
-            <img
-              src="logo-wolf.png"
-              alt="WOLF GYM"
-            >
-          -->
-
-          WOLF GYM
+          <img
+            src="data:image/webp;base64,AQUI_SE_INSERTA_EL_LOGO"
+            alt="WOLF GYM"
+          >
 
         </div>
 
 
-        <!-- =========================
-             BUSINESS
-        ========================== -->
+        <!-- NOMBRE -->
 
         <div class="business-name">
           WOLF GYM
         </div>
 
-        <div class="business-location">
-          Vila-real · Castellón · Abierto 24/7
+        <div class="location">
+          Vila-real · Castellón
         </div>
 
 
-        <!-- =========================
-             WOLF IDENTITY
-        ========================== -->
+        <!-- FRASE QUE NOS HA DADO WOLF -->
 
         <div class="wolf-motto">
 
-          ¿NO TIENES LÍMITES?<br>
+          SIN MATRÍCULA |
+          SIN PERMANENCIA |
+          365 DÍAS AL AÑO
+
+          <br>
 
           <span>
-            NOSOTROS TAMPOCO.
+            UNA EXPERIENCIA DIFERENTE
           </span>
 
         </div>
 
+
+        <!-- CARACTERÍSTICAS -->
 
         <div class="features">
 
@@ -918,9 +611,28 @@
         </div>
 
 
-        <!-- =========================
-             STARS
-        ========================== -->
+        <!-- HORARIO REAL -->
+
+        <div class="schedule">
+
+          <strong>
+            HORARIO
+          </strong>
+
+          &nbsp; · &nbsp;
+
+          Lunes a viernes
+          <strong>6:00 – 23:00</strong>
+
+          &nbsp; · &nbsp;
+
+          Sábados y domingos
+          <strong>8:00 – 21:00</strong>
+
+        </div>
+
+
+        <!-- ESTRELLAS -->
 
         <div class="stars">
           ★★★★★
@@ -931,9 +643,7 @@
         </div>
 
 
-        <!-- =========================
-             MESSAGE
-        ========================== -->
+        <!-- PREGUNTA -->
 
         <div class="eyebrow">
           Queremos saber de ti
@@ -951,12 +661,8 @@
 
         <p class="description">
 
-          En WOLF GYM apostamos por un espacio con
-          <strong>
-            maquinaria moderna, entrenamiento, boxeo y comunidad
-          </strong>.
-
-          Si has disfrutado de tu experiencia,
+          Si has disfrutado de tu experiencia en
+          <strong>WOLF GYM</strong>,
           nos encantaría conocer tu opinión.
 
           Solo te llevará unos segundos.
@@ -964,19 +670,11 @@
         </p>
 
 
-        <!-- =========================
-             GOOGLE
-        ========================== -->
-
-        <!--
-          CUANDO WOLF GYM NOS PASE
-          EL ENLACE DIRECTO DE GOOGLE,
-          SUSTITUIR EL href DE ABAJO.
-        -->
+        <!-- GOOGLE -->
 
         <a
           class="review-button"
-          href="AQUI-IRA-EL-ENLACE-DIRECTO-DE-GOOGLE"
+          href="https://maps.app.goo.gl/FZzBZQAtw9h7XTxw5?g_st=iwb"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -996,13 +694,11 @@
         </a>
 
 
-        <!-- =========================
-             TRUST
-        ========================== -->
+        <!-- CONFIANZA -->
 
         <div class="trust">
 
-          <span class="trust-check">
+          <span class="check">
             ✓
           </span>
 
@@ -1011,18 +707,14 @@
         </div>
 
 
-        <!-- =========================
-             SEPARATOR
-        ========================== -->
+        <!-- SEPARADOR -->
 
         <div class="separator">
           Gracias por elegir WOLF GYM
         </div>
 
 
-        <!-- =========================
-             FINAL
-        ========================== -->
+        <!-- FINAL -->
 
         <div class="bottom-message">
 
@@ -1036,9 +728,7 @@
         </div>
 
 
-        <!-- =========================
-             OPINA FÁCIL
-        ========================== -->
+        <!-- OPINA FÁCIL -->
 
         <div class="brand">
 
@@ -1046,7 +736,6 @@
 
           <a
             href="https://opinafacil.es/"
-            class="brand-link"
             target="_blank"
             rel="noopener noreferrer"
           >
