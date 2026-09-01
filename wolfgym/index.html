@@ -1,1 +1,934 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="Comparte tu experiencia en WOLF GYM.">
 
+  <title>WOLF GYM | Tu opinión cuenta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --black: #080808;
+      --black-soft: #101010;
+      --black-card: #151515;
+      --white: #ffffff;
+      --off-white: #eeeeee;
+      --muted: #a0a0a0;
+      --line: #292929;
+      --accent: #e5e5e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", Arial, sans-serif;
+      color: var(--white);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(255,255,255,.09),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(255,255,255,.045),
+          transparent 30%
+        ),
+        var(--black);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 22px 14px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 510px;
+      animation: pageIn .7s ease both;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ================================
+       CARD
+    ================================= */
+
+    .card {
+      position: relative;
+      overflow: hidden;
+
+      width: 100%;
+
+      padding: 34px 30px 27px;
+
+      border: 1px solid var(--line);
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171717,
+          #0d0d0d
+        );
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.55),
+        0 0 70px rgba(255,255,255,.035);
+    }
+
+    /* ================================
+       DECORACIÓN
+    ================================= */
+
+    .wolf-orb {
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      top: -170px;
+      right: -130px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.055);
+    }
+
+    .wolf-orb-small {
+      position: absolute;
+
+      width: 130px;
+      height: 130px;
+
+      left: -95px;
+      bottom: -90px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.035);
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+
+      text-align: center;
+    }
+
+    /* ================================
+       TOP LINE
+    ================================= */
+
+    .top-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-bottom: 25px;
+
+      color: var(--accent);
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 2.2px;
+
+      text-transform: uppercase;
+    }
+
+    .top-line::before,
+    .top-line::after {
+      content: "";
+
+      width: 35px;
+      height: 1px;
+
+      background: #666;
+
+      opacity: .8;
+    }
+
+    /* ================================
+       LOGO
+    ================================= */
+
+    .logo {
+      width: 96px;
+      height: 96px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,.25);
+
+      border-radius: 50%;
+
+      background: #0b0b0b;
+
+      color: #fff;
+
+      font-family: "Oswald", Arial, sans-serif;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+
+      box-shadow:
+        0 0 0 5px rgba(255,255,255,.025),
+        0 15px 35px rgba(0,0,0,.35);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      padding: 7px;
+    }
+
+    /* ================================
+       BUSINESS NAME
+    ================================= */
+
+    .business-name {
+      font-family: "Oswald", Arial, sans-serif;
+
+      font-size: 42px;
+
+      line-height: 1;
+
+      letter-spacing: 1px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      margin-bottom: 7px;
+    }
+
+    .business-location {
+      color: #9c9c9c;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 14px;
+    }
+
+    /* ================================
+       WOLF MOTTO
+    ================================= */
+
+    .wolf-motto {
+      margin: 3px auto 16px;
+
+      font-family: "Oswald", Arial, sans-serif;
+
+      font-size: 18px;
+
+      line-height: 1.05;
+
+      font-weight: 700;
+
+      letter-spacing: 1.3px;
+
+      text-transform: uppercase;
+
+      color: #f2f2f2;
+    }
+
+    .wolf-motto span {
+      color: #a9a9a9;
+
+      font-size: 16px;
+
+      letter-spacing: 1.8px;
+    }
+
+    /* ================================
+       FEATURES
+    ================================= */
+
+    .features {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      max-width: 420px;
+
+      margin: 0 auto 23px;
+
+      color: #8d8d8d;
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      line-height: 1.4;
+    }
+
+    .features i {
+      width: 3px;
+      height: 3px;
+
+      border-radius: 50%;
+
+      background: #777;
+
+      flex-shrink: 0;
+    }
+
+    /* ================================
+       STARS
+    ================================= */
+
+    .stars {
+      color: var(--accent);
+
+      font-size: 28px;
+
+      line-height: 1;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 8px;
+
+      text-shadow:
+        0 4px 18px rgba(255,255,255,.13);
+    }
+
+    .rating-text {
+      color: #888;
+
+      font-size: 10px;
+
+      font-weight: 600;
+
+      margin-bottom: 27px;
+    }
+
+    /* ================================
+       EYEBROW
+    ================================= */
+
+    .eyebrow {
+      color: var(--accent);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: 2.3px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+    /* ================================
+       TITLE
+    ================================= */
+
+    h1 {
+      max-width: 430px;
+
+      margin: 0 auto 15px;
+
+      font-family: "Oswald", Arial, sans-serif;
+
+      font-size: 39px;
+
+      line-height: 1.05;
+
+      font-weight: 600;
+
+      letter-spacing: -.3px;
+
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    /* ================================
+       DESCRIPTION
+    ================================= */
+
+    .description {
+      max-width: 410px;
+
+      margin: 0 auto 26px;
+
+      color: #a6a6a6;
+
+      font-size: 14px;
+
+      line-height: 1.65;
+    }
+
+    .description strong {
+      color: #e8e8e8;
+
+      font-weight: 800;
+    }
+
+    /* ================================
+       GOOGLE BUTTON
+    ================================= */
+
+    .review-button {
+      width: 100%;
+
+      min-height: 62px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 11px;
+
+      border: 1px solid rgba(255,255,255,.10);
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f4f4f4,
+          #cfcfcf
+        );
+
+      color: #101010;
+
+      font-size: 14px;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 18px 35px rgba(255,255,255,.08);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        filter .22s ease;
+    }
+
+    .review-button:hover {
+      transform: translateY(-3px);
+
+      filter: brightness(1.05);
+
+      box-shadow:
+        0 22px 42px rgba(255,255,255,.13);
+    }
+
+    .review-button:active {
+      transform: translateY(-1px);
+    }
+
+    /* ================================
+       GOOGLE ICON
+    ================================= */
+
+    .google-icon {
+      width: 31px;
+      height: 31px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      color: #4285f4;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 18px;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 3px 9px rgba(0,0,0,.18);
+    }
+
+    .arrow {
+      font-size: 18px;
+
+      margin-left: 3px;
+    }
+
+    /* ================================
+       TRUST
+    ================================= */
+
+    .trust {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 7px;
+
+      margin-top: 14px;
+
+      color: #777;
+
+      font-size: 10px;
+
+      font-weight: 600;
+    }
+
+    .trust-check {
+      width: 18px;
+      height: 18px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,.25);
+
+      color: var(--accent);
+
+      font-size: 9px;
+    }
+
+    /* ================================
+       SEPARATOR
+    ================================= */
+
+    .separator {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin: 26px 0 19px;
+
+      color: #666;
+
+      font-size: 8px;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .separator::before,
+    .separator::after {
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background: var(--line);
+    }
+
+    /* ================================
+       FINAL MESSAGE
+    ================================= */
+
+    .bottom-message {
+      color: #858585;
+
+      font-size: 11px;
+
+      line-height: 1.6;
+    }
+
+    .bottom-message strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #ddd;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+    /* ================================
+       OPINA FÁCIL
+    ================================= */
+
+    .brand {
+      margin-top: 20px;
+
+      padding-top: 16px;
+
+      border-top: 1px solid var(--line);
+
+      color: #555;
+
+      font-size: 9px;
+    }
+
+    .brand-link {
+      color: #aaa;
+
+      font-weight: 800;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 520px) {
+
+      body {
+        padding: 12px 9px;
+      }
+
+      .card {
+        padding: 28px 19px 22px;
+
+        border-radius: 27px;
+      }
+
+      .top-line {
+        font-size: 8px;
+
+        letter-spacing: 1.7px;
+      }
+
+      .logo {
+        width: 82px;
+        height: 82px;
+      }
+
+      .business-name {
+        font-size: 35px;
+      }
+
+      .wolf-motto {
+        font-size: 16px;
+      }
+
+      .wolf-motto span {
+        font-size: 14px;
+      }
+
+      .features {
+        font-size: 7px;
+
+        gap: 5px;
+      }
+
+      .stars {
+        font-size: 25px;
+
+        letter-spacing: 3px;
+      }
+
+      h1 {
+        font-size: 33px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+
+      .review-button {
+        min-height: 58px;
+
+        font-size: 13px;
+      }
+
+      .trust {
+        font-size: 9px;
+      }
+    }
+
+    /* ================================
+       VERY SMALL
+    ================================= */
+
+    @media (max-width: 360px) {
+
+      .card {
+        padding: 24px 16px 20px;
+      }
+
+      .logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .business-name {
+        font-size: 30px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .description {
+        font-size: 12.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <main class="card">
+
+      <div class="wolf-orb"></div>
+      <div class="wolf-orb-small"></div>
+
+      <div class="content">
+
+        <!-- TOP -->
+
+        <div class="top-line">
+          Bienvenido a una nueva era
+        </div>
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+          <!--
+            CUANDO WOLF GYM NOS PASE EL LOGO:
+
+            <img
+              src="logo-wolf.png"
+              alt="WOLF GYM"
+            >
+          -->
+
+          WOLF GYM
+
+        </div>
+
+        <!-- BUSINESS -->
+
+        <div class="business-name">
+          WOLF GYM
+        </div>
+
+        <div class="business-location">
+          Vila-real · Castellón · Abierto 24/7
+        </div>
+
+        <!-- WOLF IDENTITY -->
+
+        <div class="wolf-motto">
+          ¿NO TIENES LÍMITES?<br>
+          <span>NOSOTROS TAMPOCO.</span>
+        </div>
+
+        <div class="features">
+
+          <span>MAQUINARIA NUEVA</span>
+
+          <i></i>
+
+          <span>ENTRENADORES PERSONALES</span>
+
+          <i></i>
+
+          <span>BOXEO</span>
+
+          <i></i>
+
+          <span>COMUNIDAD</span>
+
+        </div>
+
+        <!-- STARS -->
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <div class="rating-text">
+          Tu opinión nos ayuda a seguir creciendo
+        </div>
+
+        <!-- MESSAGE -->
+
+        <div class="eyebrow">
+          Queremos saber de ti
+        </div>
+
+        <h1>
+          ¿Qué te ha parecido
+          <span>tu experiencia?</span>
+        </h1>
+
+        <p class="description">
+
+          En WOLF GYM apostamos por un espacio con
+          <strong>maquinaria moderna, entrenamiento, boxeo y comunidad</strong>.
+
+          Si has disfrutado de tu experiencia,
+          nos encantaría conocer tu opinión.
+
+          Solo te llevará unos segundos.
+
+        </p>
+
+        <!-- GOOGLE -->
+
+        <!--
+          IMPORTANTE:
+          Cuando WOLF GYM nos pase el enlace directo
+          para dejar una reseña en Google,
+          sustituye el href de abajo.
+        -->
+
+        <a
+          class="review-button"
+          href="AQUI-IRA-EL-ENLACE-DIRECTO-DE-GOOGLE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="google-icon">
+            G
+          </span>
+
+          <span>
+            Dejar una reseña en Google
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+        <!-- TRUST -->
+
+        <div class="trust">
+
+          <span class="trust-check">
+            ✓
+          </span>
+
+          Tu opinión se publica directamente en Google
+
+        </div>
+
+        <!-- SEPARATOR -->
+
+        <div class="separator">
+          Gracias por elegir WOLF GYM
+        </div>
+
+        <!-- FINAL -->
+
+        <div class="bottom-message">
+
+          <strong>
+            Gracias por formar parte de WOLF GYM.
+          </strong>
+
+          Tu opinión nos ayuda a seguir creciendo
+          y a mejorar cada día.
+
+        </div>
+
+        <!-- OPINA FÁCIL -->
+
+        <div class="brand">
+
+          Experiencia creada por
+
+          <a
+            href="https://opinafacil.es/"
+            class="brand-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Opina Fácil
+          </a>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
