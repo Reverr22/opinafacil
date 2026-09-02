@@ -1,224 +1,581 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080808">
-  <meta name="description" content="Comparte tu experiencia en WOLF GYM.">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#080808"
+  >
+
+  <meta
+    name="description"
+    content="Comparte tu experiencia en WOLF GYM."
+  >
+
   <title>WOLF GYM | Tu opinión cuenta</title>
 
+
+  <!-- =========================
+       FUENTES
+  ========================== -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
     rel="stylesheet"
   >
 
+
   <style>
+
+    /* =========================================
+       VARIABLES
+    ========================================= */
+
     :root {
-      --black: #080808;
-      --card: #111111;
-      --white: #ffffff;
-      --grey: #a0a0a0;
-      --line: #292929;
-      --soft: #e5e5e5;
+
+      --black:
+        #090909;
+
+      --black-soft:
+        #111111;
+
+      --black-card:
+        #151515;
+
+      --gold:
+        #e5e5e5;
+
+      --gold-light:
+        #f2f2f2;
+
+      --gold-dark:
+        #666666;
+
+      --white:
+        #ffffff;
+
+      --muted:
+        #a6a6a6;
+
+      --line:
+        #292929;
+
     }
+
+
+    /* =========================================
+       RESET
+    ========================================= */
 
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+
+      box-sizing:
+        border-box;
+
+      margin:
+        0;
+
+      padding:
+        0;
+
     }
 
-    body {
-      min-height: 100vh;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      font-family: "DM Sans", Arial, sans-serif;
-      color: var(--white);
+    html {
+
+      min-height:
+        100%;
+
+    }
+
+
+    body {
+
+      min-height:
+        100vh;
+
+      font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+      color:
+        var(--white);
 
       background:
+
         radial-gradient(
           circle at 50% -10%,
-          rgba(255,255,255,.09),
-          transparent 34%
+          rgba(255,255,255,.08),
+          transparent 35%
         ),
+
         radial-gradient(
           circle at 100% 100%,
           rgba(255,255,255,.04),
           transparent 30%
         ),
+
         var(--black);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        22px 14px;
+
     }
+
 
     a {
-      text-decoration: none;
-      color: inherit;
+
+      color:
+        inherit;
+
+      text-decoration:
+        none;
+
     }
+
+
+    /* =========================================
+       PAGE
+    ========================================= */
 
     .page {
-      width: 100%;
-      max-width: 490px;
+
+      width:
+        100%;
+
+      max-width:
+        510px;
+
+      animation:
+        pageIn .7s ease both;
+
     }
+
+
+    @keyframes pageIn {
+
+      from {
+
+        opacity:
+          0;
+
+        transform:
+          translateY(20px)
+          scale(.985);
+
+      }
+
+      to {
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* =========================================
+       CARD
+    ========================================= */
 
     .card {
-      position: relative;
-      overflow: hidden;
 
-      width: 100%;
-      padding: 23px 17px 18px;
+      position:
+        relative;
 
-      border: 1px solid var(--line);
-      border-radius: 25px;
+      overflow:
+        hidden;
+
+      width:
+        100%;
+
+      padding:
+        34px 30px 27px;
+
+      border:
+        1px solid
+        #292929;
+
+      border-radius:
+        30px;
 
       background:
-        linear-gradient(145deg, #171717, #0d0d0d);
+
+        linear-gradient(
+          145deg,
+          #151515,
+          #0e0e0e
+        );
 
       box-shadow:
-        0 30px 75px rgba(0,0,0,.55),
-        0 0 60px rgba(255,255,255,.035);
+
+        0 35px 90px
+        rgba(0,0,0,.55),
+
+        0 0 70px
+        rgba(255,255,255,.03);
+
     }
 
-    .orb {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      top: -150px;
-      right: -120px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.05);
+
+    /* =========================================
+       GOLD DECORATION
+    ========================================= */
+
+    .gold-orb {
+
+      position:
+        absolute;
+
+      width:
+        250px;
+
+      height:
+        250px;
+
+      top:
+        -170px;
+
+      right:
+        -130px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(255,255,255,.05);
+
     }
 
-    .orb-small {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      left: -80px;
-      bottom: -75px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.035);
+
+    .gold-orb-small {
+
+      position:
+        absolute;
+
+      width:
+        130px;
+
+      height:
+        130px;
+
+      left:
+        -95px;
+
+      bottom:
+        -90px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(255,255,255,.025);
+
     }
+
 
     .content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
+
+      position:
+        relative;
+
+      z-index:
+        2;
+
+      text-align:
+        center;
+
     }
 
-    /* TOP */
+
+    /* =========================================
+       TOP LINE
+    ========================================= */
 
     .top-line {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
 
-      margin-bottom: 16px;
+      display:
+        flex;
 
-      color: #ddd;
-      font-size: 7px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        25px;
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        9px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        2.2px;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .top-line::before,
     .top-line::after {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: #666;
+
+      content:
+        "";
+
+      width:
+        35px;
+
+      height:
+        1px;
+
+      background:
+        var(--gold-dark);
+
+      opacity:
+        .8;
+
     }
 
-    /* LOGO */
+
+    /* =========================================
+       LOGO
+    ========================================= */
 
     .logo {
-      width: 72px;
-      height: 72px;
 
-      margin: 0 auto 11px;
+      width:
+        92px;
 
-      overflow: hidden;
+      height:
+        92px;
 
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 50%;
+      margin:
+        0 auto 18px;
 
-      background: #0b0b0b;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      overflow:
+        hidden;
+
+      border:
+        1px solid
+        rgba(255,255,255,.25);
+
+      border-radius:
+        50%;
+
+      background:
+        #ffffff;
+
+      color:
+        #111111;
+
+      font-family:
+        "Oswald",
+        Arial,
+        sans-serif;
+
+      font-size:
+        16px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        2px;
 
       box-shadow:
-        0 0 0 4px rgba(255,255,255,.025),
-        0 12px 30px rgba(0,0,0,.35);
+
+        0 0 0 5px
+        rgba(255,255,255,.025),
+
+        0 15px 35px
+        rgba(0,0,0,.35);
+
     }
+
 
     .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+
+      width:
+        100%;
+
+      height:
+        100%;
+
+      object-fit:
+        contain;
+
+      padding:
+        7px;
+
     }
 
-    /* BUSINESS */
+
+    /* =========================================
+       BUSINESS NAME
+    ========================================= */
 
     .business-name {
-      margin-bottom: 4px;
 
-      font-family: "Oswald", Arial, sans-serif;
-      font-size: 31px;
-      line-height: 1;
-      font-weight: 700;
+      font-family:
+        "Oswald",
+        Arial,
+        sans-serif;
+
+      font-size:
+        39px;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        1px;
+
+      font-weight:
+        700;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        7px;
+
+    }
+
+
+    .business-location {
+
+      color:
+        #9c9c9c;
+
+      font-size:
+        11px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        1.4px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        22px;
+
+    }
+
+
+    .schedule {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 auto 22px;
+      padding: 9px 12px;
+      border: 1px solid #292929;
+      border-radius: 12px;
+      background: rgba(255,255,255,.025);
+      color: #8d8d8d;
+      font-size: 9px;
+      letter-spacing: .3px;
+    }
+
+    .schedule strong {
+      color: #e8e8e8;
+      font-weight: 800;
       letter-spacing: 1px;
-      text-transform: uppercase;
     }
 
-    .location {
-      margin-bottom: 9px;
-
-      color: #999;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
+    .schedule span + span {
+      padding-left: 10px;
+      border-left: 1px solid #343434;
     }
 
-    /* FRASE WOLF */
+    /* =========================================
+       STARS
+    ========================================= */
 
     .wolf-motto {
-      margin: 5px auto 10px;
-
+      margin: 2px auto 12px;
       font-family: "Oswald", Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.15;
+      font-size: 12.5px;
+      line-height: 1.05;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.3px;
       text-transform: uppercase;
+      color: #f2f2f2;
     }
 
     .wolf-motto span {
-      color: #aaa;
-      font-size: 12px;
-      letter-spacing: 1.4px;
+      color: #a9a9a9;
+      font-size: 13px;
+      letter-spacing: 1.6px;
     }
-
-    /* CARACTERÍSTICAS */
 
     .features {
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
-
+      gap: 7px;
       max-width: 420px;
-      margin: 0 auto 12px;
-
-      gap: 5px;
-
+      margin: 0 auto 17px;
       color: #8d8d8d;
-      font-size: 6.5px;
+      font-size: 8px;
       font-weight: 800;
-      letter-spacing: .8px;
+      letter-spacing: 1px;
       line-height: 1.4;
     }
 
@@ -227,454 +584,812 @@
       height: 3px;
       border-radius: 50%;
       background: #777;
+      flex-shrink: 0;
     }
-
-    /* HORARIO */
-
-    .schedule {
-      margin: 0 auto 14px;
-
-      padding: 8px 10px;
-
-      border: 1px solid #242424;
-      border-radius: 9px;
-
-      background: rgba(255,255,255,.025);
-
-      color: #999;
-
-      font-size: 8px;
-      line-height: 1.45;
-    }
-
-    .schedule strong {
-      color: #ddd;
-      font-weight: 800;
-    }
-
-    /* ESTRELLAS */
 
     .stars {
-      margin-bottom: 4px;
 
-      color: #eee;
+      color:
+        var(--gold-light);
 
-      font-size: 22px;
-      line-height: 1;
-      letter-spacing: 2px;
+      font-size:
+        28px;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        4px;
+
+      margin-bottom:
+        8px;
 
       text-shadow:
-        0 4px 15px rgba(255,255,255,.13);
+        0 4px 18px
+        rgba(255,255,255,.13);
+
     }
+
 
     .rating-text {
-      margin-bottom: 16px;
 
-      color: #888;
-      font-size: 8px;
-      font-weight: 600;
+      color:
+        #888888;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
+      margin-bottom:
+        27px;
+
     }
 
-    /* MENSAJE */
+
+    /* =========================================
+       EYEBROW
+    ========================================= */
 
     .eyebrow {
-      margin-bottom: 6px;
 
-      color: #ddd;
+      color:
+        var(--gold-light);
 
-      font-size: 7px;
-      font-weight: 800;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
+      font-size:
+        10px;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        2.3px;
+
+      text-transform:
+        uppercase;
+
+      margin-bottom:
+        10px;
+
     }
+
+
+    /* =========================================
+       TITLE
+    ========================================= */
 
     h1 {
-      max-width: 430px;
 
-      margin: 0 auto 9px;
+      max-width:
+        430px;
 
-      font-family: "Oswald", Arial, sans-serif;
+      margin:
+        0 auto 15px;
 
-      font-size: 27px;
-      line-height: 1.03;
-      font-weight: 600;
+      font-family:
+        "Oswald",
+        Arial,
+        sans-serif;
 
-      text-transform: uppercase;
+      font-size:
+        39px;
+
+      line-height:
+        1.05;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        -.3px;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     h1 span {
-      color: #eee;
+
+      color:
+        var(--gold-light);
+
     }
+
+
+    /* =========================================
+       DESCRIPTION
+    ========================================= */
 
     .description {
-      max-width: 410px;
 
-      margin: 0 auto 16px;
+      max-width:
+        410px;
 
-      color: #a6a6a6;
+      margin:
+        0 auto 26px;
 
-      font-size: 12px;
-      line-height: 1.5;
+      color:
+        #a6a6a6;
+
+      font-size:
+        14px;
+
+      line-height:
+        1.65;
+
     }
+
+
+    /* =========================================
+       GOOGLE BUTTON
+    ========================================= */
 
     .description strong {
       color: #e8e8e8;
       font-weight: 800;
     }
 
-    /* BOTÓN GOOGLE */
-
     .review-button {
-      width: 100%;
-      min-height: 53px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        100%;
 
-      gap: 8px;
+      min-height:
+        62px;
 
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        11px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.08);
+
+      border-radius:
+        13px;
 
       background:
+
         linear-gradient(
           135deg,
           #f4f4f4,
           #cfcfcf
         );
 
-      color: #101010;
+      color:
+        #111111;
 
-      font-size: 12px;
-      font-weight: 900;
+      font-size:
+        14px;
+
+      font-weight:
+        900;
 
       box-shadow:
-        0 15px 30px rgba(255,255,255,.08);
 
-      transition: .2s ease;
+        0 18px 35px
+        rgba(255,255,255,.08);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        filter .22s ease;
+
     }
+
 
     .review-button:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.05);
+
+      transform:
+        translateY(-3px);
+
+      filter:
+        brightness(1.07);
+
+      box-shadow:
+        0 22px 42px
+        rgba(255,255,255,.13);
+
     }
+
+
+    .review-button:active {
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    /* =========================================
+       GOOGLE ICON
+    ========================================= */
 
     .google-icon {
-      width: 27px;
-      height: 27px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width:
+        31px;
 
-      border-radius: 50%;
+      height:
+        31px;
 
-      background: white;
+      display:
+        flex;
 
-      color: #4285f4;
+      align-items:
+        center;
 
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 900;
+      justify-content:
+        center;
+
+      flex-shrink:
+        0;
+
+      border-radius:
+        50%;
+
+      background:
+        #ffffff;
+
+      color:
+        #4285f4;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        18px;
+
+      font-weight:
+        900;
+
+      box-shadow:
+        0 3px 9px
+        rgba(0,0,0,.18);
+
     }
+
 
     .arrow {
-      font-size: 16px;
+
+      font-size:
+        18px;
+
+      margin-left:
+        3px;
+
     }
 
-    /* TRUST */
+
+    /* =========================================
+       TRUST
+    ========================================= */
 
     .trust {
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
-      gap: 5px;
+      display:
+        flex;
 
-      margin-top: 8px;
+      align-items:
+        center;
 
-      color: #777;
+      justify-content:
+        center;
 
-      font-size: 8px;
-      font-weight: 600;
+      gap:
+        7px;
+
+      margin-top:
+        14px;
+
+      color:
+        #777777;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
     }
 
-    .check {
-      width: 16px;
-      height: 16px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .trust-check {
 
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 50%;
+      width:
+        18px;
 
-      color: #ddd;
-      font-size: 8px;
+      height:
+        18px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid
+        rgba(255,255,255,.25);
+
+      color:
+        var(--gold-light);
+
+      font-size:
+        9px;
+
     }
 
-    /* SEPARADOR */
+
+    /* =========================================
+       SEPARATOR
+    ========================================= */
 
     .separator {
-      display: flex;
-      align-items: center;
 
-      gap: 9px;
+      display:
+        flex;
 
-      margin: 16px 0 12px;
+      align-items:
+        center;
 
-      color: #666;
+      gap:
+        12px;
 
-      font-size: 7px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
+      margin:
+        26px 0 19px;
+
+      color:
+        #666666;
+
+      font-size:
+        8px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        2px;
+
+      text-transform:
+        uppercase;
+
     }
+
 
     .separator::before,
     .separator::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--line);
+
+      content:
+        "";
+
+      flex:
+        1;
+
+      height:
+        1px;
+
+      background:
+        var(--line);
+
     }
 
-    /* FINAL */
+
+    /* =========================================
+       FINAL MESSAGE
+    ========================================= */
 
     .bottom-message {
-      color: #858585;
 
-      font-size: 9px;
-      line-height: 1.5;
+      color:
+        #858585;
+
+      font-size:
+        11px;
+
+      line-height:
+        1.6;
+
     }
+
 
     .bottom-message strong {
-      display: block;
 
-      margin-bottom: 2px;
+      display:
+        block;
 
-      color: #ddd;
+      margin-bottom:
+        3px;
 
-      font-size: 10px;
-      font-weight: 700;
+      color:
+        #dddddd;
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
     }
 
-    /* OPINA FÁCIL */
+
+    /* =========================================
+       BRAND
+    ========================================= */
 
     .brand {
-      margin-top: 12px;
-      padding-top: 10px;
 
-      border-top: 1px solid var(--line);
+      margin-top:
+        20px;
 
-      color: #555;
+      padding-top:
+        16px;
 
-      font-size: 7px;
+      border-top:
+        1px solid
+        var(--line);
+
+      color:
+        #555555;
+
+      font-size:
+        9px;
+
     }
 
-    .brand a {
-      color: #aaa;
+
+    .brand-link {
+
+      color:
+        var(--gold-light);
+
+      font-weight:
+        800;
+
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 520px) {
+
+      body {
+
+        padding:
+          12px 9px;
+
+      }
+
+
+      .card {
+
+        padding:
+          28px 19px 22px;
+
+        border-radius:
+          27px;
+
+      }
+
+
+      .top-line {
+
+        font-size:
+          8px;
+
+        letter-spacing:
+          1.7px;
+
+      }
+
+
+      .logo {
+
+        width:
+          78px;
+
+        height:
+          78px;
+
+      }
+
+
+      .business-name {
+
+        font-size:
+          34px;
+
+      }
+
+
+      .wolf-motto {
+      margin: 2px auto 12px;
+      font-family: "Oswald", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: #f2f2f2;
+    }
+
+    .wolf-motto span {
+      color: #a9a9a9;
+      font-size: 13px;
+      letter-spacing: 1.6px;
+    }
+
+    .features {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-width: 420px;
+      margin: 0 auto 17px;
+      color: #8d8d8d;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      line-height: 1.4;
+    }
+
+    .features i {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #777;
+      flex-shrink: 0;
+    }
+
+    .stars {
+
+        font-size:
+          25px;
+
+        letter-spacing:
+          3px;
+
+      }
+
+
+      h1 {
+
+        font-size:
+          33px;
+
+      }
+
+
+      .description {
+
+        font-size:
+          13px;
+
+      }
+
+
+      .description strong {
+      color: #e8e8e8;
       font-weight: 800;
     }
 
-    /* MÓVIL MUY PEQUEÑO */
+    .review-button {
+
+        min-height:
+          58px;
+
+        font-size:
+          13px;
+
+      }
+
+
+      .trust {
+
+        font-size:
+          9px;
+
+      }
+
+    }
+
+
+    /* =========================================
+       VERY SMALL
+    ========================================= */
 
     @media (max-width: 360px) {
 
       .card {
-        padding: 19px 13px 15px;
+
+        padding:
+          24px 16px 20px;
+
       }
+
 
       .logo {
-        width: 62px;
-        height: 62px;
+
+        width:
+          70px;
+
+        height:
+          70px;
+
       }
+
 
       .business-name {
-        font-size: 27px;
+
+        font-size:
+          30px;
+
       }
 
-      .wolf-motto {
-        font-size: 13px;
-      }
-
-      .wolf-motto span {
-        font-size: 11px;
-      }
-
-      .features {
-        font-size: 6px;
-      }
-
-      .schedule {
-        font-size: 7px;
-      }
 
       h1 {
-        font-size: 25px;
+
+        font-size:
+          29px;
+
       }
 
+
       .description {
-        font-size: 11.5px;
+
+        font-size:
+          12.5px;
+
       }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
+
   <div class="page">
+
 
     <main class="card">
 
-      <div class="orb"></div>
-      <div class="orb-small"></div>
+
+      <div class="gold-orb"></div>
+
+      <div class="gold-orb-small"></div>
+
 
       <div class="content">
 
-        <!-- FRASE SUPERIOR -->
+
+        <!-- =========================
+             TOP
+        ========================== -->
 
         <div class="top-line">
-          Bienvenido a una nueva Era
+
+          ¿No tienes límites? Nosotros tampoco
+
         </div>
 
 
-        <!-- LOGO REAL DE WOLF GYM -->
+        <!-- =========================
+             LOGO
+        ========================== -->
 
         <div class="logo">
 
-         <img
-  src="wolf-gym-logo-web.jpg"
-  alt="WOLF GYM"
->
+          <img
+            src="wolf-gym-logo-web.jpg"
+            alt="WOLF GYM"
+          >
 
         </div>
 
 
-        <!-- NOMBRE -->
+        <!-- =========================
+             BUSINESS
+        ========================== -->
 
         <div class="business-name">
+
           WOLF GYM
+
         </div>
 
-        <div class="location">
+
+        <div class="business-location">
+
           Vila-real · Castellón
+
         </div>
 
 
-        <!-- FRASE QUE NOS HA DADO WOLF -->
+        <!-- =========================
+             WOLF INFO
+        ========================== -->
 
         <div class="wolf-motto">
-
-          SIN MATRÍCULA |
-          SIN PERMANENCIA |
-          365 DÍAS AL AÑO
-
-          <br>
-
-          <span>
-            UNA EXPERIENCIA DIFERENTE
-          </span>
-
+          SIN MATRÍCULA <span>|</span> SIN PERMANENCIA <span>|</span> 365 DÍAS AL AÑO
         </div>
-
-
-        <!-- CARACTERÍSTICAS -->
 
         <div class="features">
-
-          <span>
-            MAQUINARIA NUEVA
-          </span>
-
+          <span>SUPERVISIÓN EN SALA</span>
           <i></i>
-
-          <span>
-            ENTRENADORES PERSONALES
-          </span>
-
+          <span>NÚMERO DE SOCIOS LIMITADO</span>
           <i></i>
-
-          <span>
-            BOXEO
-          </span>
-
-          <i></i>
-
-          <span>
-            COMUNIDAD
-          </span>
-
+          <span>HORARIO AMPLIO</span>
         </div>
-
-
-        <!-- HORARIO REAL -->
 
         <div class="schedule">
-
-          <strong>
-            HORARIO
-          </strong>
-
-          &nbsp; · &nbsp;
-
-          Lunes a viernes
-          <strong>6:00 – 23:00</strong>
-
-          &nbsp; · &nbsp;
-
-          Sábados y domingos
-          <strong>8:00 – 21:00</strong>
-
+          <strong>HORARIO</strong>
+          <span>L–V 6:00–23:00</span>
+          <span>S–D 8:00–21:00</span>
         </div>
 
-
-        <!-- ESTRELLAS -->
-
-        <div class="stars">
-          ★★★★★
-        </div>
-
-        <div class="rating-text">
-          Tu opinión nos ayuda a seguir creciendo
-        </div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-text">Tu opinión nos ayuda a seguir creciendo</div>
 
 
-        <!-- PREGUNTA -->
+        <!-- =========================
+             MESSAGE
+        ========================== -->
 
         <div class="eyebrow">
+
           Queremos saber de ti
+
         </div>
+
 
         <h1>
 
           ¿Qué te ha parecido
-          <span>
-            tu experiencia?
-          </span>
+          <span>tu experiencia?</span>
 
         </h1>
 
 
         <p class="description">
 
-          Si has disfrutado de tu experiencia en
-          <strong>WOLF GYM</strong>,
+          Si has disfrutado de tu experiencia en <strong>WOLF GYM</strong>,
           nos encantaría conocer tu opinión.
-
-          Solo te llevará unos segundos.
+          <br>Solo te llevará unos segundos.
 
         </p>
 
 
-        <!-- GOOGLE -->
+        <!-- =========================
+             GOOGLE
+        ========================== -->
 
         <a
           class="review-button"
-          <a href="https://search.google.com/local/writereview?placeid=ChIJx5f2gFcHYA0RaVaees7X_Vg"
+          href="https://search.google.com/local/writereview?placeid=ChIJx5f2gFcHYA0RaVaees7X_Vg"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -683,9 +1398,11 @@
             G
           </span>
 
+
           <span>
             Dejar una reseña en Google
           </span>
+
 
           <span class="arrow">
             →
@@ -694,11 +1411,13 @@
         </a>
 
 
-        <!-- CONFIANZA -->
+        <!-- =========================
+             TRUST
+        ========================== -->
 
         <div class="trust">
 
-          <span class="check">
+          <span class="trust-check">
             ✓
           </span>
 
@@ -707,14 +1426,20 @@
         </div>
 
 
-        <!-- SEPARADOR -->
+        <!-- =========================
+             SEPARATOR
+        ========================== -->
 
         <div class="separator">
+
           Gracias por elegir WOLF GYM
+
         </div>
 
 
-        <!-- FINAL -->
+        <!-- =========================
+             FINAL
+        ========================== -->
 
         <div class="bottom-message">
 
@@ -723,12 +1448,14 @@
           </strong>
 
           Tu opinión nos ayuda a seguir creciendo
-          y a mejorar cada día.
+          cada día.
 
         </div>
 
 
-        <!-- OPINA FÁCIL -->
+        <!-- =========================
+             OPINA FÁCIL
+        ========================== -->
 
         <div class="brand">
 
@@ -736,19 +1463,23 @@
 
           <a
             href="https://opinafacil.es/"
-            target="_blank"
-            rel="noopener noreferrer"
+            class="brand-link"
           >
             Opina Fácil
           </a>
 
         </div>
 
+
       </div>
+
 
     </main>
 
+
   </div>
 
+
 </body>
+
 </html>
