@@ -45,60 +45,62 @@
 <style>
 :root{--black:#080808;--white:#fff;--muted:#929292;--line:#292929}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%;}
-body{min-height:100svh;font-family:"DM Sans",Arial,sans-serif;color:var(--white);background:radial-gradient(circle at 50% -10%,rgba(255,255,255,.07),transparent 34%),#080808;display:flex;align-items:center;justify-content:center;padding:6px 8px;overflow:hidden}
+html,body{width:100%;height:100%;overflow:hidden}
+body{min-height:100svh;font-family:"DM Sans",Arial,sans-serif;color:var(--white);background:radial-gradient(circle at 50% -10%,rgba(255,255,255,.07),transparent 34%),#080808;display:flex;align-items:center;justify-content:center;padding:8px}
 a{color:inherit;text-decoration:none}
-.page{width:100%;max-width:510px;height:calc(100svh - 12px);min-height:620px}
-.card{position:relative;overflow:hidden;width:100%;height:100%;padding:22px 28px 14px;border:1px solid #292929;border-radius:27px;background:linear-gradient(145deg,#151515,#0d0d0d);box-shadow:0 25px 70px rgba(0,0,0,.55)}
+.page{width:100%;max-width:510px;height:calc(100svh - 16px);min-height:0}
+.card{position:relative;overflow:hidden;width:100%;height:100%;padding:20px 28px 12px;border:1px solid #292929;border-radius:27px;background:linear-gradient(145deg,#151515,#0d0d0d);box-shadow:0 25px 70px rgba(0,0,0,.55)}
 .gold-orb{position:absolute;width:190px;height:190px;top:-135px;right:-100px;border-radius:50%;background:rgba(255,255,255,.045)}
 .gold-orb-small{position:absolute;width:100px;height:100px;left:-75px;bottom:-70px;border-radius:50%;background:rgba(255,255,255,.02)}
 .content{position:relative;z-index:2;text-align:center;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
-.top-line{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:0;color:#eee;font-size:8px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap}
+.top-line{display:flex;align-items:center;justify-content:center;gap:9px;color:#eee;font-size:8px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap}
 .top-line:before,.top-line:after{content:"";width:34px;height:1px;background:#666;opacity:.8}
-.logo{width:100px;height:82px;margin:0 auto 0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none}
+.logo{width:82px;height:82px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none}
 .logo img{width:100%;height:100%;object-fit:contain;padding:0;display:block}
-.business-name{font-family:"Oswald",Arial,sans-serif;font-size:36px;line-height:.95;letter-spacing:1px;font-weight:700;text-transform:uppercase;margin-bottom:3px}
-.business-location{color:#9c9c9c;font-size:10px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:8px}
-.wolf-motto{font-family:"Oswald",Arial,sans-serif;font-size:12px;line-height:1.05;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#f2f2f2;margin:0 auto 5px;white-space:nowrap}
+.business-name{font-family:"Oswald",Arial,sans-serif;font-size:37px;line-height:.95;letter-spacing:1px;font-weight:700;text-transform:uppercase}
+.business-location{color:#9c9c9c;font-size:10px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase}
+.wolf-motto{font-family:"Oswald",Arial,sans-serif;font-size:12px;line-height:1.05;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#f2f2f2;white-space:nowrap}
 .wolf-motto span{color:#888}
-.features{display:flex;align-items:center;justify-content:center;gap:6px;max-width:450px;margin:0 auto;color:#858585;font-size:6.5px;font-weight:800;letter-spacing:.75px;line-height:1.2;white-space:nowrap}
+.features{display:flex;align-items:center;justify-content:center;gap:6px;max-width:450px;color:#858585;font-size:6.5px;font-weight:800;letter-spacing:.75px;line-height:1.2;white-space:nowrap}
 .features i{width:2px;height:2px;border-radius:50%;background:#777;flex-shrink:0}
-.schedule{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:0 auto;padding:6px 8px;border:1px solid #292929;border-radius:10px;background:rgba(255,255,255,.025);color:#858585;font-size:7.5px;letter-spacing:.2px;white-space:nowrap}
+.schedule{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:7px 8px;border:1px solid #292929;border-radius:10px;background:rgba(255,255,255,.025);color:#858585;font-size:7.5px;letter-spacing:.2px;white-space:nowrap}
 .schedule strong{color:#e8e8e8;font-weight:800;letter-spacing:.7px}
 .schedule span+span{padding-left:8px;border-left:1px solid #343434}
-.stars{color:#f2f2f2;font-size:27px;line-height:1;letter-spacing:4px;margin-bottom:0;text-shadow:0 3px 15px rgba(255,255,255,.12)}
-.rating-text{color:#818181;font-size:8px;font-weight:600;margin-bottom:0}
-.eyebrow{color:#eee;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
-h1{max-width:430px;margin:0 auto;font-family:"Oswald",Arial,sans-serif;font-size:32px;line-height:.98;font-weight:600;letter-spacing:-.2px;text-transform:uppercase}
+.stars{color:#f2f2f2;font-size:28px;line-height:1;letter-spacing:4px;text-shadow:0 3px 15px rgba(255,255,255,.12)}
+.rating-text{color:#818181;font-size:8px;font-weight:600}
+.eyebrow{color:#eee;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{max-width:430px;font-family:"Oswald",Arial,sans-serif;font-size:33px;line-height:.98;font-weight:600;letter-spacing:-.2px;text-transform:uppercase}
 h1 span{color:#f2f2f2}
-.description{max-width:420px;margin:0 auto;color:#a0a0a0;font-size:10.5px;line-height:1.35}
+.description{max-width:420px;color:#a0a0a0;font-size:10.5px;line-height:1.35}
 .description strong{color:#e8e8e8;font-weight:800}
-.review-button{width:100%;min-height:58px;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:linear-gradient(135deg,#f4f4f4,#cfcfcf);color:#111;font-size:12px;font-weight:900;box-shadow:0 13px 28px rgba(255,255,255,.07);transition:transform .2s ease,filter .2s ease}
+.review-button{width:100%;min-height:59px;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:linear-gradient(135deg,#f4f4f4,#cfcfcf);color:#111;font-size:12px;font-weight:900;box-shadow:0 13px 28px rgba(255,255,255,.07);transition:transform .2s ease,filter .2s ease}
 .review-button:hover{transform:translateY(-2px);filter:brightness(1.06)}
 .google-icon{width:27px;height:27px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%;background:#fff;color:#4285f4;font-family:Arial,sans-serif;font-size:16px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.18)}
 .arrow{font-size:16px;margin-left:2px}
-.trust{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:0;color:#707070;font-size:7.5px;font-weight:600}
+.trust{display:flex;align-items:center;justify-content:center;gap:5px;color:#707070;font-size:7.5px;font-weight:600}
 .trust-check{width:15px;height:15px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.22);color:#ddd;font-size:8px}
-.separator{display:flex;align-items:center;gap:9px;width:100%;margin:0;color:#626262;font-size:6.5px;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;white-space:nowrap}
+.separator{display:flex;align-items:center;gap:9px;width:100%;color:#626262;font-size:6.5px;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;white-space:nowrap}
 .separator:before,.separator:after{content:"";flex:1;height:1px;background:#292929}
 .bottom-message{color:#7e7e7e;font-size:8px;line-height:1.35}
 .bottom-message strong{display:block;margin-bottom:2px;color:#ddd;font-size:9px;font-weight:700}
-.brand{margin-top:auto;padding-top:7px;width:100%;border-top:1px solid #292929;color:#555;font-size:6.5px}
+.brand{width:100%;padding-top:6px;border-top:1px solid #292929;color:#555;font-size:6.5px}
 .brand-link{color:#eee;font-weight:800}
 @media(max-width:380px){
- body{padding:4px 5px}
- .page{height:calc(100svh - 8px);min-height:560px}
- .card{padding:14px 16px 10px;border-radius:24px}
- .top-line{font-size:6.7px;letter-spacing:1.4px;margin-bottom:6px}.top-line:before,.top-line:after{width:25px}
- .logo{width:82px;height:68px;margin-bottom:0}
- .business-name{font-size:30px}.business-location{font-size:8px;margin-bottom:0}
- .wolf-motto{font-size:9.2px;letter-spacing:.75px;margin-bottom:0}
- .features{font-size:5.6px;letter-spacing:.55px;gap:4px;margin-bottom:0}
- .schedule{font-size:6.7px;gap:6px;padding:6px 5px;margin-bottom:0}.schedule span+span{padding-left:6px}
- .stars{font-size:22px;letter-spacing:2.5px;margin-bottom:0}.rating-text{font-size:6.7px;margin-bottom:0}
- .eyebrow{font-size:6.5px;letter-spacing:1.7px;margin-bottom:0} h1{font-size:26px;margin-bottom:0}
- .description{font-size:9px;line-height:1.3;margin-bottom:0}.review-button{min-height:50px;font-size:10.5px;border-radius:11px}.google-icon{width:24px;height:24px;font-size:14px}.arrow{font-size:14px}
- .trust{font-size:6.5px;margin-top:0}.trust-check{width:13px;height:13px;font-size:7px}.separator{margin:0;font-size:5.7px}.bottom-message{font-size:7px}.bottom-message strong{font-size:8px}.brand{padding-top:5px;font-size:5.7px}
+ body{padding:4px 5px}.page{height:calc(100svh - 8px)}
+ .card{padding:11px 16px 8px;border-radius:24px}
+ .top-line{font-size:6.5px;letter-spacing:1.25px}.top-line:before,.top-line:after{width:23px}
+ .logo{width:64px;height:64px}
+ .business-name{font-size:28px}.business-location{font-size:7.7px}
+ .wolf-motto{font-size:8.8px;letter-spacing:.6px}
+ .features{font-size:5.25px;letter-spacing:.4px;gap:3px}
+ .schedule{font-size:6.5px;gap:5px;padding:6px 4px}.schedule span+span{padding-left:5px}
+ .stars{font-size:21px;letter-spacing:2px}.rating-text{font-size:6.5px}
+ .eyebrow{font-size:6.3px;letter-spacing:1.5px}
+ h1{font-size:24px}.description{font-size:8.5px;line-height:1.25}
+ .review-button{min-height:48px;font-size:10.2px;border-radius:11px}.google-icon{width:23px;height:23px;font-size:13px}.arrow{font-size:13px}
+ .trust{font-size:6.1px}.trust-check{width:12px;height:12px;font-size:6.5px}
+ .separator{font-size:5.4px}.bottom-message{font-size:6.8px}.bottom-message strong{font-size:7.7px}
+ .brand{padding-top:4px;font-size:5.5px}
 }
 </style>
 
@@ -141,7 +143,7 @@ h1 span{color:#f2f2f2}
         <div class="logo">
 
           <img
-            src="wolf-gym-logo-web.jpg"
+            src="wolf-gym-logo-web-final.jpg"
             alt="WOLF GYM"
           >
 
